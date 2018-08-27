@@ -1,0 +1,6 @@
+[submodule "dependendices/utility"]
+	path = dependendices/utility
+	url = https://github.com/njoy/utility.git
+[submodule "dependendices/catch-adapter"]
+	path = dependendices/catch-adapter
+	url = https://github.com/njoy/catch-adapter.git
