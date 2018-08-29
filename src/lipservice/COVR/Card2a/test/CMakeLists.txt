@@ -9,6 +9,6 @@ ${${PREFIX}_RELEASE_flags}
 $<$<BOOL:${link_time_optimization}>:${${PREFIX}_link_time_optimization_flags}>
 $<$<BOOL:${nonportable_optimization}>:${${PREFIX}_nonportable_optimization_flags}>>
 
-${CXX_appended_flags} ${LegacyInputVerification_appended_flags} )
-target_link_libraries( lipservice.COVR.Card2a.test PUBLIC LegacyInputVerification ) 
+${CXX_appended_flags} ${lipservice_appended_flags} )
+target_link_libraries( lipservice.COVR.Card2a.test PUBLIC lipservice ) 
 add_test( NAME lipservice.COVR.Card2a COMMAND lipservice.COVR.Card2a.test )

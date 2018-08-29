@@ -1460,7 +1460,7 @@
   "initialized": true,
   "is external project": false,
   "language": "c++",
-  "name": "LegacyInputVerification",
+  "name": "lipservice",
   "standards": [
     "c++98",
     "c++11",
