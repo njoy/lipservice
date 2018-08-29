@@ -1,0 +1,14 @@
+
+add_executable( legacyInputVerification.ERRORR.Normal.Card11.Matb.test Matb.test.cpp )
+target_compile_options( legacyInputVerification.ERRORR.Normal.Card11.Matb.test PRIVATE ${${PREFIX}_common_flags}
+$<$<BOOL:${strict}>:${${PREFIX}_strict_flags}>$<$<CONFIG:DEBUG>:
+${${PREFIX}_DEBUG_flags}
+$<$<BOOL:${coverage}>:${${PREFIX}_coverage_flags}>>
+$<$<CONFIG:RELEASE>:
+${${PREFIX}_RELEASE_flags}
+$<$<BOOL:${link_time_optimization}>:${${PREFIX}_link_time_optimization_flags}>
+$<$<BOOL:${nonportable_optimization}>:${${PREFIX}_nonportable_optimization_flags}>>
+
+${CXX_appended_flags} ${LegacyInputVerification_appended_flags} )
+target_link_libraries( legacyInputVerification.ERRORR.Normal.Card11.Matb.test PUBLIC LegacyInputVerification ) 
+add_test( NAME legacyInputVerification.ERRORR.Normal.Card11.Matb COMMAND legacyInputVerification.ERRORR.Normal.Card11.Matb.test )
