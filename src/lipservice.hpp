@@ -1,3 +1,5 @@
+#include "utility.hpp"
+
 namespace njoy {
 namespace njoy21 {
 namespace lipservice {
@@ -7,33 +9,33 @@ using iRecordStream =
   utility::stream::basic_RecordOrientedStream< std::basic_istream, Char >;
 
 
-#include "input/Card.hpp"
-#include "input/Label.hpp"
-#include "input/argument.hpp"
+#include "lipservice/Card.hpp"
+#include "lipservice/Label.hpp"
+#include "lipservice/argument.hpp"
 
-#include "input/MODER.hpp"
-#include "input/RECONR.hpp"
-#include "input/BROADR.hpp"
-#include "input/PURR.hpp"
-#include "input/UNRESR.hpp"
-#include "input/ACER.hpp"
-#include "input/GASPR.hpp"
-#include "input/HEATR.hpp"
-#include "input/GROUPR.hpp"
-#include "input/VIEWR.hpp"
-#include "input/MIXR.hpp"
-#include "input/DTFR.hpp"
-#include "input/THERMR.hpp"
-#include "input/ERRORR.hpp"
-#include "input/LEAPR.hpp"
-#include "input/RESXSR.hpp"
-#include "input/MATXSR.hpp"
-#include "input/GAMINR.hpp"
-#include "input/PLOTR.hpp"
-#include "input/COVR.hpp"
-#include "input/WIMSR.hpp"
-#include "input/POWR.hpp"
-#include "input/CCCCR.hpp"
+#include "lipservice/MODER.hpp"
+#include "lipservice/RECONR.hpp"
+#include "lipservice/BROADR.hpp"
+#include "lipservice/PURR.hpp"
+#include "lipservice/UNRESR.hpp"
+#include "lipservice/ACER.hpp"
+#include "lipservice/GASPR.hpp"
+#include "lipservice/HEATR.hpp"
+#include "lipservice/GROUPR.hpp"
+#include "lipservice/VIEWR.hpp"
+#include "lipservice/MIXR.hpp"
+#include "lipservice/DTFR.hpp"
+#include "lipservice/THERMR.hpp"
+#include "lipservice/ERRORR.hpp"
+#include "lipservice/LEAPR.hpp"
+#include "lipservice/RESXSR.hpp"
+#include "lipservice/MATXSR.hpp"
+#include "lipservice/GAMINR.hpp"
+#include "lipservice/PLOTR.hpp"
+#include "lipservice/COVR.hpp"
+#include "lipservice/WIMSR.hpp"
+#include "lipservice/POWR.hpp"
+#include "lipservice/CCCCR.hpp"
 
 } // namespace lipservice
 } // namespace njoy21
