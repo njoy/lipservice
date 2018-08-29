@@ -1,4 +1,4 @@
-# LegacyInputVerification
+# lipservice
 This repository contains all the code used to perform the input verification for NJOY21 when using the legacy input decks
 
 ## LICENSE
