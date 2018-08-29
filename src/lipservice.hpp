@@ -12,6 +12,8 @@
 
 #include "utility.hpp"
 #include "dimwits.hpp"
+#include "ENDFtk.hpp"
+#include "Log.hpp"
 
 namespace njoy {
 namespace njoy21 {

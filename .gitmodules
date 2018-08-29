@@ -6,10 +6,10 @@
 	url = https://github.com/njoy/catch-adapter.git
 [submodule "dependencies/DimensionalAnalysis"]
 	path = dependencies/dimwits
-	url = git@github.com:njoy/DimensionalAnalysis.git
+	url = https://github.com/njoy/DimensionalAnalysis.git
 [submodule "dependencies/variant-adapter"]
 	path = dependencies/variant-adapter
-	url = git@github.com:njoy/variant-adapter.git
+	url = https://github.com/njoy/variant-adapter.git
 [submodule "dependencies/ENDFtk"]
 	path = dependencies/ENDFtk
 	url = https://github.com/njoy/ENDFtk.git
