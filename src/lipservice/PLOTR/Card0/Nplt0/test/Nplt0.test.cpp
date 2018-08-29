@@ -3,7 +3,7 @@
 #include "catch.hpp"
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "expected successes" ){
   Argument< PLOTR::Card0::Nplt > nplt; nplt.value = 57;

@@ -4,7 +4,7 @@
 
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "GROUPR Card9 Mmtname", "[Card9], [Mmtname]"){
   Argument< GROUPR::Card9::Mfd > mfd;

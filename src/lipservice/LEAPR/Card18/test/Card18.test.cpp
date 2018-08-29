@@ -2,7 +2,7 @@
 #include "catch.hpp"
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 SCENARIO( "LEAPR Card18 input values",
   "[LEAPR], [Card18]" ){
   GIVEN( "a value for nka" ){

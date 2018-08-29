@@ -3,7 +3,7 @@
 #include "catch.hpp"
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "Verifying ACER Card5 input",
           "[ACER], [Card5]" ){

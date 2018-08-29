@@ -3,7 +3,7 @@
 #include "catch.hpp"
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "RECONR Card1 input" ){
   GIVEN( "valid Card1 inputs" ){

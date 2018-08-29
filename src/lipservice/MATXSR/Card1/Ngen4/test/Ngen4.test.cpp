@@ -4,7 +4,7 @@
 
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "MATXSR Card1 Ngen4 values",
           "[MATXSR],[Card1],[Ngen4]" ){

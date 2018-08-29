@@ -4,7 +4,7 @@
 
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "Verifying ACER Card8 input", "[ACER], [Card8]" ){
   GIVEN( "valid material, temperature, and name" ){

@@ -4,7 +4,7 @@
 
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "Verifying RECONR Card4 input", "[Card4]"){
   GIVEN( "valid err" ){

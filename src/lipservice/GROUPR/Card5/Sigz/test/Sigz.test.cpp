@@ -4,7 +4,7 @@
 
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "Sigz input values", "[Card5], [Sigz]" ){
   GIVEN( "a value for nsigz (number of temperatures)" ){

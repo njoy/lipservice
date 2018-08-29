@@ -4,7 +4,7 @@
 
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 std::string card1(" 21 22\n");
 std::string card2("'This is a sample Card2'\n");

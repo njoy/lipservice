@@ -4,7 +4,7 @@
 
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "Verifying GROUPR Card6a input", "[GROUPR], [Card6a]" ){
   GIVEN( "valid  Card6a" ){

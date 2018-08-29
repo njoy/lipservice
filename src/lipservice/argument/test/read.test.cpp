@@ -1,10 +1,10 @@
 // #include "catch.hpp"
 // #include "lipservice.hpp"
 
-// using namespace njoy::njoy21::input::argument;
+// using namespace njoy::njoy21::lipservice::argument;
 
 // template< typename Char >
-// using iRecordStream = njoy::njoy21::input::iRecordStream<Char>;
+// using iRecordStream = njoy::njoy21::lipservice::iRecordStream<Char>;
 
 // struct DefaultZero {
 //   using Value_t = int;

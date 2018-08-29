@@ -4,7 +4,7 @@
 
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "Verifying RECONR Card6 input", "[RECONR],[Card6]"){
   Argument< RECONR::Card3::Ngrid > ngrid; ngrid.value = 3;

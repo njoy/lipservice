@@ -3,7 +3,7 @@
 #include "catch.hpp"
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input::argument;
+using namespace njoy::njoy21::lipservice::argument;
 
 struct PositiveInt{
   using Value_t = int;
@@ -26,7 +26,7 @@ using Descriminator = parser::Type< PositiveInt >;
 using Defaultor = parser::Type< DefaultPositiveInt >;
 
 template< typename Char >
-using iRecordStream = njoy::njoy21::input::iRecordStream<Char>;
+using iRecordStream = njoy::njoy21::lipservice::iRecordStream<Char>;
 
 template< typename T >
 struct foo;

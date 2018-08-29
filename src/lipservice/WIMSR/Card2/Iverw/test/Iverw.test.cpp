@@ -3,7 +3,7 @@
 #include "catch.hpp"
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "WIMSR, Card2, Iverw",
           "[WIMSR] [Card2] [Iverw]" ){

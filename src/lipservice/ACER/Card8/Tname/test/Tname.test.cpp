@@ -4,7 +4,7 @@
 
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "ACER Card8 Tname", "[Card8], [Tname]"){
      GIVEN( "valid tname values" ){

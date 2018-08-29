@@ -3,7 +3,7 @@
 #include "catch.hpp"
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "expected successes" ){
   Argument< GAMINR::Card1::Nendf > nendf; nendf.value = 24;

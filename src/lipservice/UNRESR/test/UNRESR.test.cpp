@@ -4,7 +4,7 @@
 
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 std::string sCard1(" 21 22 23\n");
 std::string sCard2_full(" 9228 3 2 0/\n");

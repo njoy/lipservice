@@ -4,7 +4,7 @@
 
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "POWR, Card9, Lib3, Aw",
           "[POWR] [Card9] [Lib3] [Aw]" ){

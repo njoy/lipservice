@@ -4,7 +4,7 @@
 
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "ndir output values", "[GROUPR],[Card1], [Ngout1]"){
   Argument< GROUPR::Card1::Nendf > nendf;

@@ -6,7 +6,7 @@
 
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "Xtag output values", "[PLOTR],[Card10a], [Xtag]"){
 

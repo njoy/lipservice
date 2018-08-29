@@ -3,7 +3,7 @@
 #include "catch.hpp"
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "value range" ){
   Argument< BROADR::Card2::Ntemp2 > ntemp2; ntemp2.value = 1;

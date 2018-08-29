@@ -4,7 +4,7 @@
 
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "Egg input values", "[Card4], [Egg]" ){
   GIVEN( "a value for ngg (number of temperatures)" ){

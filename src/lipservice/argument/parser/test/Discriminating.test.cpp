@@ -3,7 +3,7 @@
 
 
 
-using namespace njoy::njoy21::input::argument::parser;
+using namespace njoy::njoy21::lipservice::argument::parser;
 
 struct positiveInt{
   using Value_t = int;
@@ -13,7 +13,7 @@ struct positiveInt{
 using Discriminator = Discriminating< Base<int>, positiveInt >;
 
 template< typename Char >
-using iRecordStream = njoy::njoy21::input::iRecordStream<Char>;
+using iRecordStream = njoy::njoy21::lipservice::iRecordStream<Char>;
 
 SCENARIO( "Discriminating" ){
   SECTION( "Argument is valid" ){

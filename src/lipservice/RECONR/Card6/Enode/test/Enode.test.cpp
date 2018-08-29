@@ -4,7 +4,7 @@
 
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "Enode input values", "[Card6], [Enode]" ){
   GIVEN( "a value for ngrid (number of grid points)" ){

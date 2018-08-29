@@ -4,7 +4,7 @@
 
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "RECONR card2 tlabel", "[Card2], [Tlabel]"){
   GIVEN( "valid tlabels" ){

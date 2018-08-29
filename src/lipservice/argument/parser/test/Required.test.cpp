@@ -1,10 +1,10 @@
 #include "catch.hpp"
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input::argument::parser;
+using namespace njoy::njoy21::lipservice::argument::parser;
 
 template< typename Char >
-using iRecordStream = njoy::njoy21::input::iRecordStream<Char>;
+using iRecordStream = njoy::njoy21::lipservice::iRecordStream<Char>;
 
 SCENARIO( "Required" ){
   SECTION( "Argument is present" ){

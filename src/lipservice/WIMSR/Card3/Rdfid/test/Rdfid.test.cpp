@@ -4,7 +4,7 @@
 
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "WISMR, Card3, Rdfid",
           "[WIMSR] [Card3] [Rdfid]" ){

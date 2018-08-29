@@ -4,7 +4,7 @@
 
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "Verifying GAMINR Card5 input", "[GAMINR], [Card5]" ){
   WHEN( "valid Wght argument is given" ){

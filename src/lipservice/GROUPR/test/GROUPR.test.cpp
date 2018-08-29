@@ -4,7 +4,7 @@
 
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 std::string sCard1( "-30 -32 0 -34 /\n" );
 std::string sCard3( "GROUPR Card3 title for testing" );

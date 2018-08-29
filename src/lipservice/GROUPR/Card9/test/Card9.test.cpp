@@ -4,7 +4,7 @@
 
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "Validating card9 inputs", "[GROUPR], [Card9]" ){
   GIVEN( "all values are given" ){

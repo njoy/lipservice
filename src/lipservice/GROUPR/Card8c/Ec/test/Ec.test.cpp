@@ -6,7 +6,7 @@
 
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "Ec output values", "[GROUPR],[Card8c], [Ec]"){
   Argument< GROUPR::Card8c::Eb > eb;

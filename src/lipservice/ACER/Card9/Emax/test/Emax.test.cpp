@@ -4,7 +4,7 @@
 
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "Verifying ACER Card9 input", "[ACER], [Card9]" ){
   GIVEN( "valid emax values" ){

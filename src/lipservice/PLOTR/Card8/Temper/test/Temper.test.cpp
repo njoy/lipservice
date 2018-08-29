@@ -4,7 +4,7 @@
 
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "Temper input values", "[PLOTR], [Card8], [Temper]" ){
   Argument< PLOTR::Card8::Iverf > iverf; iverf.value = 2;

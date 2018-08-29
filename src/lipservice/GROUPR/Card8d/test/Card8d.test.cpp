@@ -4,7 +4,7 @@
 
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "Validating card8a inputs", "[GROUPR], [Card8d]" ){
   iRecordStream<char> issCard1( std::istringstream("40 21 22 23 / " ) );

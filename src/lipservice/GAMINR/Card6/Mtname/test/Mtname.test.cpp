@@ -4,7 +4,7 @@
 
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "GAMINR Card6 Mmtname", "[Card6], [Mmtname]"){
   GIVEN( "valid mtname values" ){

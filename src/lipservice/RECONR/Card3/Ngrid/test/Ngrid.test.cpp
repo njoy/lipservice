@@ -4,7 +4,7 @@
 
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "Ngrid input values" ){
   std::vector<int> validNgrid{ 0, 1, 100 };

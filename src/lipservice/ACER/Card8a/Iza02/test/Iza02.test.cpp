@@ -4,7 +4,7 @@
 
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "Iza02 input values", "[ACER], [Card8a], [Iza02]" ){
   GIVEN( "valid iza02 values" ){

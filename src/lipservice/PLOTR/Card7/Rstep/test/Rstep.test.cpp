@@ -16,7 +16,7 @@
 
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "Rstep output values", "[PLOTR],[Card7], [Rstep]"){
 

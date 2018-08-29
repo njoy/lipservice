@@ -3,7 +3,7 @@
 #include "catch.hpp"
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "Alpha3  output values", "[GROUPR],[Card8a], [Alpha3]"){
   GIVEN( "valid alpha3 values" ){

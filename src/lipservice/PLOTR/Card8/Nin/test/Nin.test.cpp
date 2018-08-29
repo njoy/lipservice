@@ -4,7 +4,7 @@
 
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "Nin input values", "[PLOTR], [Card8], [Nin]" ){
   int iverf = 2;

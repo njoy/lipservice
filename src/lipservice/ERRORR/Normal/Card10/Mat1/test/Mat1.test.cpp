@@ -4,7 +4,7 @@
 
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "ERRORR, Normal, Card10, Mat1",
           "[ERRORR] [Normal] [Card10] [Mat1]" ){

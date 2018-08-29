@@ -3,7 +3,7 @@
 #include "catch.hpp"
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "Beta  output values", "[GROUPR],[Card8a], [Beta]"){
   GIVEN( "valid beta values" ){

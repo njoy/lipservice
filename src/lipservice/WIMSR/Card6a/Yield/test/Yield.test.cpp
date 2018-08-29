@@ -4,7 +4,7 @@
 
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "WIMSR, Card6a, Yield",
           "[WIMSR] [Card6a] [Yield]" ){

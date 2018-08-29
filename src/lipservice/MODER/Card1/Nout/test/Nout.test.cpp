@@ -3,7 +3,7 @@
 #include "catch.hpp"
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "moder card1 nout" ){
   Argument< MODER::Card1::Nin > nin; nin.value = 22;

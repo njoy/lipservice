@@ -6,7 +6,7 @@
 
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "Mtd output values", "[PLOTR],[Card8], [Mtd]"){
   int iverf = 2;

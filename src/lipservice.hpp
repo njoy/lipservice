@@ -1,8 +1,24 @@
+#include <variant>
+
+#ifdef USING_CPP17
+  #include <optional>
+#else 
+  #include <experimental/optional>
+
+  namespace std {
+    using namespace std::experimental;
+  }
+#endif
+
 #include "utility.hpp"
+#include "dimwits.hpp"
 
 namespace njoy {
 namespace njoy21 {
 namespace lipservice {
+
+using namespace std::experimental;
+using namespace dimwits;
 
 template< typename Char >
 using iRecordStream =

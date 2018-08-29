@@ -4,7 +4,7 @@
 
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "Validating card2 inputs", "[GROUPR], [Card2]" ){
   WHEN( "all optional values are are given" ){

@@ -4,7 +4,7 @@
 
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "Verifying GROUPR Card8b input", "[GROUPR], [Card8b]" ){
   WHEN( "valid Wght argument is given" ){

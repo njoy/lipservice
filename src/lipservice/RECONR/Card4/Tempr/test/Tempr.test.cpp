@@ -4,7 +4,7 @@
 
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "Tempr input values", "[Card4], [Tempr]" ){
   GIVEN( "valid tempr values" ){

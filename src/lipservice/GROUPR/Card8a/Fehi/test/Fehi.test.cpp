@@ -3,7 +3,7 @@
 #include "catch.hpp"
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "Fehi  output values", "[GROUPR],[Card8a], [Fehi]"){
   GIVEN( "valid fehi values" ){

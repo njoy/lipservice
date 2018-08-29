@@ -3,7 +3,7 @@
 #include "catch.hpp"
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "bugless" ){
   std::string value("123456789 123456789 123456789 123456789 123456789 123456789 123456");

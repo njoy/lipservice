@@ -4,7 +4,7 @@
 
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "mat input values", "[Card3], [mat]"){
   std::vector<int> validMat{ 0, 1, 5000, 9999 };

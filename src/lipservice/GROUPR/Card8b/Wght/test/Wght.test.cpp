@@ -3,7 +3,7 @@
 #include "catch.hpp"
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "Wght input values", "[Card8b], [Wght]" ){
   GIVEN( "Valid pseudo-TAB1 input" ){

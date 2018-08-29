@@ -2,7 +2,7 @@
 #include "catch.hpp"
 #include "lipservice.hpp"
 
-using namespace njoy::njoy21::input;
+using namespace njoy::njoy21::lipservice;
 // Default check, so that if any calls to a check function have the wrong
 // arguments provided, then REQUIRE( false ) will be raised
 template< int, typename... Args >
