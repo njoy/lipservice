@@ -12,14 +12,15 @@ SCENARIO( "nout output values",
     
     WHEN( "nout input is within range and not equal to nendf or nin" ){
       std::vector<int> validValues{-20, 20, 42, 99, -99};
-      THEN( "the returned class has the correct tape value" ){
-        for( auto nout : validValues ){
-          iRecordStream<char> iss(
-            std::istringstream( std::to_string( nout ) ) );
-          REQUIRE(nout == argument::extract< 
-            HEATR::Card1::Nout >( iss, nendf, nin ).value );
-        }
-      } // THEN
+      for( auto nout : validValues ){
+        THEN( "the returned class has the correct tape value: " + 
+               std::to_string( nout ) ){
+            iRecordStream<char> iss(
+              std::istringstream( std::to_string( nout ) ) );
+            REQUIRE( nout == argument::extract< 
+              HEATR::Card1::Nout >( iss, nendf, nin ).value );
+        } // THEN
+      } // for
     } // WHEN
     WHEN( "nout input is equal to nendf" ){
       THEN( "an exception is thrown" ){

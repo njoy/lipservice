@@ -2,7 +2,6 @@ sudo: required
 git:
   submodules: false
 language: cpp
-osx_image: xcode8
 script: "./.travis/signature.sh"
 env:
   global:
