@@ -5,10 +5,10 @@
 using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "nout output values",
-  "[THERMR], [Card1], [Nout]"){
+  "[HEATR], [Card1], [Nout]"){
   GIVEN( "a valid nendf tape value" ){
-    Argument< THERMR::Card1::Nendf > nendf; nendf.value = 21;
-    Argument< THERMR::Card1::Nin   > nin;   nin.value = 22;
+    Argument< HEATR::Card1::Nendf > nendf; nendf.value = 21;
+    Argument< HEATR::Card1::Nin   > nin;   nin.value = 22;
     
     WHEN( "nout input is within range and not equal to nendf or nin" ){
       std::vector<int> validValues{-20, 20, 42, 99, -99};
@@ -17,7 +17,7 @@ SCENARIO( "nout output values",
           iRecordStream<char> iss(
             std::istringstream( std::to_string( nout ) ) );
           REQUIRE(nout == argument::extract< 
-            THERMR::Card1::Nout >( iss, nendf, nin ).value );
+            HEATR::Card1::Nout >( iss, nendf, nin ).value );
         }
       } // THEN
     } // WHEN
@@ -25,7 +25,7 @@ SCENARIO( "nout output values",
       THEN( "an exception is thrown" ){
         iRecordStream<char> iss( std::istringstream( "21" ) );
         REQUIRE_THROWS( argument::extract< 
-          THERMR::Card1::Nout >( iss, nendf, nin ) );
+          HEATR::Card1::Nout >( iss, nendf, nin ) );
       } // THEN
     } // WHEN
 
@@ -33,7 +33,7 @@ SCENARIO( "nout output values",
       THEN( "an exception is thrown" ){
         iRecordStream<char> iss( std::istringstream( "22" ) );
         REQUIRE_THROWS( argument::extract< 
-          THERMR::Card1::Nout >( iss, nendf, nin ) );
+          HEATR::Card1::Nout >( iss, nendf, nin ) );
       } // THEN
     } // WHEN
 
@@ -44,7 +44,7 @@ SCENARIO( "nout output values",
           iRecordStream<char> iss(
             std::istringstream( std::to_string( nout ) ) );
           REQUIRE_THROWS( argument::extract<
-            THERMR::Card1::Nout>( iss, nendf, nin ) );
+            HEATR::Card1::Nout>( iss, nendf, nin ) );
         }
       } // THEN
     } // WHEN

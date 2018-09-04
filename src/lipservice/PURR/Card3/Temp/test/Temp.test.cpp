@@ -27,7 +27,7 @@ SCENARIO( "Temp input values",
     }
 
     WHEN( "the grid points are invalid" ){
-      iRecordStream< char> issPoints( std::istringstream(" 1.0 -2.0 3.0") );
+      iRecordStream< char> issPoints( std::istringstream(" 0.0 1.0 -2.0 3.0") );
 
       THEN( "an exception is thrown" ){
         REQUIRE_THROWS(

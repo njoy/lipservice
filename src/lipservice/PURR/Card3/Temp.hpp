@@ -11,7 +11,7 @@ struct Temp {
   static bool verify( const Value_t& temps,
                       const Argument< Card2::Ntemp > & ntemp ){
     auto found = std::find_if( temps.begin(), temps.end(),
-                               [](auto& E){ return E < 0.0*kelvin; });
+                               [](auto& E){ return E <= 0.0*kelvin; });
 
     if ( found != temps.end() ){
       Log::warning( "Negative temperature ({}) found at index {}",
