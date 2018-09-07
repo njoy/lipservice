@@ -15,6 +15,8 @@ SCENARIO( "nout output values",
       for( auto nout : validValues ){
         THEN( "the returned class has the correct tape value: " + 
                std::to_string( nout ) ){
+            nendf.value = nout/std::abs( nout );
+            nin.value = nout/std::abs( nout );
             iRecordStream<char> iss(
               std::istringstream( std::to_string( nout ) ) );
             REQUIRE( nout == argument::extract< 
