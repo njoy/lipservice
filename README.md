@@ -1,3 +1,4 @@
+[![Build Status](http://jenkins.njoy21.io:8080/job/lip%20service/badge/icon)](http://jenkins.njoy21.io:8080/job/lip%20service/)
 # lipservice
 This repository contains all the code used to perform the input verification for NJOY21 when using the legacy input decks
 

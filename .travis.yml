@@ -1,0 +1,8 @@
+sudo: required
+git:
+  submodules: false
+language: cpp
+script: "./.travis/signature.sh"
+env:
+  global:
+    secure: AA1fCXiLJym2TWUtvqnB3sFwM8JHEuGeBMNgnsrFN0s9ahwRg2nk5jTxqpRdmb5CyKfiwqjJxa+QIVOCRKOleV5jtXSPue170tpGnLVk3/roE3V+ARMQReFXWw6qBcG3xm2eosb64GmutT+skrUIO3vNeQXzo6H/gYP4s+ZPxRIgjVkXopk401Gc6xVbl1YW021gvoee2E2y0k8Ks6PZ6TMnb25Ta4Yl6ZHiZutooBj4mUGL/LLSWYkQcdMYxiKUnN4M+8sBOAH8I0TSAgS7+N8AOISHXTww4HmxPjTY5ZOa79/WrU5RYj/hU6k0E5UYf6uvt0AnjygD+f+NtYq4UIEvUlWXF/XlgD/qWW29/QMy/DBDEkGXLLZ/cB2b/TUDF8fqpG+tA3va/z12SMrOo+019ByI4HLdyR/GNKss/tJ8BCSkXhxJ2aivQ+J8q1gT1XCbKy7/Ec7y5taDXu2lk8QRweTUoJ0qBBPuydTeJfcREfq1ewRq9FR2eA6Ho7hDakOKo2XsYlnmqZrUiTSQKIPMd1dY6nS4fFecGMJgGHPs7zvuqlK3qK8ytUMUdyxY2zIMp7yvPZn50dzL9soSYL0WNfYHNXatSMII8MVfV64Nk8wTAjK/QFevQbMMNq9Z0lwiCjxAbAKOHlxvEyGvG32qnJYP/6W1udfot6VkRoI=
