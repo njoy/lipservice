@@ -1,11 +1,11 @@
 
 add_executable( lipservice.argument.parser.test
-                Base.test.cpp
-                Defaulted.test.cpp
-                Discriminating.test.cpp
-                Optional.test.cpp
+                Required.test.cpp
                 parser.test.cpp
-                Required.test.cpp )
+                Discriminating.test.cpp
+                Defaulted.test.cpp
+                Base.test.cpp
+                Optional.test.cpp )
 target_compile_options( lipservice.argument.parser.test PRIVATE ${${PREFIX}_common_flags}
 $<$<BOOL:${strict}>:${${PREFIX}_strict_flags}>$<$<CONFIG:DEBUG>:
 ${${PREFIX}_DEBUG_flags}

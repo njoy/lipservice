@@ -17,10 +17,12 @@ SCENARIO( "MATXSR Card1 input",
   const int ngen5 = 29;
   const int ngen6 = 30;
   const int ngen7 = 31;
+  const int ngen8 = 32;
 
   GIVEN( "valid inputs" ){
     WHEN( "all inputs are provided" ){
-      iRecordStream<char> iss( std::istringstream( " 24 25 26 27 28 29 30 31 /" ) );
+      iRecordStream<char> iss( 
+        std::istringstream( " 24 25 26 27 28 29 30 31 32 /" ) );
 
       MATXSR::Card1 card1( iss );
       THEN( "the values can be verified" ){
@@ -33,6 +35,7 @@ SCENARIO( "MATXSR Card1 input",
         REQUIRE( ngen5 == card1.ngen5.value );
         REQUIRE( ngen6 == card1.ngen6.value );
         REQUIRE( ngen7 == card1.ngen7.value );
+        REQUIRE( ngen8 == card1.ngen8.value );
       }
     }
 
@@ -50,6 +53,7 @@ SCENARIO( "MATXSR Card1 input",
         REQUIRE( 0 == card1.ngen5.value );
         REQUIRE( 0 == card1.ngen6.value );
         REQUIRE( 0 == card1.ngen7.value );
+        REQUIRE( 0 == card1.ngen8.value );
       }
     }
   } // GIVEN
@@ -72,8 +76,8 @@ SCENARIO( "MATXSR Card1 input",
     }
 
     WHEN( "too many values are provided" ){
-      iRecordStream<char> iss( std::istringstream(
-                               " 24 25 26 27 28 29 30 31 32 /" ) );
+      iRecordStream<char> iss( 
+        std::istringstream( " 24 25 26 27 28 29 30 31 32 33 /" ) );
 
       THEN( "an exception is thrown" ){
         REQUIRE_THROWS( MATXSR::Card1( iss ) );
