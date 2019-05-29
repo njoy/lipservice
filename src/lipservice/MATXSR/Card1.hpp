@@ -9,6 +9,7 @@ public:
   #include "lipservice/MATXSR/Card1/Ngen5.hpp"
   #include "lipservice/MATXSR/Card1/Ngen6.hpp"
   #include "lipservice/MATXSR/Card1/Ngen7.hpp"
+  #include "lipservice/MATXSR/Card1/Ngen8.hpp"
 
   Argument< Ngen1 > ngen1;
   Argument< Ngen2 > ngen2;
@@ -18,6 +19,7 @@ public:
   Argument< Ngen5 > ngen5;
   Argument< Ngen6 > ngen6;
   Argument< Ngen7 > ngen7;
+  Argument< Ngen8 > ngen8;
 
   template< typename Istream >
   Card1( Istream& is )
@@ -36,6 +38,10 @@ public:
            this->ngen3.value, this->nmatx.value, this->ngen2.value,
            this->ngen1.value ) ),
     ngen7( argument::extract< Ngen7 >( is, this->ngen6.value, this->ngen5.value,
+           this->ngen4.value, this->ngen3.value, this->nmatx.value,
+           this->ngen2.value, this->ngen1.value ) ),
+    ngen8( argument::extract< Ngen8 >( is, 
+           this->ngen7.value, this->ngen6.value, this->ngen5.value,
            this->ngen4.value, this->ngen3.value, this->nmatx.value,
            this->ngen2.value, this->ngen1.value ) )
   {
