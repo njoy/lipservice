@@ -209,10 +209,6 @@ set( lipservice_Clang_Windows_nonportable_optimization_flags "-march=native" )
 set( lipservice_Clang_Windows_static_flags "-static" )
 get_directory_property( is_subproject PARENT_DIRECTORY )
 
-if( NOT TARGET hopscotch-map-adapter )
-    add_subdirectory( ${ROOT_DIRECTORY}/subprojects/hopscotch-map-adapter )
-endif()
-
 if( NOT TARGET range-v3-adapter )
     add_subdirectory( ${ROOT_DIRECTORY}/subprojects/range-v3-adapter )
 endif()
