@@ -12,8 +12,8 @@ Argument< Matb > matb;
 optional< std::tuple< Argument< Mtb >, Argument< Matc >, Argument< Mtc > > >
                                                                            rest;
 
-template< typename Istream >
-Card11( Istream& is )
+template< typename Char >
+Card11( iRecordStream< Char >& is )
 try:
   matb( argument::extract< ERRORR::Normal::Card11::Matb >( is ) ),
   rest( readRest( is, this->matb.value ) )
