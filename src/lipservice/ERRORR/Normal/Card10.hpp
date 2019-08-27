@@ -9,6 +9,10 @@ public:
 Argument< Mat1 > mat1;
 optional< Argument< Mt1 > > mt1;
 
+Card10( Card10& ) = default;
+Card10( const Card10& ) = default;
+Card10( Card10&& ) = default;
+
 template< typename Istream >
 Card10( Istream& is )
 try:
