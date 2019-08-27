@@ -11,9 +11,9 @@ public:
 Argument< Matb > matb;
 optional< std::tuple< Argument< Mtb >, Argument< Matc >, Argument< Mtc > > >
                                                                            rest;
-Card11(Card11&) = default;
-Card11(const Card11&) = default;
-Card11(Card11&&) = default;
+Card11( Card11& ) = default;
+Card11( const Card11& ) = default;
+Card11( Card11&& ) = default;
 
 template< typename Istream >
 Card11( Istream& is )
