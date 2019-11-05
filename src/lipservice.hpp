@@ -10,6 +10,9 @@
   }
 #endif
 
+#include "json.hpp"
+using json = nlohmann::json;
+
 #include "utility.hpp"
 #include "dimwits.hpp"
 #include "ENDFtk.hpp"
