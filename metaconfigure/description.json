@@ -763,6 +763,7 @@
     "src/lipservice/ACER/Card8a/Iza01.hpp",
     "src/lipservice/ACER/Card8a/Iza02.hpp",
     "src/lipservice/ACER/Card8a/Iza03.hpp",
+    "src/lipservice/ACER/Card8a/Iza.hpp",
     "src/lipservice/ACER/Card4/Izaw.hpp",
     "src/lipservice/ACER/Card3/Hk.hpp",
     "src/lipservice/ACER/Card2/Nxtra.hpp",
@@ -1563,6 +1564,9 @@
     ],
     "lipservice.ACER.Card8a": [
       "src/lipservice/ACER/Card8a/test/Card8a.test.cpp"
+    ],
+    "lipservice.ACER.Card8a.Iza": [
+      "src/lipservice/ACER/Card8a/Iza/test/Iza.test.cpp"
     ],
     "lipservice.ACER.Card8a.Iza01": [
       "src/lipservice/ACER/Card8a/Iza01/test/Iza01.test.cpp"
