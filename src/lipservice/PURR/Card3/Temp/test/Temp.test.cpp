@@ -18,10 +18,7 @@ SCENARIO( "Temp input values",
       THEN( "the grid points can be extracted correctly" ){
         auto temps = argument::extract< 
                     PURR::Card3::Temp >(issPoints, ntemp);
-        std::vector< double > refTemps{
-                      1.0 
-                      2.0 
-                      3.0
+        std::vector< double > refTemps{ 1.0, 2.0, 3.0 };
         REQUIRE( refTemps == temps.value );
       }
     }

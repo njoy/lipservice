@@ -5,6 +5,6 @@ struct Amass {
     return "The amass parameter specifies the isotope atomic weight in grams.";
   }
   static bool verify( const Value_t amass ){
-    return amass > 0.0 * gram;
+    return amass > 0.0;
   }
 };

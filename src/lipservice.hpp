@@ -10,6 +10,9 @@
   }
 #endif
 
+#include "boost/hana.hpp"
+namespace hana = boost::hana;
+
 #include "json.hpp"
 using json = nlohmann::json;
 

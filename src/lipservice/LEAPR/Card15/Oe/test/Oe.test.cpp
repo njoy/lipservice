@@ -16,10 +16,7 @@ SCENARIO( "LEAPR Card15 oe input values",
       THEN( "the oe values can be extracted correctly" ){
         auto oes = argument::extract< 
           LEAPR::Card15::Oe >(iss, nd);
-          std::vector< double > refOes{ 
-            1.0  
-            2.0
-            3.0 };
+          std::vector< double > refOes{ 1.0, 2.0, 3.0 };
         REQUIRE( refOes == oes.value );
       } // THEN
     } // WHEN
@@ -66,14 +63,7 @@ SCENARIO( "LEAPR Card15 oe input values",
       THEN( "the oe values can be extracted correctly" ){
         auto oes = argument::extract< 
           LEAPR::Card15::Oe >(iss, nd);
-        std::vector< double > refOes{ 
-          .01
-          .015 
-          .025
-          .035
-          .250
-          .330
-          .504 };
+        std::vector< double > refOes{ .01, .015, .025, .035, .250, .330, .504 };
         REQUIRE( refOes == oes.value );
       } // THEN
     } // WHEN

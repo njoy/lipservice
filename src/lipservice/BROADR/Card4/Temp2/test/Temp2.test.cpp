@@ -13,7 +13,7 @@ SCENARIO( "value range" ){
   GIVEN( "ntemp2 = 1" ){
     ntemp2.value = 1;
     WHEN( "valid temperatures" ){
-      temp1.value = 8.0
+      temp1.value = 8.0;
       THEN( "the returned class has the correct value" ){
         for( auto temp2 : { 8.1, 9.0, 10.0, 11.0 } ){
           iRecordStream<char> iss( std::istringstream( 
@@ -33,7 +33,7 @@ SCENARIO( "value range" ){
       }
     }
     WHEN( "temperature is less than temp1" ){
-      temp1.value = 10.0
+      temp1.value = 10.0;
       THEN( "an exception is thrown" ){
         iRecordStream<char> iss( 
             std::istringstream( " 9.0 " ) );

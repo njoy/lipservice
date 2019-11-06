@@ -18,9 +18,7 @@ SCENARIO( "Sigz input values", "[Card5], [Sigz]" ){
         auto sigz = argument::extract< 
                     GROUPR::Card5::Sigz >(issPoints, nsigz);
         std::vector< double > refSigzs{
-            std::numeric_limits<double>::infinity() 
-            2.0 
-            3.0
+            std::numeric_limits<double>::infinity(), 2.0, 3.0 };
         REQUIRE( refSigzs == sigz.value );
       }
     }

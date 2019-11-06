@@ -178,14 +178,12 @@ SCENARIO("Base"){
 
   SECTION( "Vector of Quanitities" ){
     std::vector< double > lengths;
-    std::vector< double > reflengths
-    { 10 20 30*dimwits::meter };
+    std::vector< double > reflengths { 10, 20, 30 };
 
     iRecordStream<char> iss( std::istringstream("   10 20 30") );
     MyArg arg{3};
 
-    REQUIRE( Base< std::vector< double > >::read( 
-               iss, lengths, arg ) );
+    REQUIRE( Base< std::vector< double > >::read( iss, lengths, arg ) );
     REQUIRE( lengths == reflengths );
   }
 }

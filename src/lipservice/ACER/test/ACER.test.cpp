@@ -5,7 +5,6 @@
 #include "lipservice.hpp"
 
 using namespace njoy::njoy21::lipservice;
-using namespace dimwits;
 
 std::string sCard1( "20 21 0 30 31 /\n" );
 std::string sCard3( "Here is a descriptive character string for Card3.");

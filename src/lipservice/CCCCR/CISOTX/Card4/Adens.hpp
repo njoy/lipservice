@@ -8,6 +8,6 @@ struct Adens {
            "mixture in g/cc.";
   }
   static bool verify( const Value_t adens ){
-    return adens.value >= 0.0;
+    return adens >= 0.0;
   }
 };

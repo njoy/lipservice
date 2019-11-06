@@ -157,8 +157,7 @@ SCENARIO( "CCCCR",
           REQUIRE( ( i + 1.3 ) ==
                                          ccccr.cisotx->card4.at(i).temp.value );
           REQUIRE( Approx( i+1.4 ) == ccccr.cisotx->card4.at(i).sigpot.value );
-          REQUIRE( 
-              Approx( i+1.5 ) == ccccr.cisotx->card4.at(i).adens.value.value );
+          REQUIRE( Approx( i+1.5 ) == ccccr.cisotx->card4.at(i).adens.value );
         }
       }
     } // WHEN

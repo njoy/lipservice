@@ -13,10 +13,7 @@ SCENARIO( "Tempr input values",
       THEN( "the temperature values can be extracted correctly" ){
         auto temprs = argument::extract< 
                     THERMR::Card3::Tempr >(iss, ntemp);
-        std::vector< double > refTemprs{
-                      1.0 
-                      2.0 
-                      3.0
+        std::vector< double > refTemprs{ 1.0, 2.0, 3.0 };
         REQUIRE( refTemprs == temprs.value );
       } // THEN
     } // WHEN

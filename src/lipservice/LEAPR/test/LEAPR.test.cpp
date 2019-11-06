@@ -115,13 +115,12 @@ SCENARIO( "LEAPR input",
         REQUIRE( card13.tbeta.value == 0.4904 );
         REQUIRE( card14.nd.value    == 2      );
         std::vector< double > 
-          refOes = { 0.205 
-                     0.436 };
+          refOes = { 0.205, 0.436 };
         REQUIRE( card15.oe.value    == refOes        );
         std::vector< double > refOws = { 0.163467, 0.326933 };
         REQUIRE( card16.ow.value    == refOws );
         REQUIRE( card17.nka.value   == 2      );
-        REQUIRE( card17.dka.value   == 0.001;
+        REQUIRE( card17.dka.value   == 0.001 );
         std::vector< double > refSkappas{ 1.5, 2.0 };
         REQUIRE( card18.skappa.value == refSkappas );
         REQUIRE( leapr.card19 );
@@ -204,13 +203,12 @@ SCENARIO( "LEAPR input",
           REQUIRE( card13.tbeta.value == 0.4904 );
           REQUIRE( card14.nd.value    == 2      );
           std::vector< double > 
-            refOes = { 0.205 
-                       0.436 };
+            refOes = { 0.205, 0.436 };
           REQUIRE( card15.oe.value    == refOes        );
           std::vector< double > refOws = { 0.163467, 0.326933 };
           REQUIRE( card16.ow.value    == refOws );
           REQUIRE( card17.nka.value   == 2      );
-          REQUIRE( card17.dka.value   == 0.001;
+          REQUIRE( card17.dka.value   == 0.001 );
           std::vector< double > refSkappas{ 1.5, 2.0 };
           REQUIRE( card18.skappa.value == refSkappas );
           REQUIRE( not leapr.card19 );
@@ -241,7 +239,7 @@ SCENARIO( "LEAPR input",
           REQUIRE( card14.nd.value    == 0   );
           REQUIRE( not oscillatorTuple );
           REQUIRE( card17.nka.value  == 3    );
-          REQUIRE( card17.dka.value  == 0.002;
+          REQUIRE( card17.dka.value  == 0.002 );
           std::vector< double > refSkappas{ 2.0, 2.5, 3.0 };
           REQUIRE( card18.skappa.value == refSkappas );
           REQUIRE( not leapr.card19 );
@@ -344,13 +342,12 @@ SCENARIO( "LEAPR input",
           REQUIRE( card13.tbeta.value == 0.4904 );
           REQUIRE( card14.nd.value    == 2      );
           std::vector< double > 
-            refOes = { 0.205 
-                       0.436 };
+            refOes = { 0.205, 0.436 };
           REQUIRE( card15.oe.value    == refOes        );
           std::vector< double > refOws = { 0.163467, 0.326933 };
           REQUIRE( card16.ow.value    == refOws );
           REQUIRE( card17.nka.value   == 2      );
-          REQUIRE( card17.dka.value   == 0.001;
+          REQUIRE( card17.dka.value   == 0.001 );
           std::vector< double > refSkappas{ 1.5, 2.0 };
           REQUIRE( card18.skappa.value == refSkappas );
           REQUIRE( not leapr.card19 );

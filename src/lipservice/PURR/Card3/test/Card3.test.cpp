@@ -15,10 +15,7 @@ SCENARIO( "Verifying PURR Card3 input", "[PURR], [Card3]" ){
     iRecordStream< char> issTemps( std::istringstream( " 293.6 600 1200" ) );
 
     THEN( "the temperatures can be extracted and verified" ){
-      std::vector< double > refTemps{
-        293.6
-        600
-        1200
+      std::vector< double > refTemps{ 293.6, 600, 1200 };
 
       PURR::Card3 card3( issTemps, ntemp );
       REQUIRE( refTemps == card3.temp.value );

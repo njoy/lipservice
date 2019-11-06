@@ -13,3 +13,6 @@
 [submodule "dependencies/json-adapter"]
 	path = dependencies/json-adapter
 	url = https://github.com/njoy/json-adapter.git
+[submodule "dependencies/hana-adapter"]
+	path = dependencies/hana-adapter
+	url = https://github.com/njoy/hana-adapter.git

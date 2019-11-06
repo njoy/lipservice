@@ -53,7 +53,7 @@ SCENARIO( "HEATR input",
         REQUIRE( card4.mta.value[0] == 16 );
 
         const auto& card5 = std::get<1>( *(heatr.controlTuple) );
-        REQUIRE( card5.qa.value[0] == 55e6
+        REQUIRE( card5.qa.value[0] == 55e6 );
       } // THEN
     } // WHEN
 
@@ -263,4 +263,3 @@ SCENARIO( "HEATR input",
     } // WHEN
   } // GIVEN
 } // SCENARIO
-

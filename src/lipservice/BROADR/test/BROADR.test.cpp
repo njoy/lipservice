@@ -4,7 +4,6 @@
 #include "lipservice.hpp"
 
 using namespace njoy::njoy21::lipservice;
-using namespace dimwits;
 
 SCENARIO( "bugless" ){
   SECTION("Multiple Temperatures"){
@@ -28,9 +27,9 @@ SCENARIO( "bugless" ){
     REQUIRE( broadr.card2.temp1.value == 0.0 );
 
     REQUIRE( broadr.card3.errthn.value == 1.0E-3 );
-    REQUIRE( broadr.card3.thnmax.value == 1.0s );
+    REQUIRE( broadr.card3.thnmax.value == 1.0 );
     REQUIRE( broadr.card3.errmax.value == 0.02 );
-    REQUIRE( broadr.card3.errint.value == 1.0E-7s );
+    REQUIRE( broadr.card3.errint.value == 1.0E-7 );
 
     REQUIRE( broadr.card4.temp2.value.front() == 300.0 );
     REQUIRE( broadr.card4.temp2.value.back() == 1200.0 );
