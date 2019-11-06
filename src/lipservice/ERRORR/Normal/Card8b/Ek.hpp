@@ -1,12 +1,12 @@
 struct Ek {
-  using Value_t = std::vector< Quantity< ElectronVolt > >;
+  using Value_t = std::vector< double >;
   static std::string name(){ return "ek"; }
   static std::string description(){
     return "The ek parameter specifies the nek+1 energy bin boundaries for\n"
            "the derived cross section covariances, in eV.";
   }
   static bool verify( const Value_t ek, const int ){
-    std::vector< Quantity< ElectronVolt > > used;
+    std::vector< double > used;
     if( ek.size() == 0 ){
       Log::error( "No energy bins were provided." );
       return false;
@@ -18,7 +18,7 @@ struct Ek {
         return false;
       }
 // Check for valid values
-      if( i <= 0.0*electronVolt ){
+      if( i <= 0.0 ){
         Log::info( "Energy bin boundary value {} is invalid.", i );
         return false;
       }

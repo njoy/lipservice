@@ -18,10 +18,10 @@ SCENARIO( "ERRORR, Normal, Card12b, Egn",
 
         REQUIRE( 4 == egn.size() );
 
-        REQUIRE( 1e-6*dimwits::electronVolt == egn.at(0) );
-        REQUIRE( 5e-5*dimwits::electronVolt == egn.at(1) );
-        REQUIRE( 2e-2*dimwits::electronVolt == egn.at(2) );
-        REQUIRE( 1e1*dimwits::electronVolt == egn.at(3) );
+        REQUIRE( 1e-6 == egn.at(0) );
+        REQUIRE( 5e-5 == egn.at(1) );
+        REQUIRE( 2e-2 == egn.at(2) );
+        REQUIRE( 1e1 == egn.at(3) );
       }
     } // WHEN
   } // GIVEN

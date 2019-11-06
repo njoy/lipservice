@@ -20,7 +20,7 @@ SCENARIO( "ERRORR, Normal, Card8b, Ek",
         REQUIRE( ek.size() == inp.size() );
 
         for( size_t i = 0; i < inp.size(); i++ ){
-          REQUIRE( inp.at(i)*dimwits::electronVolt == ek.at(i) );
+          REQUIRE( inp.at(i) == ek.at(i) );
         }
       }
     } // WHEN

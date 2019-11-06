@@ -1,5 +1,5 @@
 struct Skappa {
-  using Value_t = std::vector< decltype( pow( 1.0 * angstrom, Ratio<-1> ) ) >;
+  using Value_t = std::vector< double >;
   static std::string name(){ return "skappa"; }
 
   static std::string description() {
@@ -15,7 +15,7 @@ struct Skappa {
   static bool verify( const Value_t& skappas,
                       const Argument< LEAPR::Card17::Nka > & ){
     // Make sure first skappa is positive
-    if ( skappas[0] <= 0.0 * pow( 1.0 * angstrom, Ratio<-1> ) ){
+    if ( skappas[0] <= 0.0 ){
       Log::info( "Negative skappa found" );
       return false;
     } 

@@ -16,7 +16,7 @@ SCENARIO( "POWR, Lib1, Card3",
 
       THEN( "the values can be verified" ){
         REQUIRE( 9235 == card3.matd.value );
-        REQUIRE( 301.0*dimwits::kelvin == std::get<0>( *( card3.rest ) ).value);
+        REQUIRE( 301.0 == std::get<0>( *( card3.rest ) ).value);
         REQUIRE( 0 == std::get<1>( *( card3.rest ) ).value );
         REQUIRE( 12 == std::get<2>( *( card3.rest) ).value );
         REQUIRE( 2 == std::get<3>( *( card3.rest ) ).value );
@@ -30,7 +30,7 @@ SCENARIO( "POWR, Lib1, Card3",
 
       THEN( "the default values can be verified" ){
         REQUIRE( 9235 == card3.matd.value );
-        REQUIRE( 300.0*dimwits::kelvin == std::get<0>( *( card3.rest ) ).value);
+        REQUIRE( 300.0 == std::get<0>( *( card3.rest ) ).value);
         REQUIRE( 1 == std::get<1>( *( card3.rest ) ).value );
         REQUIRE( 0 == std::get<2>( *( card3.rest ) ).value );
         REQUIRE( 1 == std::get<3>( *( card3.rest ) ).value );

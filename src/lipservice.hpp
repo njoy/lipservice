@@ -14,7 +14,6 @@
 using json = nlohmann::json;
 
 #include "utility.hpp"
-#include "dimwits.hpp"
 #include "ENDFtk.hpp"
 #include "Log.hpp"
 
@@ -23,7 +22,6 @@ namespace njoy21 {
 namespace lipservice {
 
 using namespace std::experimental;
-using namespace dimwits;
 
 template< typename Char >
 using iRecordStream =

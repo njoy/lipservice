@@ -1,5 +1,5 @@
 struct Tempr {
-  using Value_t = Quantity< Kelvin >;
+  using Value_t = double;
   static std::string name(){ return "tempr"; }
 
   static std::string description(){
@@ -14,6 +14,6 @@ struct Tempr {
         "approximate Doppler-broadening algorithm.";
   }
 
-  static Value_t defaultValue(){ return 0.0*kelvin; }
-  static bool verify( const Value_t& t ){ return t >= 0.0*kelvin; }
+  static Value_t defaultValue(){ return 0.0; }
+  static bool verify( const Value_t& t ){ return t >= 0.0; }
 };

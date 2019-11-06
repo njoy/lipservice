@@ -6,7 +6,7 @@ static optional<ControlTuple> buildControlTuple(
     auto card5 = Card5( is, card2.nqa );
     Card5aList card5aList;
     for( const auto& qa : card5.qa.value ){
-      if( qa >= 99e6 * dimwits::electronVolts ){
+      if( qa >= 99e6 ){
         card5aList.emplace_back( is );
       }
     }

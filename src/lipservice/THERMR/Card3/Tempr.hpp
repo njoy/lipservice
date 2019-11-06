@@ -1,5 +1,5 @@
 struct Tempr {
-  using Value_t = std::vector< Quantity< Kelvin > >;
+  using Value_t = std::vector< double >;
   static std::string name(){ return "tempr"; }
 
   static std::string description() {
@@ -16,7 +16,7 @@ struct Tempr {
 
     // Make sure all temperatures are positive
     auto found = std::find_if( temps.begin(), temps.end(),
-                               [](auto& E){ return E < 0.0*kelvin; });
+                               [](auto& E){ return E < 0.0; });
     if ( found != temps.end() ){
       Log::info( "Negative temperature ({}) found at index {}",
                     *found, std::distance(temps.begin(), found));

@@ -11,10 +11,10 @@ SCENARIO( "Verifying HEATR Card5 input",
     WHEN( "Card5 input is valid" ){
       iRecordStream<char> iss( std::istringstream( "-1.5e6 1.6e6 -98e6" ) );
       THEN( "the q values can be extracted correctly" ){
-        std::vector<dimwits::Quantity<dimwits::ElectronVolts>> refQa{ 
-          -1.5e6 * dimwits::electronVolts, 
-          1.6e6  * dimwits::electronVolts, 
-          -98e6  * dimwits::electronVolts };
+        std::vector<double> refQa{ 
+          -1.5e6 
+          1.6e6 
+          -98e6 };
 	HEATR::Card5 card5( iss, nqa );
 	REQUIRE( refQa == card5.qa.value );
       } // THEN

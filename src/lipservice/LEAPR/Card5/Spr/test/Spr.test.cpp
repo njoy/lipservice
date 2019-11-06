@@ -12,7 +12,7 @@ SCENARIO( "LEAPR Card5 spr input values",
       for( auto& spr : validValues ){
         iRecordStream<char> iss(
           std::istringstream( std::to_string( spr ) ) );
-        REQUIRE( spr * dimwits::barns == argument::extract< 
+        REQUIRE( spr == argument::extract< 
           LEAPR::Card5::Spr >( iss ).value );
       }
     } // THEN

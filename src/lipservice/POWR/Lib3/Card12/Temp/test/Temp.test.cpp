@@ -15,7 +15,7 @@ SCENARIO( "POWR, Lib3, Card12, Temp",
         iRecordStream<char> iss( std::istringstream( std::to_string( d ) ) );
 
         THEN( "the value can be verified" ){
-          REQUIRE( d*dimwits::kelvin == argument::extract<
+          REQUIRE( d == argument::extract<
                                       POWR::Lib3::Card12::Temp >( iss ).value );
         }
       }

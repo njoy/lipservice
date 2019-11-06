@@ -17,7 +17,7 @@ SCENARIO( "Eb output values", "[GROUPR],[Card8c], [Eb]"){
         iRecordStream<char> issEb( 
             std::istringstream( std::to_string( eb ) ) );
 
-        REQUIRE( eb*dimwits::electronVolt == 
+        REQUIRE( eb == 
                 argument::extract< GROUPR::Card8c::Eb >( issEb ).value );
       }
     }

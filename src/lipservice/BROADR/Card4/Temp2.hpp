@@ -1,5 +1,5 @@
 struct Temp2 {
-  using Value_t = std::vector< Quantity< Kelvin > >;
+  using Value_t = std::vector< double >;
   static std::string name(){ return "temp2"; }
   static std::string description(){
     return

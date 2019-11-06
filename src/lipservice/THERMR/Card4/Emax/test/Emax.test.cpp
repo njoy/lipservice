@@ -13,7 +13,7 @@ SCENARIO( "THERMR emax values",
       for( double emax : validValues ){
         iRecordStream<char> iss( 
           std::istringstream( std::to_string( emax ) ) );
-        REQUIRE( emax * dimwits::electronVolts == argument::extract< 
+        REQUIRE( emax == argument::extract< 
           THERMR::Card4::Emax >( iss ).value );
       }
     } // THEN

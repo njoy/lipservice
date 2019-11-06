@@ -32,9 +32,9 @@ SCENARIO( "Parsing valid RECONR input" ){
 
       auto& card4 = std::get<1>( reconr.cardSequence.front() );
       REQUIRE( 0.005 == card4.err.value );
-      REQUIRE( 0.0*dimwits::kelvin == card4.tempr.value );
+      REQUIRE( 0.0 == card4.tempr.value );
       REQUIRE( 0.1 == card4.errmax.value );
-      REQUIRE( 5E-7*dimwits::barn == card4.errint.value );
+      REQUIRE( 5E-7 == card4.errint.value );
 
       auto& card5 = std::get<2>( reconr.cardSequence.front() );
       REQUIRE( not card5 );
@@ -78,9 +78,9 @@ SCENARIO( "Parsing valid RECONR input" ){
       auto& card6 = std::get<3>( reconr.cardSequence.front() );
       REQUIRE( card6 );
       REQUIRE( 3 == card6->enode.value.size() );
-      REQUIRE( 1.0*dimwits::electronVolt == card6->enode.value[0] );
-      REQUIRE( 2.0*dimwits::electronVolt == card6->enode.value[1] );
-      REQUIRE( 3.0*dimwits::electronVolt == card6->enode.value[2] );
+      REQUIRE( 1.0 == card6->enode.value[0] );
+      REQUIRE( 2.0 == card6->enode.value[1] );
+      REQUIRE( 3.0 == card6->enode.value[2] );
     }
   }
   WHEN( "Cards 3,4,6,3" ){
@@ -97,9 +97,9 @@ SCENARIO( "Parsing valid RECONR input" ){
       auto& card6 = std::get<3>( reconr.cardSequence.front() );
       REQUIRE( card6 );
       REQUIRE( 3 == card6->enode.value.size() );
-      REQUIRE( 1.0*dimwits::electronVolt == card6->enode.value[0] );
-      REQUIRE( 2.0*dimwits::electronVolt == card6->enode.value[1] );
-      REQUIRE( 3.0*dimwits::electronVolt == card6->enode.value[2] );
+      REQUIRE( 1.0 == card6->enode.value[0] );
+      REQUIRE( 2.0 == card6->enode.value[1] );
+      REQUIRE( 3.0 == card6->enode.value[2] );
     }
   }
   WHEN( "Cards 3,4,5,5,5,3" ){
@@ -147,9 +147,9 @@ SCENARIO( "Parsing valid RECONR input" ){
       auto& card6 = std::get<3>( reconr.cardSequence.front() );
       REQUIRE( card6 );
       REQUIRE( 3 == card6->enode.value.size() );
-      REQUIRE( 1.0*dimwits::electronVolt == card6->enode.value[0] );
-      REQUIRE( 2.0*dimwits::electronVolt == card6->enode.value[1] );
-      REQUIRE( 3.0*dimwits::electronVolt == card6->enode.value[2] );
+      REQUIRE( 1.0 == card6->enode.value[0] );
+      REQUIRE( 2.0 == card6->enode.value[1] );
+      REQUIRE( 3.0 == card6->enode.value[2] );
     }
   }
 } // SCENARIO

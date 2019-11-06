@@ -18,7 +18,7 @@ SCENARIO( "ERRORR, Normal, Card7, Efmean",
         iRecordStream<char> iss( std::istringstream( std::to_string( d ) ) );
 
         THEN( "the value can be verified" ){
-          REQUIRE( d*dimwits::electronVolt == *( argument::extract<
+          REQUIRE( d == *( argument::extract<
                 ERRORR::Normal::Card7::Efmean >( iss, ifissp, mfcov ).value ) );
         }
       } // WHEN
@@ -31,7 +31,7 @@ SCENARIO( "ERRORR, Normal, Card7, Efmean",
         iRecordStream<char> iss( std::istringstream( " -10.0 /" ) );
 
         THEN( "the value doesn't matter, but can be verified" ){
-          REQUIRE( -10.0*dimwits::electronVolt == *( argument::extract<
+          REQUIRE( -10.0 == *( argument::extract<
                     ERRORR::Normal::Card7::Efmean >( iss, ifissp, i ).value ) );
         }
       } // WHEN
@@ -43,7 +43,7 @@ SCENARIO( "ERRORR, Normal, Card7, Efmean",
       iRecordStream<char> iss( std::istringstream( " /" ) );
 
       THEN( "the default value is provided" ){
-        REQUIRE( 2.0e6*dimwits::electronVolt == *( argument::extract<
+        REQUIRE( 2.0e6 == *( argument::extract<
                 ERRORR::Normal::Card7::Efmean >( iss, ifissp, mfcov ).value ) );
       }
     } // WHEN

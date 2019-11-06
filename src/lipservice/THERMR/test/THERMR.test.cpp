@@ -31,11 +31,11 @@ SCENARIO( "THERMR input",
         REQUIRE( thermr.card2.mtref.value  == 221 );
         REQUIRE( thermr.card2.iprint.value == 2 );
 	
-        REQUIRE( thermr.card3.tempr.value[0] == 350.0 * dimwits::kelvin );
-        REQUIRE( thermr.card3.tempr.value[1] == 450.0 * dimwits::kelvin );
+        REQUIRE( thermr.card3.tempr.value[0] == 350.0 );
+        REQUIRE( thermr.card3.tempr.value[1] == 450.0 );
 
         REQUIRE( thermr.card4.tol.value  == 0.05 );
-        REQUIRE( thermr.card4.emax.value == 1.2 * dimwits::electronVolts );
+        REQUIRE( thermr.card4.emax.value == 1.2 );
       } // THEN
     } // WHEN
     WHEN( "optional parameter not provided" ){

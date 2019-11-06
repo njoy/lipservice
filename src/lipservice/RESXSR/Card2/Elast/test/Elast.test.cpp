@@ -8,8 +8,8 @@ using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "elast values",
           "[RESXSR],[Card2],[Elast]" ){
-  const dimwits::Quantity< dimwits::ElectronVolt > ef =
-        2.0*dimwits::electronVolt;
+  const double ef =
+        2.0;
 
   GIVEN( "valid values" ){
     for( auto elast : { 2.2, 9.1, 1000.0, 103303.1 } ){
@@ -18,7 +18,7 @@ SCENARIO( "elast values",
       THEN( situ.c_str() ){
         iRecordStream<char> issElast( std::istringstream(
                                       std::to_string( elast ) ) );
-        REQUIRE( elast*dimwits::electronVolt ==
+        REQUIRE( elast ==
                  argument::extract< RESXSR::Card2::Elast >(
                                     issElast, ef ).value );
       }

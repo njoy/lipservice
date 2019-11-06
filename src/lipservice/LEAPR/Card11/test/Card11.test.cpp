@@ -9,7 +9,7 @@ SCENARIO( "LEAPR Card11 input values",
     iRecordStream<char> is( std::istringstream( "20 30" ) );
     THEN( "the extracted values are correct" ){
       LEAPR::Card11 card11( is );
-      REQUIRE( card11.delta.value == 20 * dimwits::electronVolts );
+      REQUIRE( card11.delta.value == 20 );
       REQUIRE( card11.ni.value    == 30 );
     } // THEN
   } // GIVEN

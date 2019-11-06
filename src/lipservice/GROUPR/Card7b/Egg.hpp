@@ -1,5 +1,5 @@
 struct Egg {
-  using Value_t = std::vector< Quantity< ElectronVolt > >;
+  using Value_t = std::vector< double >;
   static std::string name(){ return "egg"; }
 
   static std::string description() {
@@ -15,7 +15,7 @@ struct Egg {
       return false;
     }
     auto found = std::find_if( egn.begin(), egn.end(),
-                               [](auto& E){ return E <= 0.0*electronVolt; });
+                               [](auto& E){ return E <= 0.0; });
     if ( found != egn.end() ){
       Log::warning( "Negative energy value ({}) found at index {}",
                     *found, std::distance(egn.begin(), found));

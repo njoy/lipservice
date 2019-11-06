@@ -20,7 +20,7 @@ SCENARIO( "Validating HEATR Card2 inputs",
           REQUIRE( card2.ntemp.value == 1 );
           REQUIRE( card2.local.value == 1 );
           REQUIRE( card2.iprint.value == 2 );
-          REQUIRE( card2.ed.value == 40 * dimwits::electronVolts );
+          REQUIRE( card2.ed.value == 40 );
         } 
         {
           HEATR::Card2 card2( iss2, nplot );
@@ -30,7 +30,7 @@ SCENARIO( "Validating HEATR Card2 inputs",
           REQUIRE( card2.ntemp.value == 1 );
           REQUIRE( card2.local.value == 1 );
           REQUIRE( card2.iprint.value == 2 );
-          REQUIRE( card2.ed.value == 40 * dimwits::electronVolts );
+          REQUIRE( card2.ed.value == 40 );
         } 
       } // THEN
     } // WHEN
@@ -44,7 +44,7 @@ SCENARIO( "Validating HEATR Card2 inputs",
         REQUIRE( card2.ntemp.value == 0 );
         REQUIRE( card2.local.value == 0 );
         REQUIRE( card2.iprint.value == 0 );
-        REQUIRE( card2.ed.value == 25 * dimwits::electronVolts );
+        REQUIRE( card2.ed.value == 25 );
       } // THEN
     } // WHEN
     WHEN( "all card2 inputs are provided, but not valid" ){
@@ -79,7 +79,7 @@ SCENARIO( "Validating HEATR Card2 inputs",
         REQUIRE( card2.ntemp.value == 1 );
         REQUIRE( card2.local.value == 1 );
         REQUIRE( card2.iprint.value == 2 );
-        REQUIRE( card2.ed.value == 40 * dimwits::electronVolts );
+        REQUIRE( card2.ed.value == 40 );
       } // THEN
     } // WHEN
     WHEN( "optional inputs not provided" ){
@@ -92,7 +92,7 @@ SCENARIO( "Validating HEATR Card2 inputs",
         REQUIRE( card2.ntemp.value == 0 );
         REQUIRE( card2.local.value == 0 );
         REQUIRE( card2.iprint.value == 0 );
-        REQUIRE( card2.ed.value == 25 * dimwits::electronVolts );
+        REQUIRE( card2.ed.value == 25 );
       } // THEN
     } // WHEN
     WHEN( "there is a conflict between iprint and nplot" ){

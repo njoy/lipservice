@@ -13,10 +13,10 @@ SCENARIO( "LEAPR Card15 input values",
       iRecordStream< char> iss( std::istringstream("1.0 2.0 3.0") );
 
       THEN( "the card15 input values can be extracted correctly" ){
-        std::vector< dimwits::Quantity< dimwits::ElectronVolts > > refOes{ 
-          1.0 * dimwits::electronVolts,  
-          2.0 * dimwits::electronVolts,
-          3.0 * dimwits::electronVolts };
+        std::vector< double > refOes{ 
+          1.0  
+          2.0
+          3.0 };
 
         LEAPR::Card15 card15( iss, nd );
         REQUIRE( refOes == card15.oe.value );
@@ -59,14 +59,14 @@ SCENARIO( "LEAPR Card15 input values",
       ) );
 
       THEN( "the card15 input values can be extracted correctly" ){
-        std::vector< dimwits::Quantity< dimwits::ElectronVolts > > refOes{ 
-          .01  * dimwits::electronVolts,
-          .015 * dimwits::electronVolts, 
-          .025 * dimwits::electronVolts,
-          .035 * dimwits::electronVolts,
-          .250 * dimwits::electronVolts,
-          .330 * dimwits::electronVolts,
-          .504 * dimwits::electronVolts };
+        std::vector< double > refOes{ 
+          .01
+          .015 
+          .025
+          .035
+          .250
+          .330
+          .504 };
 
         LEAPR::Card15 card15( iss, nd );
         REQUIRE( refOes == card15.oe.value );

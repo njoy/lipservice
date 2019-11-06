@@ -14,7 +14,7 @@ SCENARIO( "Tempr input values", "[Card4], [Tempr]" ){
       for( auto tempr : validTempr ){
 	iRecordStream<char> issTempr( std::istringstream( std::to_string(tempr) ) );
         auto temprArg = argument::extract< RECONR::Card4::Tempr >(issTempr );
-        REQUIRE( tempr * dimwits::kelvin == temprArg.value );
+        REQUIRE( tempr == temprArg.value );
       }
     }
   }

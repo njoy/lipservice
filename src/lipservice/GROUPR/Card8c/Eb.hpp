@@ -1,5 +1,5 @@
 struct Eb {
-  using Value_t = Quantity< ElectronVolt >;
+  using Value_t = double;
   static std::string name(){ return "eb"; }
 
   static std::string description(){ 
@@ -8,5 +8,5 @@ struct Eb {
         "when calculating a weight function.";
   }
 
-  static bool verify( const Value_t E ){ return E > 0.0*electronVolt; }
+  static bool verify( const Value_t E ){ return E > 0.0; }
 };

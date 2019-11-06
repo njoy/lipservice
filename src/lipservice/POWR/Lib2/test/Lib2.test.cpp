@@ -28,7 +28,7 @@ SCENARIO( "POWR, Lib2",
         POWR::Lib2 lib2( iss );
 
         REQUIRE( 1234 == lib2.card3.matd.value );
-        REQUIRE( 300*dimwits::kelvin == lib2.card3.rest->first.value );
+        REQUIRE( 300 == lib2.card3.rest->first.value );
         REQUIRE( "" == lib2.card3.rest->second.value );
 
         REQUIRE( 0 == lib2.card45->first.itrc.value );
@@ -59,7 +59,7 @@ SCENARIO( "POWR, Lib2",
         POWR::Lib2 lib2( iss );
 
         REQUIRE( 2345 == lib2.card3.matd.value );
-        REQUIRE( 3.14*dimwits::kelvin == lib2.card3.rest->first.value );
+        REQUIRE( 3.14 == lib2.card3.rest->first.value );
         REQUIRE( "hollerith" == lib2.card3.rest->second.value );
 
         REQUIRE( 1 == lib2.card45->first.itrc.value );

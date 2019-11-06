@@ -1,5 +1,5 @@
 struct Egn {
-  using Value_t = std::vector< Quantity< ElectronVolt > >;
+  using Value_t = std::vector< double >;
   static std::string name(){ return "egn"; }
   static std::string description(){
     return "The egn parameter specifies the energy bin boundaries for the\n"
@@ -10,7 +10,7 @@ struct Egn {
       Log::error( "No energy bin values are provided." );
       return false;
     }
-    if( egn.front() < 0.0*electronVolt ) return false;
+    if( egn.front() < 0.0 ) return false;
     auto unsortedStart = std::is_sorted_until( egn.begin(), egn.end() );
 
     if( unsortedStart != egn.end() ){

@@ -15,7 +15,7 @@ SCENARIO( "LEAPR Card6 input values",
         auto ct = *( card6.controlTuple );
         REQUIRE( ct.b7.value == 1 );
         REQUIRE( ct.aws.value == 15.87 );
-        REQUIRE( ct.sps.value == 3.84*dimwits::barns  );
+        REQUIRE( ct.sps.value == 3.84  );
         REQUIRE( ct.mss.value == 1 );
       } // THEN
     } // WHEN

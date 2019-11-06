@@ -18,10 +18,10 @@ SCENARIO( "CCCCR, CBRKXS, Card2, Atem",
                                                           iss, num_vals ).value;
 
         REQUIRE( 4 == atem.size() );
-        REQUIRE( 0.1*dimwits::kelvin == atem.at( 0 ) );
-        REQUIRE( 0.2*dimwits::kelvin == atem.at( 1 ) );
-        REQUIRE( 0.3*dimwits::kelvin == atem.at( 2 ) );
-        REQUIRE( 0.4*dimwits::kelvin == atem.at( 3 ) );
+        REQUIRE( 0.1 == atem.at( 0 ) );
+        REQUIRE( 0.2 == atem.at( 1 ) );
+        REQUIRE( 0.3 == atem.at( 2 ) );
+        REQUIRE( 0.4 == atem.at( 3 ) );
       }
     } // WHEN
   } // GIVEN

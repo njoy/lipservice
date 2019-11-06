@@ -12,7 +12,7 @@ SCENARIO( "LEAPR Card10 input values",
         iRecordStream<char> iss(
           std::istringstream( std::to_string( temp ) ) );
         LEAPR::Card10 card10( iss );
-        REQUIRE( card10.temp.value == temp * dimwits::kelvin );
+        REQUIRE( card10.temp.value == temp );
       }
     } // THEN
   } // GIVEN

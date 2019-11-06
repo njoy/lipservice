@@ -1,5 +1,5 @@
 struct Ed {
-  using Value_t = Quantity<ElectronVolts>;
+  using Value_t = double;
   static std::string name(){ return "ed"; }
   static std::string description(){
     return
@@ -31,25 +31,25 @@ struct Ed {
     int mat = matd.value;
     int za = 1000 * std::floor( mat / 100 );
     int iz = std::round( za / 1000 );
-    auto default_val = 25.0 * electronVolts;
+    auto default_val = 25.0;
 
-    if      ( iz == 4  ){ default_val = 31.0 * electronVolts; }
-    else if ( iz == 6  ){ default_val = 31.0 * electronVolts; }
-    else if ( iz == 12 ){ default_val = 25.0 * electronVolts; }
-    else if ( iz == 13 ){ default_val = 27.0 * electronVolts; }
-    else if ( iz == 14 ){ default_val = 25.0 * electronVolts; }
-    else if ( iz == 20 ){ default_val = 40.0 * electronVolts; }
-    else if ( iz >= 22 and iz <= 29 ){ default_val = 40.0 * electronVolts; }
-    else if ( iz == 40 ){ default_val = 40.0 * electronVolts; }
-    else if ( iz == 41 ){ default_val = 40.0 * electronVolts; }
-    else if ( iz == 42 ){ default_val = 60.0 * electronVolts; }
-    else if ( iz == 47 ){ default_val = 60.0 * electronVolts; }
-    else if ( iz == 73 ){ default_val = 90.0 * electronVolts; }
-    else if ( iz == 74 ){ default_val = 90.0 * electronVolts; }
-    else if ( iz == 79 ){ default_val = 30.0 * electronVolts; }
-    else if ( iz == 82 ){ default_val = 25.0 * electronVolts; }
+    if      ( iz == 4  ){ default_val = 31.0; }
+    else if ( iz == 6  ){ default_val = 31.0; }
+    else if ( iz == 12 ){ default_val = 25.0; }
+    else if ( iz == 13 ){ default_val = 27.0; }
+    else if ( iz == 14 ){ default_val = 25.0; }
+    else if ( iz == 20 ){ default_val = 40.0; }
+    else if ( iz >= 22 and iz <= 29 ){ default_val = 40.0; }
+    else if ( iz == 40 ){ default_val = 40.0; }
+    else if ( iz == 41 ){ default_val = 40.0; }
+    else if ( iz == 42 ){ default_val = 60.0; }
+    else if ( iz == 47 ){ default_val = 60.0; }
+    else if ( iz == 73 ){ default_val = 90.0; }
+    else if ( iz == 74 ){ default_val = 90.0; }
+    else if ( iz == 79 ){ default_val = 30.0; }
+    else if ( iz == 82 ){ default_val = 25.0; }
     else { 
-      default_val = 25.0 * electronVolts; 
+      default_val = 25.0; 
       Log::info( "Mat Number: {}", mat );
       Log::warning( "Material specific default value not found in table\n"
                     "default value of 25 eV used.\n" );
@@ -60,6 +60,6 @@ struct Ed {
 
   static bool verify( const Value_t& i,
                       const Argument< HEATR::Card2::Matd >& ){ 
-    return (i >= 0.0*electronVolts); 
+    return (i >= 0.0); 
   }
 };

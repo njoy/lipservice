@@ -6,7 +6,6 @@ using namespace njoy::njoy21::lipservice;
 SCENARIO( "LEAPR Card18 input values",
   "[LEAPR], [Card18]" ){
   GIVEN( "a value for nka" ){
-    auto InvAng =  pow( 1.0 * dimwits::angstrom, dimwits::Ratio<-1> );
     Argument< LEAPR::Card17::Nka > nka;
     nka.value = 3;
 
@@ -14,9 +13,7 @@ SCENARIO( "LEAPR Card18 input values",
       iRecordStream< char> iss( std::istringstream(" 1.0 2.0 3.0") );
 
       THEN( "the skappa values can be extracted correctly" ){
-        std::vector< decltype(InvAng) > refSkappas{ 1.0 * InvAng, 
-                                                    2.0 * InvAng, 
-                                                    3.0 * InvAng };
+        std::vector< double > refSkappas{ 1.0, 2.0, 3.0 };
         LEAPR::Card18 card18( iss, nka );
         REQUIRE( refSkappas == card18.skappa.value );
       } // THEN

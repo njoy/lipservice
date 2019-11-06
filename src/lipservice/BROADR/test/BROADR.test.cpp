@@ -25,15 +25,15 @@ SCENARIO( "bugless" ){
     REQUIRE( broadr.card2.ntemp2.value == 2 );
     REQUIRE( broadr.card2.istart.value == 0 );
     REQUIRE( broadr.card2.istrap.value == 0 );
-    REQUIRE( broadr.card2.temp1.value == 0.0 * kelvin );
+    REQUIRE( broadr.card2.temp1.value == 0.0 );
 
     REQUIRE( broadr.card3.errthn.value == 1.0E-3 );
-    REQUIRE( broadr.card3.thnmax.value == 1.0 * electronVolts );
+    REQUIRE( broadr.card3.thnmax.value == 1.0s );
     REQUIRE( broadr.card3.errmax.value == 0.02 );
-    REQUIRE( broadr.card3.errint.value == 1.0E-7 * barns );
+    REQUIRE( broadr.card3.errint.value == 1.0E-7s );
 
-    REQUIRE( broadr.card4.temp2.value.front() == 300.0 * kelvin );
-    REQUIRE( broadr.card4.temp2.value.back() == 1200.0 * kelvin );
+    REQUIRE( broadr.card4.temp2.value.front() == 300.0 );
+    REQUIRE( broadr.card4.temp2.value.back() == 1200.0 );
 
     REQUIRE( not broadr.card5List.size() );
   }

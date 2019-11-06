@@ -14,7 +14,7 @@ SCENARIO( "Verifying ACER Card5 input",
     THEN( " the material and temperature can be extracted and verified" ){
       ACER::Card5 card5 ( issCard5 );
       REQUIRE( 9235 == card5.matd.value );
-      REQUIRE( 293.6* dimwits::kelvin == card5.tempd.value );
+      REQUIRE( 293.6 == card5.tempd.value );
     }
   } // GIVEN
 

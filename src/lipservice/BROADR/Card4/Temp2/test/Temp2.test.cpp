@@ -13,13 +13,13 @@ SCENARIO( "value range" ){
   GIVEN( "ntemp2 = 1" ){
     ntemp2.value = 1;
     WHEN( "valid temperatures" ){
-      temp1.value = 8.0 * dimwits::kelvin;
+      temp1.value = 8.0
       THEN( "the returned class has the correct value" ){
         for( auto temp2 : { 8.1, 9.0, 10.0, 11.0 } ){
           iRecordStream<char> iss( std::istringstream( 
                   std::to_string( temp2 ) ) );
 
-          REQUIRE( temp2*dimwits::kelvin == 
+          REQUIRE( temp2 == 
                    argument::extract< BROADR::Card4::Temp2 >(
                        iss, ntemp2, istrap, temp1 ).value.front() );
         }
@@ -33,7 +33,7 @@ SCENARIO( "value range" ){
       }
     }
     WHEN( "temperature is less than temp1" ){
-      temp1.value = 10.0*dimwits::kelvin;
+      temp1.value = 10.0
       THEN( "an exception is thrown" ){
         iRecordStream<char> iss( 
             std::istringstream( " 9.0 " ) );
@@ -49,8 +49,8 @@ SCENARIO( "value range" ){
       THEN( "the returned class has the correct value" ){
         auto temp2 = argument::extract< BROADR::Card4::Temp2 >
                      ( iss, ntemp2, istrap, temp1 );
-        REQUIRE( temp2.value.front() == 100.0 * dimwits::kelvin );
-        REQUIRE( temp2.value.back() == 200.0 * dimwits::kelvin );
+        REQUIRE( temp2.value.front() == 100.0 );
+        REQUIRE( temp2.value.back() == 200.0 );
       }
     }
     WHEN( "invalid temperatures---temperatures are not increasing" ){

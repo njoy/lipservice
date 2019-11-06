@@ -17,14 +17,14 @@ SCENARIO( "Temper input values", "[PLOTR], [Card8], [Temper]" ){
                              std::to_string(temper) ) );
         auto temperArg = argument::extract< PLOTR::Card8::Temper >( 
                                             issTemper, iverf.value );
-        REQUIRE( temper * dimwits::kelvin == temperArg.value );
+        REQUIRE( temper == temperArg.value );
       }
     }
   }//GIVEN
   GIVEN( "no temper value" ){
     THEN( "the default value is returned" ){
       iRecordStream<char> iss( std::istringstream( "/") );
-      REQUIRE( 0*dimwits::kelvin == 
+      REQUIRE( 0 == 
             *( argument::extract< PLOTR::Card8::Temper >( 
                                                 iss, iverf.value ).value ) );
     }

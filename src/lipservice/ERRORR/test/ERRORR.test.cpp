@@ -34,7 +34,7 @@ SCENARIO( "ERRORR",
         REQUIRE( 1 == errorr.normal->card2.irelco.value );
 
         REQUIRE( 0 == errorr.normal->card3.mprint.value );
-        REQUIRE( 0.0*dimwits::kelvin == errorr.normal->card3.tempin.value );
+        REQUIRE( 0.0 == errorr.normal->card3.tempin.value );
 
         REQUIRE( 0 == errorr.normal->card7.iread.value );
         REQUIRE( 33 == errorr.normal->card7.mfcov.value );
@@ -75,7 +75,7 @@ SCENARIO( "ERRORR",
         REQUIRE( 1 == errorr.normal->card2.irelco.value ); // default
 
         REQUIRE( 0 == errorr.normal->card3.mprint.value );
-        REQUIRE( 0.*dimwits::kelvin == errorr.normal->card3.tempin.value );
+        REQUIRE( 0. == errorr.normal->card3.tempin.value );
 
         REQUIRE( 2 == errorr.normal->card7.iread.value );
         REQUIRE( 31 == errorr.normal->card7.mfcov.value );

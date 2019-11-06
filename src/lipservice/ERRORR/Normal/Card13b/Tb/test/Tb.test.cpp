@@ -15,7 +15,7 @@ SCENARIO( "ERRORR, Normal, Card13b, Tb",
         iRecordStream<char> iss( std::istringstream( std::to_string( d ) ) );
 
         THEN( "the value can be verified" ){
-          REQUIRE( d*dimwits::electronVolt == argument::extract<
+          REQUIRE( d == argument::extract<
                                    ERRORR::Normal::Card13b::Tb >( iss ).value );
         }
       } // WHEN

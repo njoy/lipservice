@@ -24,7 +24,7 @@ public:
 
   using reactionList_t = std::vector< Card9 >;
   using tempReactionListPair_t = std::vector< std::pair< 
-      Quantity< Kelvin >, reactionList_t > >;
+      double, reactionList_t > >;
   using materialReactionsPair_t = std::pair< 
       Card10::Matd::Value_t, tempReactionListPair_t >;
   using reactionMatrix_t = std::vector< materialReactionsPair_t >;

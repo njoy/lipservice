@@ -14,7 +14,7 @@ SCENARIO( "Validating card8 inputs",
         REQUIRE( std::string("hisnam") == card8.hisnam.value );
         REQUIRE( 125 == card8.mat.value );
         REQUIRE( 2   == card8.jsigz.value );
-        REQUIRE( 350 * dimwits::kelvin == card8.dtemp.value );
+        REQUIRE( 350 == card8.dtemp.value );
       } // THEN
     } // WHEN
  
@@ -24,7 +24,7 @@ SCENARIO( "Validating card8 inputs",
       THEN( "default values for ntabl and ngp used" ){
         REQUIRE( 0 == card8.mat.value );
         REQUIRE( 1 == card8.jsigz.value );
-        REQUIRE( 300 * dimwits::kelvin == card8.dtemp.value );
+        REQUIRE( 300 == card8.dtemp.value );
       } // THEN
     } // WHEN
   } // GIVEN

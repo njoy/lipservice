@@ -18,10 +18,10 @@ SCENARIO( "ERRORR, Normal, Card8b",
 
         REQUIRE( 4 == card8b.ek.value.size() );
 
-        REQUIRE( 0.2*dimwits::electronVolt == card8b.ek.value.at(0) );
-        REQUIRE( 2.0*dimwits::electronVolt == card8b.ek.value.at(1) );
-        REQUIRE( 20.0*dimwits::electronVolt == card8b.ek.value.at(2) );
-        REQUIRE( 200.0*dimwits::electronVolt == card8b.ek.value.at(3) );
+        REQUIRE( 0.2 == card8b.ek.value.at(0) );
+        REQUIRE( 2.0 == card8b.ek.value.at(1) );
+        REQUIRE( 20.0 == card8b.ek.value.at(2) );
+        REQUIRE( 200.0 == card8b.ek.value.at(3) );
       }
     } // WHEN
   } // GIVEN

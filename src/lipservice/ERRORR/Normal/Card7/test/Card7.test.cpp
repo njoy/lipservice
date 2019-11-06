@@ -22,7 +22,7 @@ SCENARIO( "ERRORR, Normal, Card7",
         REQUIRE( 1 == card7.irespr.value );
         REQUIRE( 1 == card7.legord.value );
         REQUIRE( -1 == card7.ifissp.value );
-        REQUIRE( 2.e6*dimwits::electronVolt == *( card7.efmean.value ) );
+        REQUIRE( 2.e6 == *( card7.efmean.value ) );
         REQUIRE( Approx( 0.0 ) == card7.dap.value );
       }
     } // WHEN
@@ -41,7 +41,7 @@ SCENARIO( "ERRORR, Normal, Card7",
         REQUIRE( 0 == card7.irespr.value );
         REQUIRE( 2 == card7.legord.value );
         REQUIRE( -1 == card7.ifissp.value );
-        REQUIRE( -10.0*dimwits::electronVolt == *( card7.efmean.value ) );
+        REQUIRE( -10.0 == *( card7.efmean.value ) );
         REQUIRE( Approx( 0.6 ) == card7.dap.value );
       }
 
@@ -55,7 +55,7 @@ SCENARIO( "ERRORR, Normal, Card7",
         REQUIRE( 1 == card7.irespr.value );
         REQUIRE( 1 == card7.legord.value );
         REQUIRE( -1 == card7.ifissp.value );
-        REQUIRE( 2.e6*dimwits::electronVolt == *( card7.efmean.value ) );
+        REQUIRE( 2.e6 == *( card7.efmean.value ) );
         REQUIRE( Approx( 0.0 ) == card7.dap.value );
       }
 
@@ -69,7 +69,7 @@ SCENARIO( "ERRORR, Normal, Card7",
         REQUIRE( 1 == card7.irespr.value );
         REQUIRE( 1 == card7.legord.value );
         REQUIRE( -1 == card7.ifissp.value );
-        REQUIRE( 2.e6*dimwits::electronVolt == *( card7.efmean.value ) );
+        REQUIRE( 2.e6 == *( card7.efmean.value ) );
         REQUIRE( Approx( 0.0 ) == card7.dap.value );
       }
     } // WHEN
@@ -87,7 +87,7 @@ SCENARIO( "ERRORR, Normal, Card7",
         REQUIRE( 0 == card7.irespr.value );
         REQUIRE( 1 == card7.legord.value );
         REQUIRE( -1 == card7.ifissp.value );
-        REQUIRE( 2.e6*dimwits::electronVolt == *( card7.efmean.value ) );
+        REQUIRE( 2.e6 == *( card7.efmean.value ) );
         REQUIRE( Approx( 0.0 ) == card7.dap.value );
       }
 
@@ -101,7 +101,7 @@ SCENARIO( "ERRORR, Normal, Card7",
         REQUIRE( 1 == card7.irespr.value );
         REQUIRE( 1 == card7.legord.value );
         REQUIRE( -1 == card7.ifissp.value );
-        REQUIRE( 2.e6*dimwits::electronVolt == *( card7.efmean.value ) );
+        REQUIRE( 2.e6 == *( card7.efmean.value ) );
         REQUIRE( Approx( 0.0 ) == card7.dap.value );
       }
     } // WHEN
@@ -119,7 +119,7 @@ SCENARIO( "ERRORR, Normal, Card7",
         REQUIRE( 1 == card7.irespr.value );
         REQUIRE( 1 == card7.legord.value );
         REQUIRE( 12 == card7.ifissp.value );
-        REQUIRE( 2.0e5*dimwits::electronVolt == *( card7.efmean.value ) );
+        REQUIRE( 2.0e5 == *( card7.efmean.value ) );
         REQUIRE( Approx( 0.0 ) == card7.dap.value );
       }
 
@@ -133,7 +133,7 @@ SCENARIO( "ERRORR, Normal, Card7",
         REQUIRE( 1 == card7.irespr.value );
         REQUIRE( 1 == card7.legord.value );
         REQUIRE( -1 == card7.ifissp.value );
-        REQUIRE( 2.0e6*dimwits::electronVolt == *( card7.efmean.value ) );
+        REQUIRE( 2.0e6 == *( card7.efmean.value ) );
         REQUIRE( Approx( 0.0 ) == card7.dap.value );
       }
 

@@ -18,10 +18,10 @@ SCENARIO( "Sigz input values",
       THEN( "the grid points can be extracted correctly" ){
         auto sigz = argument::extract< 
                     PURR::Card4::Sigz >(issPoints, nsigz);
-        std::vector< dimwits::Quantity< dimwits::Barn > > refSigzs{
-                      1.0*dimwits::barn, 
-                      2.0*dimwits::barn, 
-                      3.0*dimwits::barn};
+        std::vector< double > refSigzs{
+                      1.0 
+                      2.0 
+                      3.0
         REQUIRE( refSigzs == sigz.value );
       }
     }

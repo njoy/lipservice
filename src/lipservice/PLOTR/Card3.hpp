@@ -1,14 +1,13 @@
 class Card3 {
 public:
   #include "lipservice/PLOTR/Card3/Title.hpp"
-  using T1 = Title< hana::string<'t', '1'> >;
 
-  Argument< T1 > t1;
+  Argument< Title > t1;
 
   template< typename Char >
   Card3( iRecordStream< Char >& is )
     try:
-      t1( argument::extract< T1 >( is ) )
+      t1( argument::extract< Title >( is ) )
     {
       Card::clear( is );
     }

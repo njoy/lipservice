@@ -17,10 +17,10 @@ SCENARIO( "Sigz input values", "[Card5], [Sigz]" ){
       THEN( "the grid points can be extracted correctly" ){
         auto sigz = argument::extract< 
                     GROUPR::Card5::Sigz >(issPoints, nsigz);
-        std::vector< dimwits::Quantity< dimwits::Barn > > refSigzs{
-            std::numeric_limits<double>::infinity()*dimwits::barn, 
-            2.0*dimwits::barn, 
-            3.0*dimwits::barn};
+        std::vector< double > refSigzs{
+            std::numeric_limits<double>::infinity() 
+            2.0 
+            3.0
         REQUIRE( refSigzs == sigz.value );
       }
     }

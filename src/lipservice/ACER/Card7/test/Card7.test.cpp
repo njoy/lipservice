@@ -13,7 +13,7 @@ SCENARIO( "Verifying ACER Card7 input",
       ACER::Card7 card7( issCard7 );
 
       REQUIRE(2.00 == card7.thin1.value );
-      REQUIRE( 1E3*dimwits::electronVolt == card7.thin2.value );
+      REQUIRE( 1E3 == card7.thin2.value );
       REQUIRE( 2   == card7.thin3.value );
     }
   }
@@ -23,7 +23,7 @@ SCENARIO( "Verifying ACER Card7 input",
       ACER::Card7 card7( issCard7 );
 
       REQUIRE(-2.00 == card7.thin1.value );
-      REQUIRE( 1E3*dimwits::electronVolt == card7.thin2.value );
+      REQUIRE( 1E3 == card7.thin2.value );
       REQUIRE( 0   == card7.thin3.value );
     }
   }
@@ -33,7 +33,7 @@ SCENARIO( "Verifying ACER Card7 input",
       ACER::Card7 card7( issCard7 );
 
       REQUIRE(2.00 == card7.thin1.value );
-      REQUIRE( 0*dimwits::electronVolt == card7.thin2.value );
+      REQUIRE( 0 == card7.thin2.value );
       REQUIRE( 0   == card7.thin3.value );
     }
   }
@@ -43,7 +43,7 @@ SCENARIO( "Verifying ACER Card7 input",
       ACER::Card7 card7( issCard7 );
 
       REQUIRE( 0.0 == card7.thin1.value );
-      REQUIRE( 0.0*dimwits::electronVolt == card7.thin2.value );
+      REQUIRE( 0.0 == card7.thin2.value );
       REQUIRE( 0   == card7.thin3.value );
     }
   }

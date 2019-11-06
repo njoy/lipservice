@@ -15,7 +15,7 @@ SCENARIO( "CCCCR, CISOTX, Card4, Amass",
         iRecordStream<char> iss( std::istringstream( std::to_string( d ) ) );
 
         THEN( "the value can be verified" ){
-          REQUIRE( d * dimwits::gram ==
+          REQUIRE( d ==
                 argument::extract< CCCCR::CISOTX::Card4::Amass >( iss ).value );
         }
       }

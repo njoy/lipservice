@@ -13,7 +13,7 @@ SCENARIO( "HEATR ed values",
       THEN( "the returned ed class has the correct value" ){
         for( auto ed : validValues ){
           iRecordStream<char> iss( std::istringstream( std::to_string( ed ) ) );
-          REQUIRE( ed*dimwits::electronVolts == argument::extract< 
+          REQUIRE( eds == argument::extract< 
             HEATR::Card2::Ed >( iss, matd ).value );
         } 
       } // THEN
@@ -43,7 +43,7 @@ SCENARIO( "HEATR ed values",
         for( unsigned int i = 0; i < validMatd.size(); ++i ){
           iRecordStream<char> iss( std::istringstream( "/" ) );
           matd.value = validMatd[i];	
-          REQUIRE( validEd[i]*dimwits::electronVolts == argument::extract<
+          REQUIRE( validEd[i]s == argument::extract<
             HEATR::Card2::Ed >( iss, matd ).value );
         }  
       } // THEN
@@ -55,7 +55,7 @@ SCENARIO( "HEATR ed values",
         for( auto matdNum : validMatd ){
           iRecordStream<char> iss( std::istringstream( "/" ) );
           matd.value = matdNum;	
-          REQUIRE( defaultValue * dimwits::electronVolts == argument::extract<
+          REQUIRE( defaultValue == argument::extract<
             HEATR::Card2::Ed >( iss, matd ).value );
         }  
       } // THEN

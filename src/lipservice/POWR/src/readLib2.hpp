@@ -1,7 +1,7 @@
 template< typename Istream >
 static std::vector< Lib2 > readLib2( Istream& is ){
   std::vector< Lib2 > lib2List;
-  std::vector< Quantity< Kelvin > > tempList;
+  std::vector< double > tempList;
 
   lib2List.emplace_back( is );
 

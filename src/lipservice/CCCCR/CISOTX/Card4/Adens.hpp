@@ -1,6 +1,6 @@
 struct Adens {
-  using GperCC = decltype(Gram{} / pow( Centi<Meter>{}, Ratio<3> ));
-  using Value_t = Quantity< GperCC >;
+  using GperCC = double;
+  using Value_t = double;
 
   static std::string name(){ return "adens"; }
   static std::string description(){
