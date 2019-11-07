@@ -25,60 +25,25 @@ public:
 
   std::optional< DataVariant > dataVariant;
 
-  template< typename Istream, typename Nextra >
-  auto readCard4( Istream& is, const Nextra& nxtra ){
-    return nxtra.value ?
-      std::optional< Card4 >{ std::in_place, is, nxtra } :
-      std::nullopt;
-  }
-
-  template< typename Istream >
-  DataVariant readDataVariant( Istream& is, int iopt ){
-    assert( (iopt > 0) and (iopt < 6) );
-    switch( iopt ){
-    case 1: {
-      Card5 card5( is );
-      Card6 card6( is );
-      Card7 card7( is );
-      return std::make_tuple< Card5, Card6, Card7 >( std::move( card5 ),
-                                                     std::move( card6 ),
-                                                     std::move( card7 ) );
-    }
-    case 2: {
-      Card8 card8( is );
-      Card8a card8a( is );
-      Card9 card9( is );
-      return std::make_tuple< Card8, Card8a, Card9 >( std::move( card8 ),
-                                                      std::move( card8a ),
-                                                      std::move( card9 ) );
-    }
-    case 3: {
-      return Card10( is );
-    }
-    case 4:
-    case 5: {
-      return Card11( is );
-    }
-    }
-    /* unreachable but necessary to silence compiler warning */
-    throw std::exception();
-  }
+  #include "lipservice/ACER/src/readCard4.hpp"
+  #include "lipservice/ACER/src/readDataVariant.hpp"
   
   template< typename Istream >
   ACER( Istream& is )
-    try:
-      card1( is ),
-      card2( is ),
-      card3( is ),
-      card4( readCard4( is, this->card2.nxtra ) ),
-      dataVariant( ( this->card2.iopt.value < 6 ) ?
-                   std::optional<DataVariant>{
-                     readDataVariant( is,
-                                      this->card2.iopt.value )
-                   } : std::nullopt ){
-   } catch( std::exception& e ) {
-     Log::info( "Trouble validating ACER input." );
-     throw e;
-   }
+  try:
+    card1( is ),
+    card2( is ),
+    card3( is ),
+    card4( readCard4( is, this->card2.nxtra ) ),
+    dataVariant( 
+      ( this->card2.iopt.value < 6 ) ?
+        std::optional<DataVariant>{
+          readDataVariant( is, this->card2.iopt.value ) } : 
+        std::nullopt )
+  {
+  } catch( std::exception& e ) {
+    Log::info( "Trouble validating ACER input." );
+    throw e;
+  }
 
 };

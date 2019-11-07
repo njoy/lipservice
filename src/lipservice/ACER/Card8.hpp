@@ -7,6 +7,7 @@ public:
   Argument< argument::common::Matd > matd;
   Argument< argument::common::Tempd > tempd;
   Argument< Tname > tname;
+  Argument< Nza > nza;
 
   template< typename Char >
   Card8( iRecordStream< Char >& is )
@@ -14,7 +15,7 @@ public:
     matd( argument::extract< argument::common::Matd >( is ) ),
     tempd( argument::extract< argument::common::Tempd >( is ) ),
     tname( argument::extract< Tname >( is ) ),
-    nza( argument::extract< Nza >( is ) )
+    nza( argument::extract< Nza >( is, nza.value ) )
   {
     Card::clear( is );
   } catch( std::exception& e ){
