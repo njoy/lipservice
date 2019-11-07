@@ -17,7 +17,7 @@ SCENARIO( "errint input values",
     THEN( "the returned class has the correct value" ){
       for( auto errint : validErrint ){
         iRecordStream<char> iss( std::istringstream( std::to_string( errint ) ) );
-        REQUIRE( errint * dimwits::barn ==
+        REQUIRE( errint ==
 		 argument::extract< RECONR::Card4::Errint >(iss, err).value );
       }
     }

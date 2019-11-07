@@ -10,8 +10,13 @@
   }
 #endif
 
+#include "boost/hana.hpp"
+namespace hana = boost::hana;
+
+#include "json.hpp"
+using json = nlohmann::json;
+
 #include "utility.hpp"
-#include "dimwits.hpp"
 #include "ENDFtk.hpp"
 #include "Log.hpp"
 
@@ -20,7 +25,6 @@ namespace njoy21 {
 namespace lipservice {
 
 using namespace std::experimental;
-using namespace dimwits;
 
 template< typename Char >
 using iRecordStream =

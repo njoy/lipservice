@@ -14,7 +14,7 @@ SCENARIO( "Sigpot  output values", "[GROUPR],[Card8a], [Sigpot]"){
         iRecordStream<char> iss(
             std::istringstream( std::to_string(sigpot) ) );
 
-        REQUIRE( sigpot*dimwits::barn == 
+        REQUIRE( sigpot == 
                 argument::extract< GROUPR::Card8a::Sigpot >( iss ).value );
       }
     }

@@ -150,15 +150,14 @@ SCENARIO( "CCCCR",
 
         for( int i = 0; i < 4; i++ ){
           REQUIRE( i+1 == ccccr.cisotx->card4.at(i).kbr.value );
-          REQUIRE( ( i+1.0 )*dimwits::gram ==
+          REQUIRE( ( i+1.0 ) ==
                                         ccccr.cisotx->card4.at(i).amass.value );
           REQUIRE( Approx( i+1.1 ) == ccccr.cisotx->card4.at(i).efiss.value );
           REQUIRE( Approx( i+1.2 ) == ccccr.cisotx->card4.at(i).ecapt.value );
-          REQUIRE( ( i + 1.3 )*dimwits::kelvin ==
+          REQUIRE( ( i + 1.3 ) ==
                                          ccccr.cisotx->card4.at(i).temp.value );
           REQUIRE( Approx( i+1.4 ) == ccccr.cisotx->card4.at(i).sigpot.value );
-          REQUIRE( 
-              Approx( i+1.5 ) == ccccr.cisotx->card4.at(i).adens.value.value );
+          REQUIRE( Approx( i+1.5 ) == ccccr.cisotx->card4.at(i).adens.value );
         }
       }
     } // WHEN

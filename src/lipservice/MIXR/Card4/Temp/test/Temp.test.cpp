@@ -12,7 +12,7 @@ SCENARIO( "Temp input values" ){
         iRecordStream<char> issTemp( std::istringstream(
 	  std::to_string(temp) ) );
 	auto tempArg = argument::extract< MIXR::Card4::Temp >(issTemp);
-	REQUIRE( temp * dimwits::kelvin == tempArg.value );
+	REQUIRE( temp == tempArg.value );
       }
     }
   }

@@ -1,5 +1,5 @@
 struct Ec {
-  using Value_t = Quantity< ElectronVolt >;
+  using Value_t = double;
   static std::string name(){ return "ec"; }
 
   static std::string description(){ 
@@ -10,6 +10,6 @@ struct Ec {
 
   static bool verify( const Value_t E,
                       const Argument< Eb >& eb){ 
-    return (E > 0.0*electronVolt) and ( E > eb.value ); 
+    return (E > 0.0) and ( E > eb.value ); 
   }
 };

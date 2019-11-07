@@ -674,6 +674,7 @@
     "src/lipservice/GAMINR/src/readCard6List.hpp",
     "src/lipservice/GAMINR/src/readArbitraryGammaStructure.hpp",
     "src/lipservice/GAMINR/src/readMaterials.hpp",
+    "src/lipservice/Card/src/clear.hpp",
     "src/lipservice/RESXSR/Card1.hpp",
     "src/lipservice/RESXSR/Card2.hpp",
     "src/lipservice/RESXSR/Card3.hpp",

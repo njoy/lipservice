@@ -14,14 +14,14 @@ SCENARIO( "Tempd input values", "[ACER], [Card10], [Tempd]" ){
       for( auto tempd : validTempd ){
 	iRecordStream<char> issTempd( std::istringstream( std::to_string(tempd) ) );
         auto tempdArg = argument::extract< argument::common::Tempd >(issTempd );
-        REQUIRE( tempd * dimwits::kelvin == tempdArg.value );
+        REQUIRE( tempd == tempdArg.value );
       }
     }
   }
   GIVEN( "no tempd value" ){
     THEN( "the default value is returned" ){
       iRecordStream<char> iss( std::istringstream( "/") );
-      REQUIRE( 300*dimwits::kelvin == 
+      REQUIRE( 300 == 
                argument::extract< argument::common::Tempd >( iss ).value );
     }
   }

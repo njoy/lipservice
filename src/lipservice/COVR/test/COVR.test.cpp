@@ -40,7 +40,7 @@ SCENARIO( "COVR",
         REQUIRE( Approx( 1.0 ) ==
                        std::get< 1 >( *( covr.card23a ) )->tlev.value.at( 3 ) );
 
-        REQUIRE( 0.001*dimwits::electronVolt ==
+        REQUIRE( 0.001 ==
                                std::get< 2 >( *( covr.card23a ) ).epmin.value );
 
         REQUIRE( 1 == std::get< 3 >( *( covr.card23a ) ).irelco.value );
@@ -124,7 +124,7 @@ SCENARIO( "COVR",
         REQUIRE( 1 == std::get< 0 >( *( covr.card23a ) ).icolor.value );
         REQUIRE( std::nullopt == std::get< 1 >( *( covr.card23a ) ) );
 
-        REQUIRE( 0.0*dimwits::electronVolt ==
+        REQUIRE( 0.0 ==
                                   std::get< 2 >( *(covr.card23a) ).epmin.value);
 
         REQUIRE( 1 == std::get< 3 >( *( covr.card23a ) ).irelco.value );
@@ -163,7 +163,7 @@ SCENARIO( "COVR",
         REQUIRE( 1 == std::get< 0 >( *( covr.card23a ) ).icolor.value );
         REQUIRE( std::nullopt == std::get< 1 >( *( covr.card23a ) ) );
 
-        REQUIRE( 0.0*dimwits::electronVolt ==
+        REQUIRE( 0.0 ==
                                   std::get< 2 >( *(covr.card23a) ).epmin.value);
 
         REQUIRE( 1 == std::get< 3 >( *( covr.card23a ) ).irelco.value );
@@ -215,7 +215,7 @@ SCENARIO( "COVR",
         REQUIRE( 1 == std::get< 0 >( *( covr.card23a ) ).icolor.value );
         REQUIRE( std::nullopt == std::get< 1 >( *( covr.card23a ) ) );
 
-        REQUIRE( 0.0*dimwits::electronVolt ==
+        REQUIRE( 0.0 ==
                                   std::get< 2 >( *(covr.card23a) ).epmin.value);
 
         REQUIRE( 1 == std::get< 3 >( *( covr.card23a ) ).irelco.value );
@@ -319,7 +319,7 @@ SCENARIO( "COVR",
         REQUIRE( 1 == std::get< 0 >( *( covr.card23a ) ).icolor.value );
         REQUIRE( std::nullopt == std::get< 1 >( *( covr.card23a ) ) );
 
-        REQUIRE( 0.0*dimwits::electronVolt ==
+        REQUIRE( 0.0 ==
                                   std::get< 2 >( *(covr.card23a) ).epmin.value);
 
         REQUIRE( 1 == std::get< 3 >( *( covr.card23a ) ).irelco.value );
@@ -358,7 +358,7 @@ SCENARIO( "COVR",
         REQUIRE( 1 == std::get< 0 >( *( covr.card23a ) ).icolor.value );
         REQUIRE( std::nullopt == std::get< 1 >( *( covr.card23a ) ) );
 
-        REQUIRE( 1000.0*dimwits::electronVolt ==
+        REQUIRE( 1000.0 ==
                                std::get< 2 >( *( covr.card23a ) ).epmin.value );
 
         REQUIRE( 1 == std::get< 3 >( *( covr.card23a ) ).irelco.value );

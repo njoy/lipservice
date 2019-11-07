@@ -17,7 +17,7 @@ SCENARIO( "Tc output values", "[GROUPR],[Card8c], [Tc]"){
         iRecordStream<char> issTc( 
             std::istringstream( std::to_string( tc ) ) );
 
-        REQUIRE( tc*dimwits::electronVolt == 
+        REQUIRE( tc == 
                 argument::extract< GROUPR::Card8c::Tc >( issTc ).value );
       }
     }

@@ -87,6 +87,7 @@ set( lipservice_AppleClang_Darwin_link_time_optimization_flags "-flto" )
 set( lipservice_AppleClang_Darwin_profile_use_flags "-fprofile-use='${CMAKE_BINARY_DIR}/profiling'" )
 set( lipservice_AppleClang_Darwin_nonportable_optimization_flags "-march=native" )
 set( lipservice_AppleClang_Darwin_static_flags "-static" )
+<<<<<<< HEAD
 set( lipservice_GNU_Linux_common_flags "-Wno-subobject-linkage" "-Wall" "-Wextra" "-Wpedantic" "-std=c++14" )
 set( lipservice_GNU_Linux_DEBUG_flags "-O0" "-g" "-gdwarf-3" "-fsignaling-nans" )
 set( lipservice_GNU_Linux_RELEASE_flags "-O3" "-DNDEBUG" )
@@ -99,6 +100,8 @@ set( lipservice_GNU_Linux_link_time_optimization_flags "-flto" )
 set( lipservice_GNU_Linux_profile_use_flags "-fprofile-use='${CMAKE_BINARY_DIR}/profiling'" )
 set( lipservice_GNU_Linux_nonportable_optimization_flags "-march=native" )
 set( lipservice_GNU_Linux_static_flags "-static" )
+=======
+>>>>>>> feature/brainy
 set( lipservice_GNU_Darwin_common_flags "-Wno-subobject-linkage" "-Wall" "-Wextra" "-Wpedantic" "-std=c++14" )
 set( lipservice_GNU_Darwin_DEBUG_flags "-O0" "-g" "-gdwarf-3" "-fsignaling-nans" )
 set( lipservice_GNU_Darwin_RELEASE_flags "-O3" "-DNDEBUG" )
@@ -135,6 +138,21 @@ set( lipservice_GNU_CYGWIN_link_time_optimization_flags "-flto" )
 set( lipservice_GNU_CYGWIN_profile_use_flags "-fprofile-use='${CMAKE_BINARY_DIR}/profiling'" )
 set( lipservice_GNU_CYGWIN_nonportable_optimization_flags "-march=native" )
 set( lipservice_GNU_CYGWIN_static_flags "-static" )
+<<<<<<< HEAD
+=======
+set( lipservice_GNU_Linux_common_flags "-Wno-subobject-linkage" "-Wall" "-Wextra" "-Wpedantic" "-std=c++14" )
+set( lipservice_GNU_Linux_DEBUG_flags "-O0" "-g" "-gdwarf-3" "-fsignaling-nans" )
+set( lipservice_GNU_Linux_RELEASE_flags "-O3" "-DNDEBUG" )
+set( lipservice_GNU_Linux_strict_flags "-Werror" )
+set( lipservice_GNU_Linux_coverage_flags "--coverage" )
+set( lipservice_GNU_Linux_subproject_flags  )
+set( lipservice_GNU_Linux_base_project_flags  )
+set( lipservice_GNU_Linux_profile_generate_flags "-fprofile-generate='${CMAKE_BINARY_DIR}/profiling'" )
+set( lipservice_GNU_Linux_link_time_optimization_flags "-flto" )
+set( lipservice_GNU_Linux_profile_use_flags "-fprofile-use='${CMAKE_BINARY_DIR}/profiling'" )
+set( lipservice_GNU_Linux_nonportable_optimization_flags "-march=native" )
+set( lipservice_GNU_Linux_static_flags "-static" )
+>>>>>>> feature/brainy
 set( lipservice_GNU_MinGW_common_flags "-Wno-subobject-linkage" "-Wall" "-Wextra" "-Wpedantic" "-std=c++14" )
 set( lipservice_GNU_MinGW_DEBUG_flags "-O0" "-g" "-gdwarf-3" "-fsignaling-nans" )
 set( lipservice_GNU_MinGW_RELEASE_flags "-O3" "-DNDEBUG" )
@@ -147,6 +165,7 @@ set( lipservice_GNU_MinGW_link_time_optimization_flags "-flto" )
 set( lipservice_GNU_MinGW_profile_use_flags "-fprofile-use='${CMAKE_BINARY_DIR}/profiling'" )
 set( lipservice_GNU_MinGW_nonportable_optimization_flags "-march=native" )
 set( lipservice_GNU_MinGW_static_flags "-static" )
+<<<<<<< HEAD
 set( lipservice_Clang_Linux_common_flags "-stdlib=libstdc++" "-Wall" "-Wextra" "-Wpedantic" "-std=c++14" )
 set( lipservice_Clang_Linux_DEBUG_flags "-O0" "-g" "-gdwarf-3" )
 set( lipservice_Clang_Linux_RELEASE_flags "-O3" "-DNDEBUG" )
@@ -159,6 +178,8 @@ set( lipservice_Clang_Linux_link_time_optimization_flags "-flto" )
 set( lipservice_Clang_Linux_profile_use_flags "-fprofile-use='${CMAKE_BINARY_DIR}/profiling'" )
 set( lipservice_Clang_Linux_nonportable_optimization_flags "-march=native" )
 set( lipservice_Clang_Linux_static_flags "-static" )
+=======
+>>>>>>> feature/brainy
 set( lipservice_Clang_Darwin_common_flags "-stdlib=libc++" "-Wall" "-Wextra" "-Wpedantic" "-std=c++14" )
 set( lipservice_Clang_Darwin_DEBUG_flags "-O0" "-g" "-gdwarf-3" )
 set( lipservice_Clang_Darwin_RELEASE_flags "-O3" "-DNDEBUG" )
@@ -195,6 +216,21 @@ set( lipservice_Clang_CYGWIN_link_time_optimization_flags "-flto" )
 set( lipservice_Clang_CYGWIN_profile_use_flags "-fprofile-use='${CMAKE_BINARY_DIR}/profiling'" )
 set( lipservice_Clang_CYGWIN_nonportable_optimization_flags "-march=native" )
 set( lipservice_Clang_CYGWIN_static_flags "-static" )
+<<<<<<< HEAD
+=======
+set( lipservice_Clang_Linux_common_flags "-stdlib=libstdc++" "-Wall" "-Wextra" "-Wpedantic" "-std=c++14" )
+set( lipservice_Clang_Linux_DEBUG_flags "-O0" "-g" "-gdwarf-3" )
+set( lipservice_Clang_Linux_RELEASE_flags "-O3" "-DNDEBUG" )
+set( lipservice_Clang_Linux_strict_flags "-Werror" )
+set( lipservice_Clang_Linux_coverage_flags "--coverage" )
+set( lipservice_Clang_Linux_subproject_flags  )
+set( lipservice_Clang_Linux_base_project_flags  )
+set( lipservice_Clang_Linux_profile_generate_flags "-fprofile-generate='${CMAKE_BINARY_DIR}/profiling'" )
+set( lipservice_Clang_Linux_link_time_optimization_flags "-flto" )
+set( lipservice_Clang_Linux_profile_use_flags "-fprofile-use='${CMAKE_BINARY_DIR}/profiling'" )
+set( lipservice_Clang_Linux_nonportable_optimization_flags "-march=native" )
+set( lipservice_Clang_Linux_static_flags "-static" )
+>>>>>>> feature/brainy
 set( lipservice_Clang_MinGW_common_flags "-Wno-subobject-linkage" "-Wall" "-Wextra" "-Wpedantic" "-std=c++14" )
 set( lipservice_Clang_MinGW_DEBUG_flags "-O0" "-g" "-gdwarf-3" "-fsignaling-nans" )
 set( lipservice_Clang_MinGW_RELEASE_flags "-O3" "-DNDEBUG" )
@@ -249,8 +285,8 @@ if( NOT TARGET ENDFtk )
     add_subdirectory( ${ROOT_DIRECTORY}/subprojects/ENDFtk )
 endif()
 
-if( NOT TARGET dimwits )
-    add_subdirectory( ${ROOT_DIRECTORY}/subprojects/dimwits )
+if( NOT TARGET json-adapter )
+    add_subdirectory( ${ROOT_DIRECTORY}/subprojects/json-adapter )
 endif()
 
 if( NOT TARGET utility )
@@ -389,6 +425,7 @@ target_sources( lipservice INTERFACE "${CMAKE_CURRENT_SOURCE_DIR}/src/lipservice
              "${CMAKE_CURRENT_SOURCE_DIR}/src/lipservice/GAMINR/src/readCard6List.hpp"
              "${CMAKE_CURRENT_SOURCE_DIR}/src/lipservice/GAMINR/src/readArbitraryGammaStructure.hpp"
              "${CMAKE_CURRENT_SOURCE_DIR}/src/lipservice/GAMINR/src/readMaterials.hpp"
+             "${CMAKE_CURRENT_SOURCE_DIR}/src/lipservice/Card/src/clear.hpp"
              "${CMAKE_CURRENT_SOURCE_DIR}/src/lipservice/RESXSR/Card1.hpp"
              "${CMAKE_CURRENT_SOURCE_DIR}/src/lipservice/RESXSR/Card2.hpp"
              "${CMAKE_CURRENT_SOURCE_DIR}/src/lipservice/RESXSR/Card3.hpp"
@@ -1177,7 +1214,7 @@ set( PREFIX lipservice_${CMAKE_CXX_COMPILER_ID}_${CMAKE_SYSTEM_NAME} )
 
 target_link_libraries( lipservice INTERFACE "$<$<AND:$<CONFIG:RELEASE>,$<BOOL:${link_time_optimization}>>:${${PREFIX}_RELEASE_flags};${${PREFIX}_link_time_optimization_flags}$<$<BOOL:${profile_generate}>:${${PREFIX}_profile_generate_flags};>$<$<BOOL:${profile_use}>:${${PREFIX}_profile_use_flags};>$<$<BOOL:${nonportable_optimization}>:${${PREFIX}_nonportable_optimization_flags};>>$<$<CONFIG:DEBUG>:$<$<BOOL:${coverage}>:${${PREFIX}_coverage_flags};>>$<$<BOOL:CXX_appended_flags>:${CXX_appended_flags};>$<$<BOOL:lipservice_appended_flags>:${lipservice_appended_flags};>" )
 
-target_link_libraries( lipservice INTERFACE ENDFtk INTERFACE catch-adapter INTERFACE variant-adapter INTERFACE dimwits INTERFACE utility )
+target_link_libraries( lipservice INTERFACE ENDFtk INTERFACE catch-adapter INTERFACE hana-adapter INTERFACE variant-adapter INTERFACE json-adapter INTERFACE utility )
 
 if( NOT is_subproject )
     enable_testing() 

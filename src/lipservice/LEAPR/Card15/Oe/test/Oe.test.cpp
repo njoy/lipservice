@@ -16,10 +16,7 @@ SCENARIO( "LEAPR Card15 oe input values",
       THEN( "the oe values can be extracted correctly" ){
         auto oes = argument::extract< 
           LEAPR::Card15::Oe >(iss, nd);
-          std::vector< dimwits::Quantity< dimwits::ElectronVolts > > refOes{ 
-            1.0 * dimwits::electronVolts,  
-            2.0 * dimwits::electronVolts,
-            3.0 * dimwits::electronVolts };
+          std::vector< double > refOes{ 1.0, 2.0, 3.0 };
         REQUIRE( refOes == oes.value );
       } // THEN
     } // WHEN
@@ -66,14 +63,7 @@ SCENARIO( "LEAPR Card15 oe input values",
       THEN( "the oe values can be extracted correctly" ){
         auto oes = argument::extract< 
           LEAPR::Card15::Oe >(iss, nd);
-        std::vector< dimwits::Quantity< dimwits::ElectronVolts > > refOes{ 
-          .01  * dimwits::electronVolts,
-          .015 * dimwits::electronVolts, 
-          .025 * dimwits::electronVolts,
-          .035 * dimwits::electronVolts,
-          .250 * dimwits::electronVolts,
-          .330 * dimwits::electronVolts,
-          .504 * dimwits::electronVolts };
+        std::vector< double > refOes{ .01, .015, .025, .035, .250, .330, .504 };
         REQUIRE( refOes == oes.value );
       } // THEN
     } // WHEN

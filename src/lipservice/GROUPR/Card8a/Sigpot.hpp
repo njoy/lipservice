@@ -1,5 +1,5 @@
 struct Sigpot {
-  using Value_t = Quantity< Barn >;
+  using Value_t = double;
   
   static std::string name(){ return "sigpot"; }
   static std::string description(){
@@ -9,5 +9,5 @@ struct Sigpot {
         "number near 10 barns is typical for fissionable materials.";
   }
 
-  static bool verify( Value_t s ){ return s > 0*barn; }
+  static bool verify( Value_t s ){ return s > 0; }
 };

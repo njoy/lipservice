@@ -7,7 +7,6 @@ using namespace njoy::njoy21::lipservice;
 SCENARIO( "LEAPR Card18 skappa input values",
   "[LEAPR], [Card18], [Skappa]" ){
   GIVEN( "a value for nka" ){
-    auto InvAng =  pow( 1.0 * dimwits::angstrom, dimwits::Ratio<-1> );
     Argument< LEAPR::Card17::Nka > nka;
     nka.value = 3;
 
@@ -16,9 +15,7 @@ SCENARIO( "LEAPR Card18 skappa input values",
 
       THEN( "the skappa values can be extracted correctly" ){
         auto skappas = argument::extract< LEAPR::Card18::Skappa >( iss, nka );
-        std::vector< decltype(InvAng) > refSkappas{ 1.0 * InvAng, 
-                                                    2.0 * InvAng, 
-                                                    3.0 * InvAng };
+        std::vector< double > refSkappas{ 1.0, 2.0, 3.0 };
         REQUIRE( refSkappas == skappas.value );
       } // THEN
     } // WHEN

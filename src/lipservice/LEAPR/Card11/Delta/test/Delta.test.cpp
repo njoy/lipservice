@@ -12,7 +12,7 @@ SCENARIO( "LEAPR Card11 delta input values",
       for( auto& delta : validValues ){
         iRecordStream<char> iss(
           std::istringstream( std::to_string( delta ) ) );
-        REQUIRE( delta * dimwits::electronVolts == argument::extract< 
+        REQUIRE( delta == argument::extract< 
           LEAPR::Card11::Delta >( iss ).value );
       }
     } // THEN

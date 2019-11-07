@@ -18,7 +18,7 @@ SCENARIO( "Thin2  output values",
             std::istringstream( std::to_string(thin2) ) );
         njoy::Log::info("Valid value {}", thin2);
 
-        REQUIRE( thin2*dimwits::electronVolt == 
+        REQUIRE( thin2 == 
                  argument::extract< ACER::Card7::Thin2 >( iss, thin1 ).value );
       }
     }
@@ -27,7 +27,7 @@ SCENARIO( "Thin2  output values",
     thin1.value = 0.0;
     THEN( "the default value is returned" ){
       iRecordStream<char> iss( std::istringstream( "/") );
-      REQUIRE( 0.0*dimwits::electronVolt == 
+      REQUIRE( 0.0 == 
                argument::extract< ACER::Card7::Thin2 >( iss, thin1 ).value );
     }
   }

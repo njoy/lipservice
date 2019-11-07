@@ -18,10 +18,7 @@ SCENARIO( "Temp input values",
       THEN( "the temperature values can be extracted correctly" ){
         auto temps = argument::extract< 
                     GROUPR::Card4::Temp >(issValues, ntemp);
-        std::vector< dimwits::Quantity< dimwits::Kelvin > > refTemps{
-                      1.0*dimwits::kelvin, 
-                      2.0*dimwits::kelvin, 
-                      3.0*dimwits::kelvin};
+        std::vector< double > refTemps{ 1.0, 2.0, 3.0 };
         REQUIRE( refTemps == temps.value );
       }
     }

@@ -15,10 +15,10 @@ SCENARIO( "Enode input values", "[Card6], [Enode]" ){
       
       THEN( "the grid points can be extracted correctly" ){
         auto grid = argument::extract< RECONR::Card6::Enode >(iss, ngrid);
-        std::vector< dimwits::Quantity< dimwits::ElectronVolt > > refGrid{
-                      1.0*dimwits::electronVolt, 
-                      2.0*dimwits::electronVolt, 
-                      3.0*dimwits::electronVolt};
+        std::vector< double > refGrid{
+                      1.0, 
+                      2.0, 
+                      3.0};
         REQUIRE( refGrid == grid.value );
       }
     }

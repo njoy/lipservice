@@ -1,5 +1,5 @@
 struct Enode {
-  using Value_t = std::vector< Quantity< ElectronVolt > >;
+  using Value_t = std::vector< double >;
   static std::string name(){ return "enode"; }
 
   static std::string description() {
@@ -12,7 +12,7 @@ struct Enode {
                       const Argument< Card3::Ngrid >& ngrid){
 
     auto found = std::find_if(node.begin(), node.end(), 
-                              [](auto& E){ return E < 0.0*electronVolt; });
+                              [](auto& E){ return E < 0.0; });
     if (found != node.end()){
       Log::warning("Negative energy grid point ({}) found at index {}",
                    *found, std::distance(node.begin(), found));

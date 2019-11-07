@@ -17,10 +17,7 @@ SCENARIO( "Verifying PURR Card4 input",
     long ln(0);
 
     THEN( "the sigma zero cross section values can be extracted and verified" ){
-      std::vector< dimwits::Quantity< dimwits::Barn > > refSigzs{
-        1*dimwits::barn,
-        2*dimwits::barn,
-        3*dimwits::barn};
+      std::vector< double > refSigzs{ 1, 2, 3 };
 
       PURR::Card4 card4( issSigzs, nsigz );
       REQUIRE( refSigzs == card4.sigz.value );

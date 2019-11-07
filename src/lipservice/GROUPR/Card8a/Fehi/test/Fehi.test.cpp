@@ -14,7 +14,7 @@ SCENARIO( "Fehi  output values", "[GROUPR],[Card8a], [Fehi]"){
         iRecordStream<char> iss(
             std::istringstream( std::to_string(fehi) ) );
 
-        REQUIRE( fehi*dimwits::electronVolt == 
+        REQUIRE( fehi == 
                 argument::extract< GROUPR::Card8a::Fehi >( iss ).value );
       }
     }

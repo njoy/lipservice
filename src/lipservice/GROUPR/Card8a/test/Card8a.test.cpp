@@ -17,13 +17,13 @@ SCENARIO( "Validating card8a inputs", "[GROUPR], [Card8a]" ){
     GROUPR::Card8a card8a( issCard8a, card1 );
 
     THEN( "the card8a values can be verified" ){
-      REQUIRE( 400*dimwits::electronVolt == card8a.fehi.value );
-      REQUIRE( 10.6*dimwits::barn == card8a.sigpot.value );
+      REQUIRE( 400 == card8a.fehi.value );
+      REQUIRE( 10.6 == card8a.sigpot.value );
       REQUIRE( 5000 == card8a.nflmax.value );
       REQUIRE( 80 == card8a.ninwt.value );
       REQUIRE( 0 == card8a.jsigz.value );
       REQUIRE( 0.7768 == card8a.alpha2.value );
-      REQUIRE( 7.5*dimwits::barn == card8a.sam.value );
+      REQUIRE( 7.5 == card8a.sam.value );
       REQUIRE( 0.40 == card8a.beta.value );
       REQUIRE( 1.6E-7 == card8a.alpha3.value );
       REQUIRE( 0.086 == card8a.gamma.value );
@@ -34,13 +34,13 @@ SCENARIO( "Validating card8a inputs", "[GROUPR], [Card8a]" ){
     GROUPR::Card8a card8a( issCard8a, card1 );
 
     THEN( "the card8a values can be verified" ){
-      REQUIRE( 400*dimwits::electronVolt == card8a.fehi.value );
-      REQUIRE( 10.6*dimwits::barn == card8a.sigpot.value );
+      REQUIRE( 400 == card8a.fehi.value );
+      REQUIRE( 10.6 == card8a.sigpot.value );
       REQUIRE( 5000 == card8a.nflmax.value );
       REQUIRE( 0 == card8a.ninwt.value );
       REQUIRE( 0 == card8a.jsigz.value );
       REQUIRE( 0.0 == card8a.alpha2.value );
-      REQUIRE( 0.0*dimwits::barn == card8a.sam.value );
+      REQUIRE( 0.0 == card8a.sam.value );
       REQUIRE( 0.0 == card8a.beta.value );
       REQUIRE( 0.0 == card8a.alpha3.value );
       REQUIRE( 0.0 == card8a.gamma.value );

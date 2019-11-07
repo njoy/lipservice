@@ -1,5 +1,5 @@
 struct Temp1 {
-  using Value_t = Quantity< Kelvin >;
+  using Value_t = double;
   static std::string name(){ return "temp1"; }
   static std::string description(){
     return
@@ -11,6 +11,6 @@ struct Temp1 {
       "zero kelvin";
   }
 
-  static Value_t defaultValue(){ return 0.0 * kelvin; }
-  static bool verify( Value_t v ){ return v >= (0.0 * kelvin); }
+  static Value_t defaultValue(){ return 0.0; }
+  static bool verify( Value_t v ){ return v >= (0.0); }
 };

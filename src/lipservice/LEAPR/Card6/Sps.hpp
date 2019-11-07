@@ -1,5 +1,5 @@
 struct Sps {
-  using Value_t = Quantity<Barns>;
+  using Value_t = double;
   static std::string name(){ return "sps"; }
   static std::string description(){
     return
@@ -12,6 +12,6 @@ struct Sps {
       "sps must be positive, and provided in units of barns.";
   }
   static bool verify( const Value_t& sps ){ 
-    return sps > ( 0 * dimwits::barns ); 
+    return sps > ( 0 ); 
   }
 };

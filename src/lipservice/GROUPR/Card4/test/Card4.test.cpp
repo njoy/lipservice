@@ -15,10 +15,7 @@ SCENARIO( "Verifying GROUPR Card4 input", "[GROUPR], [Card4]" ){
     iRecordStream< char> issTemps( std::istringstream( " 293.6 600 1200" ) );
 
     THEN( "the temperatures can be extracted and verified" ){
-      std::vector< dimwits::Quantity< dimwits::Kelvin > > refTemps{
-        293.6*dimwits::kelvin,
-        600*dimwits::kelvin,
-        1200*dimwits::kelvin};
+      std::vector< double > refTemps{ 293.6, 600, 1200 };
 
       GROUPR::Card4 card4( issTemps, ntemp );
       REQUIRE( refTemps == card4.temp.value );

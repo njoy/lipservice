@@ -36,14 +36,14 @@ SCENARIO( "Parsing valid UNRESR input" ){
 
       auto& card3 = std::get<1>( unresr.cardSequence.front() );
       REQUIRE( 3 == card3.temp.value.size() );
-      REQUIRE( 293.6*dimwits::kelvin == card3.temp.value[0] );
-      REQUIRE( 600*dimwits::kelvin == card3.temp.value[1] );
-      REQUIRE( 800*dimwits::kelvin == card3.temp.value[2] );
+      REQUIRE( 293.6 == card3.temp.value[0] );
+      REQUIRE( 600 == card3.temp.value[1] );
+      REQUIRE( 800 == card3.temp.value[2] );
 
       auto& card4 = std::get<2>( unresr.cardSequence.front() );
       REQUIRE( 2 == card4.sigz.value.size() );
-      REQUIRE( 1*dimwits::barn == card4.sigz.value[0] );
-      REQUIRE( 2*dimwits::barn == card4.sigz.value[1] );
+      REQUIRE( 1 == card4.sigz.value[0] );
+      REQUIRE( 2 == card4.sigz.value[1] );
     }
   }
   WHEN( "no optional values are given" ){

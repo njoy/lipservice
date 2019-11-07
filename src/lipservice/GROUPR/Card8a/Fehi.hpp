@@ -1,5 +1,5 @@
 struct Fehi {
-  using Value_t = Quantity< ElectronVolt >;
+  using Value_t = double;
 
   static std::string name(){ return "fehi"; }
   static std::string description(){
@@ -9,5 +9,5 @@ struct Fehi {
         "resolve resonance range.";
   }
 
-  static bool verify( Value_t f ){ return f > 0.0*electronVolt; }
+  static bool verify( Value_t f ){ return f > 0.0; }
 };

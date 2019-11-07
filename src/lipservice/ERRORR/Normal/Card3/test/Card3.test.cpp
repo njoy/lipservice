@@ -16,7 +16,7 @@ SCENARIO( "ERRORR, Normal, Card3",
         ERRORR::Normal::Card3 card3( iss );
 
         REQUIRE( 1 == card3.mprint.value );
-        REQUIRE( 314.15*dimwits::kelvin == card3.tempin.value );
+        REQUIRE( 314.15 == card3.tempin.value );
       }
     } // WHEN
 
@@ -27,7 +27,7 @@ SCENARIO( "ERRORR, Normal, Card3",
         ERRORR::Normal::Card3 card3( iss );
 
         REQUIRE( 0 == card3.mprint.value );
-        REQUIRE( 300.0*dimwits::kelvin == card3.tempin.value );
+        REQUIRE( 300.0 == card3.tempin.value );
       }
     } // WHEN
   } // GIVEN

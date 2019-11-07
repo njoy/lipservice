@@ -1,6 +1,6 @@
 struct Adens {
-  using GperCC = decltype(Gram{} / pow( Centi<Meter>{}, Ratio<3> ));
-  using Value_t = Quantity< GperCC >;
+  using GperCC = double;
+  using Value_t = double;
 
   static std::string name(){ return "adens"; }
   static std::string description(){
@@ -8,6 +8,6 @@ struct Adens {
            "mixture in g/cc.";
   }
   static bool verify( const Value_t adens ){
-    return adens.value >= 0.0;
+    return adens >= 0.0;
   }
 };

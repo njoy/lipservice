@@ -13,7 +13,7 @@ SCENARIO( "bugless" ){
     REQUIRE( card2.ntemp2.value == 1 );
     REQUIRE( card2.istart.value == 0 );
     REQUIRE( card2.istrap.value == 0 );
-    REQUIRE( card2.temp1.value == 0.0 * dimwits::kelvin );
+    REQUIRE( card2.temp1.value == 0.0 );
   }{
     iRecordStream<char> iss( std::istringstream( " 20 2 1 1 100" ) );
     BROADR::Card2 card2( iss );
@@ -21,7 +21,7 @@ SCENARIO( "bugless" ){
     REQUIRE( card2.ntemp2.value == 2 );
     REQUIRE( card2.istart.value == 1 );
     REQUIRE( card2.istrap.value == 1 );
-    REQUIRE( card2.temp1.value == 100.0 * dimwits::kelvin );
+    REQUIRE( card2.temp1.value == 100.0 );
   }
 }
 

@@ -1,5 +1,5 @@
 struct Temp {
-  using Value_t = Quantity< Kelvin >;
+  using Value_t = double;
   static std::string name(){ return "temp"; }
   static std::string description() {
     return
@@ -9,5 +9,5 @@ struct Temp {
       "included on the PENDF tape.\n";
   }
 
-  static bool verify( const Value_t& t ){ return t >= 0.0*kelvin; }
+  static bool verify( const Value_t& t ){ return t >= 0.0; }
 };

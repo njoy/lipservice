@@ -12,10 +12,10 @@ SCENARIO( "Verifying RECONR Card6 input", "[RECONR],[Card6]"){
   GIVEN( "valid enode" ){
     iRecordStream<char> iss( std::istringstream(" 1.0 2.0 3.0") );
     THEN( "the energy grid can be extracted" ){
-      std::vector< dimwits::Quantity< dimwits::ElectronVolt > > refGrid{
-          1.0*dimwits::electronVolt, 
-          2.0*dimwits::electronVolt, 
-          3.0*dimwits::electronVolt};
+      std::vector< double > refGrid{
+          1.0, 
+          2.0, 
+          3.0};
       RECONR::Card6 card6( iss, ngrid );
       REQUIRE( refGrid == card6.enode.value );
     }

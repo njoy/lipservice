@@ -15,7 +15,7 @@ SCENARIO( "ERRORR, Normal, Card3, Tempin",
         iRecordStream<char> iss( std::istringstream( std::to_string( d ) ) );
 
         THEN( "the values can be verified" ){
-          REQUIRE( d*dimwits::kelvin ==
+          REQUIRE( d ==
               argument::extract< ERRORR::Normal::Card3::Tempin >( iss ).value );
         }
       } // WHEN
@@ -25,7 +25,7 @@ SCENARIO( "ERRORR, Normal, Card3, Tempin",
       iRecordStream<char> iss( std::istringstream( " /" ) );
 
       THEN( "the default value can be verified" ){
-        REQUIRE( 300.0*dimwits::kelvin ==
+        REQUIRE( 300.0 ==
               argument::extract< ERRORR::Normal::Card3::Tempin >( iss ).value );
       }
     } // WHEN

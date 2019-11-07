@@ -11,10 +11,7 @@ SCENARIO( "Verifying THERMR Card3 input", "[THERMR], [Card3]" ){
     WHEN( "Card3 input is valid" ){
       iRecordStream< char> iss( std::istringstream( "293.6 600 1200" ) );
       THEN( "the tempreratures can be extracted and verified" ){
-        std::vector< dimwits::Quantity< dimwits::Kelvin > > refTemprs{
-          293.6*dimwits::kelvin,
-          600*dimwits::kelvin,
-          1200*dimwits::kelvin};
+        std::vector< double > refTemprs{ 293.6, 600, 1200 };
         THERMR::Card3 card3( iss, ntemp );
         REQUIRE( refTemprs == card3.tempr.value );
       } // THEN

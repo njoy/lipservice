@@ -359,7 +359,7 @@ SCENARIO( "POWR, Lib3",
         }
 
         REQUIRE( Approx( 100.0 ) == lib3.card12List->at(0)->first.aw.value );
-        REQUIRE( 101.0*dimwits::kelvin == 
+        REQUIRE( 101.0 == 
                                      lib3.card12List->at(0)->first.temp.value );
 
         for( size_t i = 0; i < 69; i++ ){

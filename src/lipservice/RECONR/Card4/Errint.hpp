@@ -1,5 +1,5 @@
 struct Errint {
-  using Value_t = Quantity< Barn >;
+  using Value_t = double;
   static std::string name(){ return "errint"; }
 
   static std::string description(){
@@ -11,8 +11,8 @@ struct Errint {
   }
 
   static Value_t
-  defaultValue( const Argument< Err >& err ){ return (err.value / 2E4) * barn; }
+  defaultValue( const Argument< Err >& err ){ return (err.value / 2E4); }
 
   static bool
-  verify( const Value_t& e, const Argument< Err >& ){ return e > 0.0*barn; }
+  verify( const Value_t& e, const Argument< Err >& ){ return e > 0.0; }
 };

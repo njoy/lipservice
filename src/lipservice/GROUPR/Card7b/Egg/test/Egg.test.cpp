@@ -17,11 +17,11 @@ SCENARIO( "Egg input values", "[Card7b], [Egg]" ){
       THEN( "the energy boundaries can be extracted correctly" ){
         auto egg = argument::extract< GROUPR::Card7b::Egg >(
             issPoints, ngn.value+1);
-        std::vector< dimwits::Quantity< dimwits::ElectronVolt > > refEggs{
-                      1.0*dimwits::electronVolt, 
-                      2.0*dimwits::electronVolt, 
-                      3.0*dimwits::electronVolt,
-                      4.0*dimwits::electronVolt};
+        std::vector< double > refEggs{
+                      1.0, 
+                      2.0, 
+                      3.0,
+                      4.0};
         REQUIRE( refEggs == egg.value );
       }
     }

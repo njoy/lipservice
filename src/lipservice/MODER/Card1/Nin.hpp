@@ -20,4 +20,5 @@ struct Nin : public argument::common::Nin {
   static bool verify( const Value_t v ){
     return ( ( v > 0 )  and ( v < 4 ) ) or argument::common::Nin::verify(v);
   }
+
 };

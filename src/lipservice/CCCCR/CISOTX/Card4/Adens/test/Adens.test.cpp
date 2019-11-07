@@ -17,8 +17,7 @@ SCENARIO( "CCCCR, CISOTX, Card4, Adens",
 
         THEN( "the value can be verified" ){
           REQUIRE( d ==
-                argument::extract< CCCCR::CISOTX::Card4::Adens >( 
-                    iss ).value.value );
+                argument::extract< CCCCR::CISOTX::Card4::Adens >( iss ).value );
         }
       }
     } // WHEN

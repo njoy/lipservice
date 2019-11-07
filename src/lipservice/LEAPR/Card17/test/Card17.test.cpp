@@ -10,8 +10,7 @@ SCENARIO( "LEAPR Card17 input values",
     THEN( "the returned values are correct" ){
       LEAPR::Card17 card17( iss );
       REQUIRE( card17.nka.value == 1 );
-      REQUIRE( card17.dka.value == 0.001 * 
-        pow( 1.0 * dimwits::angstrom, dimwits::Ratio<-1> ) );
+      REQUIRE( card17.dka.value == 0.001 );
     } // THEN
   } // GIVEN
 

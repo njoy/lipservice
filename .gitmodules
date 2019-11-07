@@ -4,12 +4,15 @@
 [submodule "dependendices/catch-adapter"]
 	path = dependencies/catch-adapter
 	url = https://github.com/njoy/catch-adapter.git
-[submodule "dependencies/DimensionalAnalysis"]
-	path = dependencies/dimwits
-	url = https://github.com/njoy/DimensionalAnalysis.git
 [submodule "dependencies/variant-adapter"]
 	path = dependencies/variant-adapter
 	url = https://github.com/njoy/variant-adapter.git
 [submodule "dependencies/ENDFtk"]
 	path = dependencies/ENDFtk
 	url = https://github.com/njoy/ENDFtk.git
+[submodule "dependencies/json-adapter"]
+	path = dependencies/json-adapter
+	url = https://github.com/njoy/json-adapter.git
+[submodule "dependencies/hana-adapter"]
+	path = dependencies/hana-adapter
+	url = https://github.com/njoy/hana-adapter.git

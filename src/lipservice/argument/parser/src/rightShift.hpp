@@ -1,9 +1,3 @@
-template< typename Char, typename Unit, typename MagnitudeType >
-iRecordStream<Char>&
-operator>>( iRecordStream<Char>& is, Quantity< Unit, MagnitudeType >& quantity ){
-  is >> quantity.value; return is;
-}
-
 template< typename Char, typename First, typename Second >
 iRecordStream<Char>&
 operator>>( iRecordStream<Char>& is, std::pair< First, Second >& pair ){

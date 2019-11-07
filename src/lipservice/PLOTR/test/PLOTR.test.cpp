@@ -144,7 +144,7 @@ SCENARIO( "Parsing valid PLOTR input" ){
       REQUIRE( 9439 == *( plotr.curves[0].second.card8.matd.value ) );
       REQUIRE( 5 == *( plotr.curves[0].second.card8.mfd.value ) );
       REQUIRE( 90 == *( plotr.curves[0].second.card8.mtd.value ) );
-      REQUIRE( 25.5 * dimwits::kelvin == 
+      REQUIRE( 25.5 == 
                *( plotr.curves[0].second.card8.temper.value ) );
       REQUIRE( 1 == *( plotr.curves[0].second.card8.nth.value ) );
       REQUIRE( std::nullopt == plotr.curves[0].second.card8.ntpnkh );
@@ -282,7 +282,7 @@ SCENARIO( "Parsing valid PLOTR input" ){
       REQUIRE( 9439 == *( plotr.curves[0].second.card8.matd.value ) );
       REQUIRE( 5 == *( plotr.curves[0].second.card8.mfd.value ) );
       REQUIRE( 90 == *( plotr.curves[0].second.card8.mtd.value ) );
-      REQUIRE( 25.5 * dimwits::kelvin == 
+      REQUIRE( 25.5 == 
                *( plotr.curves[0].second.card8.temper.value ) );
       REQUIRE( 1 == *( plotr.curves[0].second.card8.nth.value ) );
       REQUIRE( std::nullopt == plotr.curves[0].second.card8.ntpnkh );
@@ -580,7 +580,7 @@ SCENARIO( "Parsing valid PLOTR input" ){
       REQUIRE( 9439 == *( plotr.curves[0].second.card8.matd.value ) );
       REQUIRE( 5 == *( plotr.curves[0].second.card8.mfd.value ) );
       REQUIRE( 90 == *( plotr.curves[0].second.card8.mtd.value ) );
-      REQUIRE( 25.5 * dimwits::kelvin == 
+      REQUIRE( 25.5 == 
                *( plotr.curves[0].second.card8.temper.value ) );
       REQUIRE( 1 == *( plotr.curves[0].second.card8.nth.value ) );
       REQUIRE( std::nullopt == plotr.curves[0].second.card8.ntpnkh );

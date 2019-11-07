@@ -1,5 +1,5 @@
 struct Dka {
-  using Value_t = decltype( pow( 1.0 * angstrom, Ratio<-1> ) );
+  using Value_t = double;
   static std::string name(){ return "dka"; }
   static std::string description() {
     return
@@ -14,6 +14,6 @@ struct Dka {
   }
   
   static bool verify( const Value_t& dka ){ 
-    return dka > 0.0 * pow( 1.0 * angstrom, Ratio<-1> );
+    return dka > 0.0;
   }
 };

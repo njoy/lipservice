@@ -15,11 +15,11 @@ SCENARIO( "Verifying GROUPR Card7b input", "[GROUPR], [Card7b]" ){
     iRecordStream< char> issEggs( std::istringstream( " 1 2 3 4" ) );
 
     THEN( "the sigma zero cross section values can be extracted and verified" ){
-      std::vector< dimwits::Quantity< dimwits::ElectronVolt > > refEggs{
-        1*dimwits::electronVolt,
-        2*dimwits::electronVolt,
-        3*dimwits::electronVolt,
-        4*dimwits::electronVolt};
+      std::vector< double > refEggs{
+        1,
+        2,
+        3,
+        4};
 
       GROUPR::Card7b card7b( issEggs, ngg );
       REQUIRE( refEggs == card7b.egg.value );
