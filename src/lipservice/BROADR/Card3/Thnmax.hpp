@@ -37,6 +37,6 @@ struct Thnmax {
 
   static Value_t defaultValue(){ return 0.0; }
   static bool verify( Value_t& T ){
-    return std::abs( T ) <= 20.0;
+    return std::abs( T ) <= 20.0E6;
   }
 };
