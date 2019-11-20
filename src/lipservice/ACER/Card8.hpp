@@ -15,7 +15,7 @@ public:
     matd( argument::extract< argument::common::Matd >( is ) ),
     tempd( argument::extract< argument::common::Tempd >( is ) ),
     tname( argument::extract< Tname >( is ) ),
-    nza( argument::extract< Nza >( is, nza.value ) )
+    nza( argument::extract< Nza >( is ) )
   {
     Card::clear( is );
   } catch( std::exception& e ){

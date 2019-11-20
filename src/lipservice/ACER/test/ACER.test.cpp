@@ -25,43 +25,43 @@ SCENARIO( "Parsing valid ACER input" ){
       ACER acer( iss );
 
       // Card1
-      REQUIRE( 20 == acer.card1.nendf.value );
-      REQUIRE( 21 == acer.card1.npend.value );
-      REQUIRE(  0 == acer.card1.ngend.value );
-      REQUIRE( 30 == acer.card1.nace.value );
-      REQUIRE( 31 == acer.card1.ndir.value );
+      CHECK( 20 == acer.card1.nendf.value );
+      CHECK( 21 == acer.card1.npend.value );
+      CHECK(  0 == acer.card1.ngend.value );
+      CHECK( 30 == acer.card1.nace.value );
+      CHECK( 31 == acer.card1.ndir.value );
 
       // Card2
-      REQUIRE(  1 == acer.card2.iopt.value );
-      REQUIRE(  1 == acer.card2.iprint.value );
-      REQUIRE(  1 == acer.card2.itype.value );
-      REQUIRE( ".80" == acer.card2.suff.value );
-      REQUIRE(  0 == acer.card2.nxtra.value );
+      CHECK(  1 == acer.card2.iopt.value );
+      CHECK(  1 == acer.card2.iprint.value );
+      CHECK(  1 == acer.card2.itype.value );
+      CHECK( ".80" == acer.card2.suff.value );
+      CHECK(  0 == acer.card2.nxtra.value );
 
       // Card3
-      REQUIRE( sCard3 == acer.card3.hk.value );
+      CHECK( sCard3 == acer.card3.hk.value );
 
       const auto& fastCards =
         std::experimental::get< ACER::FastCards >( *(acer.dataVariant) );
       
       // Card5
       const auto& card5 = std::get<0>( fastCards );
-      REQUIRE( 1001 == card5.matd.value );
-      REQUIRE( 293.6 == card5.tempd.value );
+      CHECK( 1001 == card5.matd.value );
+      CHECK( 293.6 == card5.tempd.value );
 
       // Card6
       const auto& card6 = std::get<1>( fastCards );
-      REQUIRE( 0 == card6.newfor.value );
-      REQUIRE( 1 == card6.iopp.value );
-      REQUIRE( 1 == card6.ismooth.value );
+      CHECK( 0 == card6.newfor.value );
+      CHECK( 1 == card6.iopp.value );
+      CHECK( 1 == card6.ismooth.value );
 
       // Card7
       const auto& card7 = std::get<2>( fastCards );
-      REQUIRE( -1 == card7.thin1.value );
-      REQUIRE( 1E4 == card7.thin2.value );
-      REQUIRE( 5 == card7.thin3.value );
+      CHECK( -1 == card7.thin1.value );
+      CHECK( 1E4 == card7.thin2.value );
+      CHECK( 5 == card7.thin3.value );
 
-      REQUIRE( not acer.card4 );
+      CHECK( not acer.card4 );
     }
   }
   WHEN( "processing a 'thermal' data file, iopt=2" ){
@@ -70,7 +70,7 @@ SCENARIO( "Parsing valid ACER input" ){
             + "2 1 1 .80 2 /\n"                   // Card2
             + "'" + sCard3 + "'/\n"               // Card3
             + " 1001 0.99167 92235 233.02479 /\n" // Card4
-            + " 1 293.6 'lwtr' /\n"               // Card8
+            + " 1 293.6 'lwtr' 3 /\n"             // Card8
             + " 1001 8016 9235 /\n"               // Card8a
             + " 1 80 231 0 1 10.1 2 /"            // Card9
             ) );
@@ -79,53 +79,52 @@ SCENARIO( "Parsing valid ACER input" ){
       ACER acer( iss );
 
       // Card1
-      REQUIRE( 20 == acer.card1.nendf.value );
-      REQUIRE( 21 == acer.card1.npend.value );
-      REQUIRE(  0 == acer.card1.ngend.value );
-      REQUIRE( 30 == acer.card1.nace.value );
-      REQUIRE( 31 == acer.card1.ndir.value );
+      CHECK( 20 == acer.card1.nendf.value );
+      CHECK( 21 == acer.card1.npend.value );
+      CHECK(  0 == acer.card1.ngend.value );
+      CHECK( 30 == acer.card1.nace.value );
+      CHECK( 31 == acer.card1.ndir.value );
 
       // Card2
-      REQUIRE(  2 == acer.card2.iopt.value );
-      REQUIRE(  1 == acer.card2.iprint.value );
-      REQUIRE(  1 == acer.card2.itype.value );
-      REQUIRE( ".80" == acer.card2.suff.value );
-      REQUIRE(  2 == acer.card2.nxtra.value );
+      CHECK(  2 == acer.card2.iopt.value );
+      CHECK(  1 == acer.card2.iprint.value );
+      CHECK(  1 == acer.card2.itype.value );
+      CHECK( ".80" == acer.card2.suff.value );
+      CHECK(  2 == acer.card2.nxtra.value );
 
       // Card3
-      REQUIRE( sCard3 == acer.card3.hk.value );
+      CHECK( sCard3 == acer.card3.hk.value );
 
       // Card4
       const auto& values = acer.card4->izaw.value;
-      REQUIRE( 1001 == values[0].first );
-      REQUIRE( 0.99167 == values[0].second );
-      REQUIRE( 92235 == values[1].first );
-      REQUIRE( 233.02479 == values[1].second );
+      CHECK( 1001 == values[0].first );
+      CHECK( 0.99167 == values[0].second );
+      CHECK( 92235 == values[1].first );
+      CHECK( 233.02479 == values[1].second );
 
       const auto& thermalCards =
         std::experimental::get< ACER::ThermalCards >( *(acer.dataVariant) );
       
       // Card8
       const auto& card8 = std::get<0>( thermalCards );
-      REQUIRE( 1 == card8.matd.value );
-      REQUIRE( 293.6 == card8.tempd.value );
-      REQUIRE( "lwtr" == *card8.tname.value );
+      CHECK( 1 == card8.matd.value );
+      CHECK( 293.6 == card8.tempd.value );
+      CHECK( "lwtr" == *card8.tname.value );
+      CHECK( 3 == card8.nza.value );
 
       // Card8a
       const auto& card8a = std::get<1>(thermalCards);
-      REQUIRE( 1001 == card8a.iza01.value );
-      REQUIRE( 8016 == card8a.iza02.value );
-      REQUIRE( 9235 == card8a.iza03.value );
+      CHECK( ranges::equal( { 1001, 8016, 9235 }, card8a.iza.value ) );
 
       // Card9
       const auto& card9 = std::get<2>(thermalCards);
-      REQUIRE( 1 == card9.mti.value );
-      REQUIRE( 80 == card9.nbint.value );
-      REQUIRE( 231 == card9.mte.value );
-      REQUIRE( 0 == card9.ielas.value );
-      REQUIRE( 1 == card9.nmix.value );
-      REQUIRE( 10.1 == card9.emax.value );
-      REQUIRE( 2 == card9.iwt.value );
+      CHECK( 1 == card9.mti.value );
+      CHECK( 80 == card9.nbint.value );
+      CHECK( 231 == card9.mte.value );
+      CHECK( 0 == card9.ielas.value );
+      CHECK( 1 == card9.nmix.value );
+      CHECK( 10.1 == card9.emax.value );
+      CHECK( 2 == card9.iwt.value );
     }
   }
   
@@ -140,28 +139,28 @@ SCENARIO( "Parsing valid ACER input" ){
       ACER acer( iss );
 
       // Card1
-      REQUIRE( 20 == acer.card1.nendf.value );
-      REQUIRE( 21 == acer.card1.npend.value );
-      REQUIRE(  0 == acer.card1.ngend.value );
-      REQUIRE( 30 == acer.card1.nace.value );
-      REQUIRE( 31 == acer.card1.ndir.value );
+      CHECK( 20 == acer.card1.nendf.value );
+      CHECK( 21 == acer.card1.npend.value );
+      CHECK(  0 == acer.card1.ngend.value );
+      CHECK( 30 == acer.card1.nace.value );
+      CHECK( 31 == acer.card1.ndir.value );
 
       // Card2
-      REQUIRE(  3 == acer.card2.iopt.value );
-      REQUIRE(  1 == acer.card2.iprint.value );
-      REQUIRE(  1 == acer.card2.itype.value );
-      REQUIRE( ".80" == acer.card2.suff.value );
-      REQUIRE(  0 == acer.card2.nxtra.value );
+      CHECK(  3 == acer.card2.iopt.value );
+      CHECK(  1 == acer.card2.iprint.value );
+      CHECK(  1 == acer.card2.itype.value );
+      CHECK( ".80" == acer.card2.suff.value );
+      CHECK(  0 == acer.card2.nxtra.value );
 
       // Card3
-      REQUIRE( sCard3 == acer.card3.hk.value );
+      CHECK( sCard3 == acer.card3.hk.value );
 
       // Card10
       const auto& card10 = std::experimental::get< ACER::Card10 >( *(acer.dataVariant) );
-      REQUIRE( 9235 == card10.matd.value );
-      REQUIRE( 600.0 == card10.tempd.value );
+      CHECK( 9235 == card10.matd.value );
+      CHECK( 600.0 == card10.tempd.value );
 
-      REQUIRE( not acer.card4 );
+      CHECK( not acer.card4 );
     }
   }
   WHEN( "processing a 'photo-atomic' data file, iopt=4" ){
@@ -175,29 +174,29 @@ SCENARIO( "Parsing valid ACER input" ){
       ACER acer( iss );
 
       // Card1
-      REQUIRE( 20 == acer.card1.nendf.value );
-      REQUIRE( 21 == acer.card1.npend.value );
-      REQUIRE(  0 == acer.card1.ngend.value );
-      REQUIRE( 30 == acer.card1.nace.value );
-      REQUIRE( 31 == acer.card1.ndir.value );
+      CHECK( 20 == acer.card1.nendf.value );
+      CHECK( 21 == acer.card1.npend.value );
+      CHECK(  0 == acer.card1.ngend.value );
+      CHECK( 30 == acer.card1.nace.value );
+      CHECK( 31 == acer.card1.ndir.value );
       
       // Card2
-      REQUIRE(  4 == acer.card2.iopt.value );
-      REQUIRE(  1 == acer.card2.iprint.value );
-      REQUIRE(  1 == acer.card2.itype.value );
-      REQUIRE( ".80" == acer.card2.suff.value );
-      REQUIRE(  0 == acer.card2.nxtra.value );
+      CHECK(  4 == acer.card2.iopt.value );
+      CHECK(  1 == acer.card2.iprint.value );
+      CHECK(  1 == acer.card2.itype.value );
+      CHECK( ".80" == acer.card2.suff.value );
+      CHECK(  0 == acer.card2.nxtra.value );
       
       // Card3
-      REQUIRE( sCard3 == acer.card3.hk.value );
+      CHECK( sCard3 == acer.card3.hk.value );
 
       // Card11
       const auto& card11 =
         std::experimental::get< ACER::Card11 >( *(acer.dataVariant) );
       
-      REQUIRE( 9235 == card11.matd.value );
+      CHECK( 9235 == card11.matd.value );
 
-      REQUIRE( not acer.card4 );
+      CHECK( not acer.card4 );
     }
   }
   WHEN( "processing a 'photo-nuclear' data file, iopt=5" ){
@@ -211,29 +210,29 @@ SCENARIO( "Parsing valid ACER input" ){
       ACER acer( iss );
 
       // Card1
-      REQUIRE( 20 == acer.card1.nendf.value );
-      REQUIRE( 21 == acer.card1.npend.value );
-      REQUIRE(  0 == acer.card1.ngend.value );
-      REQUIRE( 30 == acer.card1.nace.value );
-      REQUIRE( 31 == acer.card1.ndir.value );
+      CHECK( 20 == acer.card1.nendf.value );
+      CHECK( 21 == acer.card1.npend.value );
+      CHECK(  0 == acer.card1.ngend.value );
+      CHECK( 30 == acer.card1.nace.value );
+      CHECK( 31 == acer.card1.ndir.value );
 
       // Card2
-      REQUIRE(  5 == acer.card2.iopt.value );
-      REQUIRE(  1 == acer.card2.iprint.value );
-      REQUIRE(  1 == acer.card2.itype.value );
-      REQUIRE( ".80" == acer.card2.suff.value );
-      REQUIRE(  0 == acer.card2.nxtra.value );
+      CHECK(  5 == acer.card2.iopt.value );
+      CHECK(  1 == acer.card2.iprint.value );
+      CHECK(  1 == acer.card2.itype.value );
+      CHECK( ".80" == acer.card2.suff.value );
+      CHECK(  0 == acer.card2.nxtra.value );
 
       // Card3
-      REQUIRE( sCard3 == acer.card3.hk.value );
+      CHECK( sCard3 == acer.card3.hk.value );
 
       // Card11
       const auto& card11 =
         std::experimental::get< ACER::Card11 >( *(acer.dataVariant) );
       
-      REQUIRE( 9235 == card11.matd.value );
+      CHECK( 9235 == card11.matd.value );
 
-      REQUIRE( not acer.card4 );
+      CHECK( not acer.card4 );
     }
   }
   WHEN( "reading/checking type 1 ACE files" ){
@@ -246,22 +245,22 @@ SCENARIO( "Parsing valid ACER input" ){
       ACER acer( iss );
 
       // Card1
-      REQUIRE( 20 == acer.card1.nendf.value );
-      REQUIRE( 21 == acer.card1.npend.value );
-      REQUIRE(  0 == acer.card1.ngend.value );
-      REQUIRE( 30 == acer.card1.nace.value );
-      REQUIRE( 31 == acer.card1.ndir.value );
+      CHECK( 20 == acer.card1.nendf.value );
+      CHECK( 21 == acer.card1.npend.value );
+      CHECK(  0 == acer.card1.ngend.value );
+      CHECK( 30 == acer.card1.nace.value );
+      CHECK( 31 == acer.card1.ndir.value );
       // Card2
-      REQUIRE(  7 == acer.card2.iopt.value );
-      REQUIRE(  1 == acer.card2.iprint.value );
-      REQUIRE(  1 == acer.card2.itype.value );
-      REQUIRE( ".80" == acer.card2.suff.value );
-      REQUIRE(  0 == acer.card2.nxtra.value );
+      CHECK(  7 == acer.card2.iopt.value );
+      CHECK(  1 == acer.card2.iprint.value );
+      CHECK(  1 == acer.card2.itype.value );
+      CHECK( ".80" == acer.card2.suff.value );
+      CHECK(  0 == acer.card2.nxtra.value );
       // Card3
-      REQUIRE( sCard3 == acer.card3.hk.value );
+      CHECK( sCard3 == acer.card3.hk.value );
 
-      REQUIRE( not acer.card4 );
-      REQUIRE( not acer.dataVariant );
+      CHECK( not acer.card4 );
+      CHECK( not acer.dataVariant );
     }
   }
   WHEN( "reading/checking type 2 ACE files" ){
@@ -274,24 +273,24 @@ SCENARIO( "Parsing valid ACER input" ){
       ACER acer( iss );
 
       // Card1
-      REQUIRE( 20 == acer.card1.nendf.value );
-      REQUIRE( 21 == acer.card1.npend.value );
-      REQUIRE(  0 == acer.card1.ngend.value );
-      REQUIRE( 30 == acer.card1.nace.value );
-      REQUIRE( 31 == acer.card1.ndir.value );
+      CHECK( 20 == acer.card1.nendf.value );
+      CHECK( 21 == acer.card1.npend.value );
+      CHECK(  0 == acer.card1.ngend.value );
+      CHECK( 30 == acer.card1.nace.value );
+      CHECK( 31 == acer.card1.ndir.value );
 
       // Card2
-      REQUIRE(  8 == acer.card2.iopt.value );
-      REQUIRE(  1 == acer.card2.iprint.value );
-      REQUIRE(  2 == acer.card2.itype.value );
-      REQUIRE( ".80" == acer.card2.suff.value );
-      REQUIRE(  0 == acer.card2.nxtra.value );
+      CHECK(  8 == acer.card2.iopt.value );
+      CHECK(  1 == acer.card2.iprint.value );
+      CHECK(  2 == acer.card2.itype.value );
+      CHECK( ".80" == acer.card2.suff.value );
+      CHECK(  0 == acer.card2.nxtra.value );
 
       // Card3
-      REQUIRE( sCard3 == acer.card3.hk.value );
+      CHECK( sCard3 == acer.card3.hk.value );
 
-      REQUIRE( not acer.card4 );
-      REQUIRE( not acer.dataVariant );
+      CHECK( not acer.card4 );
+      CHECK( not acer.dataVariant );
     }
   }
 }

@@ -12,7 +12,7 @@ DataVariant readDataVariant( Istream& is, int iopt ){
   }
   case 2: {
     Card8 card8( is );
-    Card8a card8a( is, this->card8.nza );
+    Card8a card8a( is, card8.nza.value );
     Card9 card9( is );
     return std::make_tuple< Card8, Card8a, Card9 >( std::move( card8 ),
                                                     std::move( card8a ),

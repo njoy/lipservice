@@ -770,6 +770,8 @@
     "src/lipservice/ACER/Card2/Iprint.hpp",
     "src/lipservice/ACER/Card2/Suff.hpp",
     "src/lipservice/ACER/Card2/Itype.hpp",
+    "src/lipservice/ACER/src/readCard4.hpp",
+    "src/lipservice/ACER/src/readDataVariant.hpp",
     "src/lipservice/POWR/Card2.hpp",
     "src/lipservice/POWR/Lib1.hpp",
     "src/lipservice/POWR/Lib3.hpp",
