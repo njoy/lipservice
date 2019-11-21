@@ -9,15 +9,16 @@ void to_json( nlohmann::json& JSON, const RECONR& reconr ) {
     nlohmann::json jsonSequence{
       { "card3", std::get< 0 >( seq ) },
       { "card4", std::get< 1 >( seq ) },
-      { "card5", std::get< 2 >( seq ) }
+      { "card5", std::get< 2 >( seq ) },
+      { "card6", std::get< 3 >( seq ) }
     };
 
-    auto card6 = std::get< 3 >( seq );
-    if( card6 ){
-      jsonSequence[ "card6" ] = *card6;
-    } else{
-      jsonSequence[ "card6" ] = nullptr;
-    }
+    // auto card6 = std::get< 3 >( seq );
+    // if( card6 ){
+    //   jsonSequence[ "card6" ] = *card6;
+    // } else{
+    //   jsonSequence[ "card6" ] = nullptr;
+    // }
     sequence.push_back( jsonSequence );
   }
 

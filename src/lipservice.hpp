@@ -13,6 +13,8 @@ namespace hana = boost::hana;
 
 #include "json.hpp"
 using json = nlohmann::json;
+// Need this to turn optionals into JSON objects
+#include "lipservice/nlohmann.hpp"
 
 #include "utility.hpp"
 #include "ENDFtk.hpp"
