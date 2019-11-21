@@ -5,21 +5,23 @@ void to_json( nlohmann::json& JSON, const RECONR& reconr ) {
   };
   nlohmann::json sequence{};
 
+  auto card3_0 = std::get< 0 >( reconr.cardSequence.front() );
+  auto card3_1 = std::get< 0 >( reconr.cardSequence.back() );
+  Log::info( "card3_0.MAT: {}", card3_0.mat.value );
+  Log::info( "card3_1.MAT: {}", card3_1.mat.value );
+
+  int i = 0;
   for(const auto& seq : reconr.cardSequence ){
+    Log::info( "" );
+    Log::info( "i: {}", i++ );
     nlohmann::json jsonSequence{
       { "card3", std::get< 0 >( seq ) },
       { "card4", std::get< 1 >( seq ) },
       { "card5", std::get< 2 >( seq ) },
       { "card6", std::get< 3 >( seq ) }
     };
-
-    // auto card6 = std::get< 3 >( seq );
-    // if( card6 ){
-    //   jsonSequence[ "card6" ] = *card6;
-    // } else{
-    //   jsonSequence[ "card6" ] = nullptr;
-    // }
-    sequence.push_back( jsonSequence );
+    Log::info( "sequence: {}", jsonSequence );
+    sequence.emplace_back( jsonSequence );
   }
 
   JSON[ "sequence" ] = sequence;
@@ -35,6 +37,7 @@ void to_json( nlohmann::json& JSON, const RECONR::Card2& card2 ) {
 
 void to_json( nlohmann::json& JSON, const RECONR::Card3& card3 ) {
   JSON = { card3.mat.value, card3.ncards.value, card3.ngrid.value };
+  Log::info( "card3: {}", JSON );
 }
 
 void to_json( nlohmann::json& JSON, const RECONR::Card4& card4 ) {

@@ -18,5 +18,6 @@ public:
 
   std::vector< RECONR_tuple > cardSequence;
 
+  #include "lipservice/RECONR/src/readSequence.hpp"
   #include "lipservice/RECONR/src/ctor.hpp"
 };
