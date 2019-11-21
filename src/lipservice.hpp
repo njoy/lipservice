@@ -1,13 +1,11 @@
 #include <variant>
 
-#ifdef USING_CPP17
+#if __cplusplus >= 201703L
   #include <optional>
 #else 
   #include <experimental/optional>
 
-  namespace std {
-    using namespace std::experimental;
-  }
+  using namespace std::experimental;
 #endif
 
 #include "boost/hana.hpp"
@@ -23,8 +21,6 @@ using json = nlohmann::json;
 namespace njoy {
 namespace njoy21 {
 namespace lipservice {
-
-using namespace std::experimental;
 
 template< typename Char >
 using iRecordStream =
@@ -58,6 +54,8 @@ using iRecordStream =
 #include "lipservice/WIMSR.hpp"
 #include "lipservice/POWR.hpp"
 #include "lipservice/CCCCR.hpp"
+
+#include "lipservice/src/to_json.hpp"
 
 } // namespace lipservice
 } // namespace njoy21
