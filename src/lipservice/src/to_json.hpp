@@ -1,20 +1,3 @@
-void to_json( nlohmann::json& JSON, const RECONR& reconr ) {
-  JSON  = {
-    { "card1", reconr.card1 },
-    { "card2", reconr.card2 },
-    { "sequence", reconr.cardSequence }
-  };
-}
-
-void to_json( nlohmann::json& JSON, const RECONR::RECONR_tuple& seq ) {
-  JSON = {
-    { "card3", std::get< 0 >( seq ) },
-    { "card4", std::get< 1 >( seq ) },
-    { "card5", std::get< 2 >( seq ) },
-    { "card6", std::get< 3 >( seq ) }
-  };
-}
-
 void to_json( nlohmann::json& JSON, const RECONR::Card1& card1 ) {
   JSON = { card1.nendf.value, card1.npend.value };
 }
@@ -42,4 +25,37 @@ void to_json( nlohmann::json& JSON, const RECONR::Card5& card5 ) {
 
 void to_json( nlohmann::json& JSON, const RECONR::Card6& card6 ) {
   JSON = card6.enode.value;
+}
+
+void to_json( nlohmann::json& JSON, const RECONR::RECONR_tuple& seq ) {
+  Log::info( "In to_json for RECONR_tuple" );
+  JSON = {
+    { "card3", std::get< RECONR::Card3 >( seq ) },
+    { "card4", std::get< RECONR::Card4 >( seq ) },
+    { "card5", std::get< std::vector< RECONR::Card5 > >( seq ) },
+    { "card6", std::get< optional< RECONR::Card6 > >( seq ) }
+  };
+  Log::info( "JSON: {}", JSON.dump(2) );
+}
+
+void to_json( nlohmann::json& JSON, const RECONR& reconr ) {
+  JSON  = {
+    { "card1", reconr.card1 },
+    { "card2", reconr.card2 },
+    // { "sequence", reconr.cardSequence }
+  };
+
+  nlohmann::json sequence = {};
+  int i{ 0 };
+  Log::info( "sequence size()", ranges::distance( reconr.cardSequence ) );
+  for( auto& seq : reconr.cardSequence ){
+    Log::info( "" );
+    Log::info( "i: {}", i++ );
+    Log::info( "MAT: {}", std::get< RECONR::Card3 >( seq ).mat.value );
+    auto sequ = seq;
+    // sequence.push_back( nlohmann::json( seq ) );
+    sequence.push_back( nlohmann::json( sequ ) );
+  }
+
+  JSON[ "sequence" ] = sequence;
 }
