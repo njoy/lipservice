@@ -12,7 +12,7 @@ SCENARIO( "bugless" ){
   RECONR::Card2 card2( iss );
   CHECK( card2.tlabel.value == value );
 
-  nlohmann::json refJSON = value;
+  nlohmann::json refJSON = { { "tlabel", value } };
   CHECK( refJSON == nlohmann::json( card2 ) );
 }
 

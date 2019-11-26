@@ -12,8 +12,7 @@ SCENARIO( "bugless" ){
   CHECK( value == card5.cards.value );
 
   THEN( "Card5 can be turned to JSON" ){
-    nlohmann::json refJSON = value;
-    nlohmann::json JSON = card5;
+    nlohmann::json refJSON = { { "cards", value } };
     CHECK( refJSON == card5 );
   } // THEN
 }

@@ -20,7 +20,12 @@ SCENARIO( "Verifying RECONR Card4 input", "[Card4]"){
       CHECK( 2.0 == Approx(card4.errint.value) );
 
       THEN( "Card4 can be turned to JSON" ){
-        nlohmann::json refJSON = { err, 293.6, 1.0, 2.0 };
+        nlohmann::json refJSON = { 
+          { "err", err }, 
+          { "tempr", 293.6 },
+          { "errmax", 1.0 },
+          { "errint", 2.0 }
+        };
         CHECK( refJSON == nlohmann::json( card4 ) );
       } // THEN
 
@@ -35,7 +40,12 @@ SCENARIO( "Verifying RECONR Card4 input", "[Card4]"){
       CHECK( (err / 2E4) == Approx(card4.errint.value) );
 
       THEN( "Card4 can be turned to JSON" ){
-        nlohmann::json refJSON = { err, 0.0, err*10, err/2E4 };
+        nlohmann::json refJSON = { 
+          { "err", err }, 
+          { "tempr", 0.0 },
+          { "errmax", err*10 },
+          { "errint", err/2E4 }
+        };
         CHECK( refJSON == nlohmann::json( card4 ) );
       } // THEN
     }

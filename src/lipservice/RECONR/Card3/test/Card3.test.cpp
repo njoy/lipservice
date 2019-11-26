@@ -21,7 +21,11 @@ SCENARIO( "Verifying RECONR Card3 input", "[RECONR], [Card3]" ){
         CHECK( not card3.ngrid.defaulted );
 
         AND_THEN( "Card3 can be turned to JSON" ){
-          nlohmann::json refJSON = { 9228, 1, 2 };
+          nlohmann::json refJSON = { 
+            { "mat", 9228 }, 
+            { "ncards", 1 }, 
+            { "ngrid", 2 } 
+          };
           CHECK( refJSON == nlohmann::json( card3 ) );
         } // AND_THEN
       }
@@ -46,7 +50,11 @@ SCENARIO( "Verifying RECONR Card3 input", "[RECONR], [Card3]" ){
       CHECK( card3.ngrid.defaulted );
 
       THEN( "Card3 can be turned to JSON" ){
-        nlohmann::json refJSON = { 9228, 1, 0 };
+        nlohmann::json refJSON = { 
+          { "mat", 9228 }, 
+          { "ncards", 1 }, 
+          { "ngrid", 0 } 
+        };
         CHECK( refJSON == nlohmann::json( card3 ) );
       } // THEN
     } // WHEN
@@ -62,7 +70,11 @@ SCENARIO( "Verifying RECONR Card3 input", "[RECONR], [Card3]" ){
       CHECK( card3.ngrid.defaulted );
 
       THEN( "Card3 can be turned to JSON" ){
-        nlohmann::json refJSON = { 9228, 0, 0 };
+        nlohmann::json refJSON = { 
+          { "mat", 9228 }, 
+          { "ncards", 0 }, 
+          { "ngrid", 0 } 
+        };
         CHECK( refJSON == nlohmann::json( card3 ) );
       } // THEN
     }

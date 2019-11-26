@@ -17,7 +17,7 @@ SCENARIO( "Verifying RECONR Card6 input", "[RECONR],[Card6]"){
       CHECK( refGrid == card6.enode.value );
 
       AND_THEN( "Card6 can be turned to JSON" ){
-        nlohmann::json refJSON = { 1.0, 2.0, 3.0 };
+        nlohmann::json refJSON = { { "enode", { 1.0, 2.0, 3.0 } } };
         CHECK( refJSON == nlohmann::json( card6 ) );
       } // AND_THEN
     }

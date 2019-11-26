@@ -26,7 +26,10 @@ SCENARIO( "RECONR Card1 input" ){
         }
 
         AND_THEN( "Card1 can be turned to JSON " ){
-          nlohmann::json refJSON = { card1Pair.first, card1Pair.second };
+          nlohmann::json refJSON = { 
+            { "nendf", card1Pair.first }, 
+            { "npend", card1Pair.second } 
+          };
           CHECK( refJSON == nlohmann::json( card1 ) );
           
         } // AND_THEN
