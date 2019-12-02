@@ -25,7 +25,7 @@ void to_json( nlohmann::json& JSON, const RECONR::Card4& card4 ) {
 }
 
 void to_json( nlohmann::json& JSON, const RECONR::Card5& card5 ) {
-  JSON = { { "cards", card5.cards.value } };
+  JSON = card5.cards.value;
 }
 
 void to_json( nlohmann::json& JSON, const RECONR::Card6& card6 ) {
@@ -33,18 +33,21 @@ void to_json( nlohmann::json& JSON, const RECONR::Card6& card6 ) {
 }
 
 void to_json( nlohmann::json& JSON, const RECONR::RECONR_tuple& seq ) {
+  Log::info( "to_json RECONR_tuple" );
   JSON = {
     { "card3", std::get< 0 >( seq ) },
     { "card4", std::get< 1 >( seq ) },
     { "card5", std::get< 2 >( seq ) },
-    { "card6", std::get< 3 >( seq ) }
+    { "card6", std::get< 3 >( seq ) },
   };
 }
 
 void to_json( nlohmann::json& JSON, const RECONR& reconr ) {
+  Log::info( "to_json RECONR" );
   JSON  = {
     { "card1", reconr.card1 },
     { "card2", reconr.card2 },
     { "sequence", reconr.cardSequence }
   };
+
 }
