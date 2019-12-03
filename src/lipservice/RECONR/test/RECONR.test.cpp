@@ -300,6 +300,7 @@ SCENARIO( "Parsing valid RECONR input" ){
 
       CHECK( 3 == reconr.cardSequence.size() );
 
+      nlohmann::json jRECONR = reconr;
       auto& card3 = std::get<0>( reconr.cardSequence[ 0 ] );
       CHECK( 1306 == card3.mat.value );
       CHECK( 1 == card3.ncards.value );
@@ -347,8 +348,8 @@ SCENARIO( "Parsing valid RECONR input" ){
             "card6": { "enode": [ 1.0, 2.0, 3.0 ] }
           },
           {
-            "card3": { "mat": 1306, "ncards": 2, "ngrid": 0 },
-            "card4": { "err": 0.067, "tempr": 3, 
+            "card3": { "mat": 1316, "ncards": 2, "ngrid": 0 },
+            "card4": { "err": 0.067, "tempr": 3.0, 
                        "errmax": 2.1, "errint": 8E-7 },
             "card5": [ "This a sample description TEXT Record for Card5",
                        "This a sample description TEXT Record for Card5" ],
@@ -356,7 +357,7 @@ SCENARIO( "Parsing valid RECONR input" ){
           },
           {
             "card3": { "mat": 1316, "ncards": 1, "ngrid": 0 },
-            "card4": { "err": 0.067, "tempr": 3, 
+            "card4": { "err": 0.067, "tempr": 3.0, 
                        "errmax": 2.1, "errint": 8E-7 },
             "card5": [ "Another sample for Card5" ],
             "card6": null
@@ -364,7 +365,7 @@ SCENARIO( "Parsing valid RECONR input" ){
         ]
       })"_json;
 
-        CHECK( refJSON == nlohmann::json( reconr ) );
+        CHECK( refJSON == jRECONR );
 
       } // AND_THEN
     }
