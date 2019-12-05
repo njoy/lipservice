@@ -27,7 +27,7 @@ SCENARIO( "Verifying ACER Card8 input", "[ACER], [Card8]" ){
       CHECK( 1 == card8.matd.value );
       CHECK( 293.6 == card8.tempd.value );
       CHECK( std::nullopt == card8.tname.value );
-      CHECK( 3 == card8.nza.value );
+      CHECK( 1 == card8.nza.value );
     }
   } // GIVEN
 
