@@ -42,9 +42,9 @@ inline void to_json( nlohmann::json& JSON, const RECONR::RECONR_tuple& seq ) {
 }
 
 inline void to_json( nlohmann::json& JSON, const RECONR& reconr ) {
-  JSON  = {
-    { "card1", reconr.card1 },
-    { "card2", reconr.card2 },
+  JSON  = { {
+    reconr.card1, 
+    reconr.card2,
     { "sequence", reconr.cardSequence }
-  };
+  } };
 }
