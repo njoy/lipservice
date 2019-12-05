@@ -25,8 +25,6 @@ SCENARIO( "Verifying ACER Card8a input", "[ACER], [Card8a]" ){
 
       std::vector< int > refIZA{ std::begin( vIZA ), std::end( vIZA ) - i }; 
 
-      // njoy::Log::info( "i: {}, sIZA: {}", i, sIZA );
-
       int nza = 16 - i;
       THEN( "the iza values can be extracted and verified with nza = " +
            std::to_string( nza ) ){

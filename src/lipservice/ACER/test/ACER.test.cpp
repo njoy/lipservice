@@ -65,69 +65,133 @@ SCENARIO( "Parsing valid ACER input" ){
     }
   }
   WHEN( "processing a 'thermal' data file, iopt=2" ){
-    iRecordStream<char> iss( std::istringstream( 
-            sCard1
-            + "2 1 1 .80 2 /\n"                   // Card2
-            + "'" + sCard3 + "'/\n"               // Card3
-            + " 1001 0.99167 92235 233.02479 /\n" // Card4
-            + " 1 293.6 'lwtr' 3 /\n"             // Card8
-            + " 1001 8016 9235 /\n"               // Card8a
-            + " 1 80 231 0 1 10.1 2 /"            // Card9
-            ) );
-
-    THEN( "the input values can be verified" ){
-      ACER acer( iss );
-
-      // Card1
-      CHECK( 20 == acer.card1.nendf.value );
-      CHECK( 21 == acer.card1.npend.value );
-      CHECK(  0 == acer.card1.ngend.value );
-      CHECK( 30 == acer.card1.nace.value );
-      CHECK( 31 == acer.card1.ndir.value );
-
-      // Card2
-      CHECK(  2 == acer.card2.iopt.value );
-      CHECK(  1 == acer.card2.iprint.value );
-      CHECK(  1 == acer.card2.itype.value );
-      CHECK( ".80" == acer.card2.suff.value );
-      CHECK(  2 == acer.card2.nxtra.value );
-
-      // Card3
-      CHECK( sCard3 == acer.card3.hk.value );
-
-      // Card4
-      const auto& values = acer.card4->izaw.value;
-      CHECK( 1001 == values[0].first );
-      CHECK( 0.99167 == values[0].second );
-      CHECK( 92235 == values[1].first );
-      CHECK( 233.02479 == values[1].second );
-
-      const auto& thermalCards =
-        std::experimental::get< ACER::ThermalCards >( *(acer.dataVariant) );
+    GIVEN( "a NZA value" ){
+      iRecordStream<char> iss( std::istringstream( 
+              sCard1
+              + "2 1 1 .80 2 /\n"                   // Card2
+              + "'" + sCard3 + "'/\n"               // Card3
+              + " 1001 0.99167 92235 233.02479 /\n" // Card4
+              + " 1 293.6 'lwtr' 3 /\n"             // Card8
+              + " 1001 8016 9235 /\n"               // Card8a
+              + " 1 80 231 0 1 10.1 2 /"            // Card9
+              ) );
       
-      // Card8
-      const auto& card8 = std::get<0>( thermalCards );
-      CHECK( 1 == card8.matd.value );
-      CHECK( 293.6 == card8.tempd.value );
-      CHECK( "lwtr" == *card8.tname.value );
-      CHECK( 3 == card8.nza.value );
-
-      // Card8a
-      const auto& card8a = std::get<1>(thermalCards);
-      CHECK( ranges::equal( { 1001, 8016, 9235 }, card8a.iza.value ) );
-
-      // Card9
-      const auto& card9 = std::get<2>(thermalCards);
-      CHECK( 1 == card9.mti.value );
-      CHECK( 80 == card9.nbint.value );
-      CHECK( 231 == card9.mte.value );
-      CHECK( 0 == card9.ielas.value );
-      CHECK( 1 == card9.nmix.value );
-      CHECK( 10.1 == card9.emax.value );
-      CHECK( 2 == card9.iwt.value );
-    }
+      THEN( "the input values can be verified" ){
+        ACER acer( iss );
+      
+        // Card1
+        CHECK( 20 == acer.card1.nendf.value );
+        CHECK( 21 == acer.card1.npend.value );
+        CHECK(  0 == acer.card1.ngend.value );
+        CHECK( 30 == acer.card1.nace.value );
+        CHECK( 31 == acer.card1.ndir.value );
+      
+        // Card2
+        CHECK(  2 == acer.card2.iopt.value );
+        CHECK(  1 == acer.card2.iprint.value );
+        CHECK(  1 == acer.card2.itype.value );
+        CHECK( ".80" == acer.card2.suff.value );
+        CHECK(  2 == acer.card2.nxtra.value );
+      
+        // Card3
+        CHECK( sCard3 == acer.card3.hk.value );
+      
+        // Card4
+        const auto& values = acer.card4->izaw.value;
+        CHECK( 1001 == values[0].first );
+        CHECK( 0.99167 == values[0].second );
+        CHECK( 92235 == values[1].first );
+        CHECK( 233.02479 == values[1].second );
+      
+        const auto& thermalCards =
+          std::experimental::get< ACER::ThermalCards >( *(acer.dataVariant) );
+      
+        // Card8
+        const auto& card8 = std::get<0>( thermalCards );
+        CHECK( 1 == card8.matd.value );
+        CHECK( 293.6 == card8.tempd.value );
+        CHECK( "lwtr" == *card8.tname.value );
+        CHECK( 3 == card8.nza.value );
+      
+        // Card8a
+        const auto& card8a = std::get<1>(thermalCards);
+        CHECK( ranges::equal( { 1001, 8016, 9235 }, card8a.iza.value ) );
+      
+        // Card9
+        const auto& card9 = std::get<2>(thermalCards);
+        CHECK( 1 == card9.mti.value );
+        CHECK( 80 == card9.nbint.value );
+        CHECK( 231 == card9.mte.value );
+        CHECK( 0 == card9.ielas.value );
+        CHECK( 1 == card9.nmix.value );
+        CHECK( 10.1 == card9.emax.value );
+        CHECK( 2 == card9.iwt.value );
+      }
+    } // GIVEN
+    GIVEN( "no NZA value (uses default)" ){
+      iRecordStream<char> iss( std::istringstream( 
+              sCard1
+              + "2 1 1 .80 2 /\n"                   // Card2
+              + "'" + sCard3 + "'/\n"               // Card3
+              + " 1001 0.99167 92235 233.02479 /\n" // Card4
+              + " 1 293.6 'lwtr' /\n"               // Card8
+              + " 1001 /\n"                         // Card8a
+              + " 1 80 231 0 1 10.1 2 /"            // Card9
+              ) );
+      
+      THEN( "the input values can be verified" ){
+        ACER acer( iss );
+      
+        // Card1
+        CHECK( 20 == acer.card1.nendf.value );
+        CHECK( 21 == acer.card1.npend.value );
+        CHECK(  0 == acer.card1.ngend.value );
+        CHECK( 30 == acer.card1.nace.value );
+        CHECK( 31 == acer.card1.ndir.value );
+      
+        // Card2
+        CHECK(  2 == acer.card2.iopt.value );
+        CHECK(  1 == acer.card2.iprint.value );
+        CHECK(  1 == acer.card2.itype.value );
+        CHECK( ".80" == acer.card2.suff.value );
+        CHECK(  2 == acer.card2.nxtra.value );
+      
+        // Card3
+        CHECK( sCard3 == acer.card3.hk.value );
+      
+        // Card4
+        const auto& values = acer.card4->izaw.value;
+        CHECK( 1001 == values[0].first );
+        CHECK( 0.99167 == values[0].second );
+        CHECK( 92235 == values[1].first );
+        CHECK( 233.02479 == values[1].second );
+      
+        const auto& thermalCards =
+          std::experimental::get< ACER::ThermalCards >( *(acer.dataVariant) );
+      
+        // Card8
+        const auto& card8 = std::get<0>( thermalCards );
+        CHECK( 1 == card8.matd.value );
+        CHECK( 293.6 == card8.tempd.value );
+        CHECK( "lwtr" == *card8.tname.value );
+        CHECK( 1 == card8.nza.value );
+      
+        // Card8a
+        const auto& card8a = std::get<1>(thermalCards);
+        CHECK( ranges::equal( { 1001 }, card8a.iza.value ) );
+      
+        // Card9
+        const auto& card9 = std::get<2>(thermalCards);
+        CHECK( 1 == card9.mti.value );
+        CHECK( 80 == card9.nbint.value );
+        CHECK( 231 == card9.mte.value );
+        CHECK( 0 == card9.ielas.value );
+        CHECK( 1 == card9.nmix.value );
+        CHECK( 10.1 == card9.emax.value );
+        CHECK( 2 == card9.iwt.value );
+      }
+    } // GIVEN
   }
-  
   WHEN( "processing a 'dosimetry' data file, iopt=3" ){
     iRecordStream<char> iss( std::istringstream( 
             sCard1
