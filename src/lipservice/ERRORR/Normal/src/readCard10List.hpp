@@ -1,5 +1,5 @@
 template< typename Istream >
-optional< std::vector< Card10 > > readCard10List( Istream& is, const int iread )
+std::optional< std::vector< Card10 > > readCard10List( Istream& is, const int iread )
 {
   if( iread != 2 ) return std::nullopt;
   std::vector< Card10 > card10List;

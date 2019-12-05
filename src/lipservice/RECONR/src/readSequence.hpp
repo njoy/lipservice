@@ -7,9 +7,9 @@ auto readSequence( iRecordStream< Char >& is ){
     throw std::exception();
   }
 
-  optional< Card4 > card4;
+  std::optional< Card4 > card4;
   std::vector< Card5 > card5;
-  optional< Card6 > card6;
+  std::optional< Card6 > card6;
 
   do{
     try {
@@ -47,9 +47,9 @@ auto readSequence( iRecordStream< Char >& is ){
                                 std::move(*card4), 
                                 std::move(card5), 
                                 std::move(card6) );
-    card4 = nullopt;
+    card4 = std::nullopt;
     card5.clear();
-    card6 = nullopt;
+    card6 = std::nullopt;
 
     try{
       card3 = Card3( is );

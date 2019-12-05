@@ -7,8 +7,8 @@ public:
 
   /* fields */
   Card1 card1;
-  optional< Card2 > card2;
-  optional< std::vector< Card3 > > card3List;
+  std::optional< Card2 > card2;
+  std::optional< std::vector< Card3 > > card3List;
 
   /* ctor */
   template< typename Char >

@@ -15,8 +15,8 @@ public:
 #include "lipservice/COVR/src/readCard4List.hpp"
     
 Card1 card1;
-optional< std::tuple< Card2, optional< Card2z >, Card2a, Card3a > > card23a;
-optional< std::tuple< Card2b, Card3b, Card3c > > card23b;
+std::optional< std::tuple< Card2, std::optional< Card2z >, Card2a, Card3a > > card23a;
+std::optional< std::tuple< Card2b, Card3b, Card3c > > card23b;
 std::vector< Card4 > card4List;
 
 template <typename Istream> 

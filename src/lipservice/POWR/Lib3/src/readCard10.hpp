@@ -1,7 +1,7 @@
 template< typename Istream >
-std::vector< optional< Card10 > > readCard10( Istream& is,
+std::vector< std::optional< Card10 > > readCard10( Istream& is,
                        const std::vector< Card5 > card5List, const int iclaps ){
-  std::vector< optional< Card10 > > card10List;
+  std::vector< std::optional< Card10 > > card10List;
 
   int nres = ( iclaps == 1 ) ? 15 : 13;
 

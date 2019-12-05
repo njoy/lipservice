@@ -1,5 +1,5 @@
 template< typename Istream >
-optional< std::pair< Argument< Ifissp >, Argument< Efmean > > >
+std::optional< std::pair< Argument< Ifissp >, Argument< Efmean > > >
 readIfisspEfmean( Istream& is, const int mfcov ){
   if( mfcov != 35 ) return std::nullopt;
 

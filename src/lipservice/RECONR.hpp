@@ -14,7 +14,7 @@ public:
   using RECONR_tuple =
     std::tuple< Card3, Card4,
                 std::vector< Card5 >,
-                optional< Card6 > >;
+                std::optional< Card6 > >;
 
   std::vector< RECONR_tuple > cardSequence;
 

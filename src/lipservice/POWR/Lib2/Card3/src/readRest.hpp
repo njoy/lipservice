@@ -1,5 +1,5 @@
 template< typename Istream >
-optional< std::pair< Argument< Idtemp >, Argument< Name > > >
+std::optional< std::pair< Argument< Idtemp >, Argument< Name > > >
 readRest( Istream& is, const int matd ){
   if( matd == 0 ) return std::nullopt;
 

@@ -1,12 +1,12 @@
 class Curves {
   public:
-  optional< Plot > plot;
+  std::optional< Plot > plot;
   Card8 card8;
-  optional< Card9 > card9;
-  optional< Card10 > card10;
-  optional< Card10a > card10a;
-  optional< Card11 > card11;
-  optional< Freeform > freeform;
+  std::optional< Card9 > card9;
+  std::optional< Card10 > card10;
+  std::optional< Card10a > card10a;
+  std::optional< Card11 > card11;
+  std::optional< Freeform > freeform;
 
   template< typename Istream >
   Curves( Istream& is, const int iplot )

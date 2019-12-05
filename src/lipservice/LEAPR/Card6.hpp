@@ -16,7 +16,7 @@ class Card6 {
   #include "lipservice/LEAPR/Card6/src/buildControlTuple.hpp"
 
   Argument< Nss > nss;
-  optional<ControlTuple> controlTuple; 
+  std::optional<ControlTuple> controlTuple; 
 
   template< typename Char >
   Card6( iRecordStream<Char>& is )

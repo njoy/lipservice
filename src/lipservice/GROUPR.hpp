@@ -42,9 +42,9 @@ public:
   Card3 card3;
   Card4 card4;
   Card5 card5;
-  optional< std::pair< Card6a, Card6b > > arbitraryNeutronStructureCards;
-  optional< std::pair< Card7a, Card7b > > arbitraryGammaStructureCards;
-  optional< Card8a > card8a;
+  std::optional< std::pair< Card6a, Card6b > > arbitraryNeutronStructureCards;
+  std::optional< std::pair< Card7a, Card7b > > arbitraryGammaStructureCards;
+  std::optional< Card8a > card8a;
   Card8Variant card8Variant;
   reactionMatrix_t reactionMatrix;
 

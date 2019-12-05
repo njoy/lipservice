@@ -1,5 +1,5 @@
 template< typename Istream >
-optional< std::tuple< Card6, Card7, std::vector< Card8 > > > readCard678(
+std::optional< std::tuple< Card6, Card7, std::vector< Card8 > > > readCard678(
           Istream& is, const int if5 ){
   if( if5 <= 0 ) return std::nullopt;
 

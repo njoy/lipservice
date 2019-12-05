@@ -9,7 +9,7 @@ public:
 #include "lipservice/ERRORR/Normal/Card11/src/readRest.hpp"
 
 Argument< Matb > matb;
-optional< std::tuple< Argument< Mtb >, Argument< Matc >, Argument< Mtc > > >
+std::optional< std::tuple< Argument< Mtb >, Argument< Matc >, Argument< Mtc > > >
                                                                            rest;
 Card11( Card11& ) = default;
 Card11( const Card11& ) = default;

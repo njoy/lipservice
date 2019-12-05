@@ -8,7 +8,9 @@
 #else 
   #include <experimental/optional>
 
-  using namespace std::experimental;
+  namespace std {
+    using namespace std::experimental;
+  } // namespace std 
 #endif
 
 #include "boost/hana.hpp"

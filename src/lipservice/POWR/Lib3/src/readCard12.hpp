@@ -1,11 +1,11 @@
 template< typename Istream >
-static optional< std::vector< optional< std::pair< Card12, 
+static std::optional< std::vector< std::optional< std::pair< Card12, 
     std::pair< Card12a, std::vector< std::pair< Card12b,
-    optional< Card12c > > > > > > > >
+    std::optional< Card12c > > > > > > > >
     readCard12( Istream& is, const std::vector< Card5 > card5List,
                                                              const int iclaps ){
-      std::vector< optional< std::pair< Card12, std::pair< Card12a,
-                std::vector< std::pair< Card12b, optional< Card12c > > > > > > >
+      std::vector< std::optional< std::pair< Card12, std::pair< Card12a,
+                std::vector< std::pair< Card12b, std::optional< Card12c > > > > > > >
                   retval;
       int l = 0;
 
@@ -22,7 +22,7 @@ static optional< std::vector< optional< std::pair< Card12,
         Card12 card12( is, ngnd );
         Card12a card12a( is, ngnd );
 
-        std::vector< std::pair< Card12b, optional< Card12c > > > bcList;
+        std::vector< std::pair< Card12b, std::optional< Card12c > > > bcList;
 
         for( size_t i = 0; i < ngnd; i++ ){
           Card12b card12b( is, ngnd );

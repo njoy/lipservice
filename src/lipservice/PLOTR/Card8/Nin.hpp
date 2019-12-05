@@ -1,5 +1,5 @@
 struct Nin {
-  using Value_t = optional< argument::common::Nin::Value_t >;
+  using Value_t = std::optional< argument::common::Nin::Value_t >;
   static std::string name(){ return "nin"; }
   static std::string description(){
     return

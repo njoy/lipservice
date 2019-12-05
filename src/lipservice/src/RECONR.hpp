@@ -1,7 +1,10 @@
 inline void to_json( nlohmann::json& JSON, const RECONR::Card1& card1 ) {
-  JSON = { { "nendf", card1.nendf.value }, 
-           { "npend", card1.npend.value }
-  };
+
+  JSON[ "nendf" ] = card1.nendf.value;
+  JSON[ "npend" ] = card1.npend.value;
+  // JSON = { { "nendf", card1.nendf.value }, 
+  //          { "npend", card1.npend.value }
+  // };
 }
 
 inline void to_json( nlohmann::json& JSON, const RECONR::Card2& card2 ) {

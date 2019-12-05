@@ -1,5 +1,5 @@
 template< typename Istream >
-optional< std::tuple< Card8, Card8a, optional< std::pair< Card8b,
+std::optional< std::tuple< Card8, Card8a, std::optional< std::pair< Card8b,
                                                     std::vector< Card9 > > > > >
 readIread1( Istream& is, const int iread ){
   if( iread != 1 ) return std::nullopt;
@@ -9,7 +9,7 @@ readIread1( Istream& is, const int iread ){
 
   if( card8.nek.value == 0 ){
     return std::make_tuple( std::move( card8 ), std::move( card8a ),
-       optional< std::pair< Card8b, std::vector< Card9 > > > {} );
+       std::optional< std::pair< Card8b, std::vector< Card9 > > > {} );
   } else {
     Card8b card8b( is, card8.nek.value );
 

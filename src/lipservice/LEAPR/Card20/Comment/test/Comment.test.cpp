@@ -36,7 +36,7 @@ SCENARIO( "LEAPR comment",
   } // GIVEN
   
   GIVEN( "no comment value provided" ){
-    THEN( "nullopt value used" ){
+    THEN( "std::nullopt value used" ){
       iRecordStream<char> iss( std::istringstream( " /" ) );
       REQUIRE( not argument::extract< LEAPR::Card20::Comment >( iss ).value );
     } // THEN

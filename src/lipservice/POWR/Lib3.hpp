@@ -25,14 +25,14 @@ public:
 #include "lipservice/POWR/Lib3/src/readCard12.hpp"
 
 Card3 card3;
-optional< Card4 > card4;
+std::optional< Card4 > card4;
 std::vector< Card5 > card5List;
-optional< std::tuple< Card6, Card7, std::vector< Card8 > > > card678List;
-optional< std::vector< Card9 > > card9List;
-std::vector< optional< Card10 > > card10List;
-std::vector< optional< std::pair< Card11, Card11a > > > card11List;
-optional< std::vector< optional< std::pair< Card12, std::pair< Card12a,
-  std::vector< std::pair< Card12b, optional< Card12c > > > > > > > > card12List;
+std::optional< std::tuple< Card6, Card7, std::vector< Card8 > > > card678List;
+std::optional< std::vector< Card9 > > card9List;
+std::vector< std::optional< Card10 > > card10List;
+std::vector< std::optional< std::pair< Card11, Card11a > > > card11List;
+std::optional< std::vector< std::optional< std::pair< Card12, std::pair< Card12a,
+  std::vector< std::pair< Card12b, std::optional< Card12c > > > > > > > > card12List;
 
 template< typename Istream >
 Lib3( Istream& is, const int iclaps )

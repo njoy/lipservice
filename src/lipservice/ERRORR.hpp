@@ -10,8 +10,8 @@ public:
 #include "lipservice/ERRORR/src/readNormal.hpp"
 
 Card1 card1;
-optional< DummyMF33 > dummyMF33;
-optional< Normal > normal;
+std::optional< DummyMF33 > dummyMF33;
+std::optional< Normal > normal;
 
 template< typename Istream >
 ERRORR( Istream& is )

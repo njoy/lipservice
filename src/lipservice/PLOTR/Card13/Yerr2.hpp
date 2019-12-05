@@ -1,5 +1,5 @@
 struct Yerr2 {
-  using Value_t = optional< double >;
+  using Value_t = std::optional< double >;
   static std::string name(){ return "yerr2"; }
   static std::string description(){
     return

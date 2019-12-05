@@ -1,5 +1,5 @@
 
-static optional<ControlTuple> buildControlTuple( 
+static std::optional<ControlTuple> buildControlTuple( 
   iRecordStream<char>& is, const Argument< Nss >& nss ){
          
   if( nss.value == 1 ){

@@ -1,11 +1,11 @@
 template< typename Istream >
-optional< std::tuple< Card2, optional< Card2z >, Card2a, Card3a > >
+std::optional< std::tuple< Card2, std::optional< Card2z >, Card2a, Card3a > >
                                      readCard23a( Istream& is, const int nout ){
   if( nout > 0 ) return std::nullopt;
 
   Card2 card2( is );
 
-  optional< Card2z > card2z;
+  std::optional< Card2z > card2z;
 
   if( card2.icolor.value == 2 ){
     card2z = Card2z( is );

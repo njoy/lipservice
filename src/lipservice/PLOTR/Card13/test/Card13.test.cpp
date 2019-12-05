@@ -42,7 +42,7 @@ SCENARIO( "Validating card13 inputs",
       iRecordStream<char> issCard13( std::istringstream( " /" ) );
       PLOTR::Card13 card13(issCard13);
 
-      THEN( "all values are nullopt" ){
+      THEN( "all values are std::nullopt" ){
         REQUIRE( std::nullopt == card13.xdata.value );
         REQUIRE( std::nullopt == card13.ydata.value );
         REQUIRE( std::nullopt == card13.yerr1.value );

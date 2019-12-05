@@ -26,7 +26,7 @@ SCENARIO( "Yerr1 output values", "[PLOTR],[Card13], [Yerr1]"){
 
   GIVEN( "no parameter provided" ){
     iRecordStream<char> issYerr1( std::istringstream( " /" ) );
-    THEN( "the default nullopt is returned" ){
+    THEN( "the default std::nullopt is returned" ){
       REQUIRE( std::nullopt == argument::extract< PLOTR::Card13::Yerr1 >(
                                issYerr1 ).value );
     }

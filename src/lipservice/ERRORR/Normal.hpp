@@ -25,13 +25,13 @@ public:
 Card2 card2;
 Card3 card3;
 Card7 card7;
-optional< std::tuple< Card8, Card8a, optional< std::pair< Card8b,
+std::optional< std::tuple< Card8, Card8a, std::optional< std::pair< Card8b,
                                             std::vector< Card9 > > > > > iread1;
-optional< std::vector< Card10 > > card10List;
-optional< std::vector< Card11 > > card11List;
-optional< std::pair< Card12a, Card12b > > card12ab;
-optional< Card13 > card13;
-optional< Card13b > card13b;
+std::optional< std::vector< Card10 > > card10List;
+std::optional< std::vector< Card11 > > card11List;
+std::optional< std::pair< Card12a, Card12b > > card12ab;
+std::optional< Card13 > card13;
+std::optional< Card13b > card13b;
 
 template< typename Istream >
 Normal( Istream& is, const int ngout, const int nstan )

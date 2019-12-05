@@ -1,5 +1,5 @@
 struct Comment {
-  using Value_t = optional<std::string>;
+  using Value_t = std::optional<std::string>;
   static std::string name(){ return "comment"; }
  
 
@@ -11,7 +11,7 @@ struct Comment {
       "The comment cards are terminated by an empty card.";
   }
   
-  static Value_t defaultValue() { return nullopt; }
+  static Value_t defaultValue() { return std::nullopt; }
 
   static bool verify( Value_t str ){ return str->length() <= 66; } 
 };

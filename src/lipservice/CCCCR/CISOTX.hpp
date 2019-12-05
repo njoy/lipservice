@@ -11,8 +11,8 @@ public:
 #include "lipservice/CCCCR/CISOTX/src/readCard4.hpp"
 
 Card1 card1;
-optional< Card2 > card2;
-optional< Card3 > card3;
+std::optional< Card2 > card2;
+std::optional< Card3 > card3;
 std::vector< Card4 > card4;
 
 template< typename Istream >

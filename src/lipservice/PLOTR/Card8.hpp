@@ -18,7 +18,7 @@ public:
   Argument< Mtd > mtd;
   Argument< Temper > temper;
   Argument< Nth > nth;
-  optional< std::pair< Argument< Ntp >, Argument< Nkh > > > ntpnkh;
+  std::optional< std::pair< Argument< Ntp >, Argument< Nkh > > > ntpnkh;
 
   template< typename Char >
   Card8 ( iRecordStream< Char >& is, const int jtype )

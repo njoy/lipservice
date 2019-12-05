@@ -11,7 +11,7 @@ public:
 #include "lipservice/ERRORR/Card1/src/readRest.hpp"
 
 Argument< Nendf > nendf;
-optional< std::tuple< Argument< Npend >, Argument< Ngout >, Argument< Nout >,
+std::optional< std::tuple< Argument< Npend >, Argument< Ngout >, Argument< Nout >,
                       Argument< Nin >, Argument< Nstan > > > rest;
 
 template< typename Istream >

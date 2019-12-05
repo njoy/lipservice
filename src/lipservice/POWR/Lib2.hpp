@@ -8,7 +8,7 @@ public:
 #include "lipservice/POWR/Lib2/src/readCard45.hpp"
 
 Card3 card3;
-optional< std::pair< Card4, Card5 > > card45;
+std::optional< std::pair< Card4, Card5 > > card45;
 
 template< typename Istream >
 Lib2( Istream& is )

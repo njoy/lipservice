@@ -1,5 +1,5 @@
 template< typename Istream >
-optional< std::tuple< Argument< Mti >, Argument< Mtc >, Argument< Ip1opt >,
+std::optional< std::tuple< Argument< Mti >, Argument< Mtc >, Argument< Ip1opt >,
                       Argument< Inorf > > >
 readNtapea0( Istream& is, const int ntapea ){
   if( ntapea != 0 ) return std::nullopt;

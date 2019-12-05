@@ -20,13 +20,13 @@ public:
 
   Card1 card1;
   Card2 card2;
-  optional< Card2a > card2a;
+  std::optional< Card2a > card2a;
   Card3 card3;
   Card4 card4;
-  optional< std::tuple< Card5, Card6a, Card6b,
-            optional< std::vector< Card6c > > > > card56List;
+  std::optional< std::tuple< Card5, Card6a, Card6b,
+            std::optional< std::vector< Card6c > > > > card56List;
   Card7 card7;
-  optional< Card8 > card8;
+  std::optional< Card8 > card8;
 
   template< typename Istream >
   WIMSR( Istream& is )

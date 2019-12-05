@@ -1,5 +1,5 @@
 template< typename Istream >
-static optional< std::pair< Card7, Card7a > >
+static std::optional< std::pair< Card7, Card7a > >
  readCard7( Istream& is, const int jtype )
 {
   if( std::abs( jtype ) != 0 ){

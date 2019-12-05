@@ -10,7 +10,7 @@ public:
 #include "lipservice/POWR/Lib1/Card3/src/readRest.hpp"
 
 Argument< Matd > matd;
-optional< std::tuple< Argument< Rtemp >, Argument< Iff >, Argument< Nsgz >,
+std::optional< std::tuple< Argument< Rtemp >, Argument< Iff >, Argument< Nsgz >,
                       Argument< Izref > > > rest;
 
 template< typename Istream >
