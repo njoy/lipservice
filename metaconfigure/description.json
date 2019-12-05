@@ -753,6 +753,7 @@
     "src/lipservice/ACER/Card9/Iwt.hpp",
     "src/lipservice/ACER/Card9/Mti.hpp",
     "src/lipservice/ACER/Card8/Tname.hpp",
+    "src/lipservice/ACER/Card8/Nza.hpp",
     "src/lipservice/ACER/Card6/Iopp.hpp",
     "src/lipservice/ACER/Card6/Newfor.hpp",
     "src/lipservice/ACER/Card6/Ismooth.hpp",
@@ -761,9 +762,7 @@
     "src/lipservice/ACER/Card1/Ndir.hpp",
     "src/lipservice/ACER/Card1/Nendf.hpp",
     "src/lipservice/ACER/Card1/Ngend.hpp",
-    "src/lipservice/ACER/Card8a/Iza01.hpp",
-    "src/lipservice/ACER/Card8a/Iza02.hpp",
-    "src/lipservice/ACER/Card8a/Iza03.hpp",
+    "src/lipservice/ACER/Card8a/Iza.hpp",
     "src/lipservice/ACER/Card4/Izaw.hpp",
     "src/lipservice/ACER/Card3/Hk.hpp",
     "src/lipservice/ACER/Card2/Nxtra.hpp",
@@ -771,6 +770,8 @@
     "src/lipservice/ACER/Card2/Iprint.hpp",
     "src/lipservice/ACER/Card2/Suff.hpp",
     "src/lipservice/ACER/Card2/Itype.hpp",
+    "src/lipservice/ACER/src/readCard4.hpp",
+    "src/lipservice/ACER/src/readDataVariant.hpp",
     "src/lipservice/POWR/Card2.hpp",
     "src/lipservice/POWR/Lib1.hpp",
     "src/lipservice/POWR/Lib3.hpp",
@@ -1559,17 +1560,17 @@
     "lipservice.ACER.Card8": [
       "src/lipservice/ACER/Card8/test/Card8.test.cpp"
     ],
+    "lipservice.ACER.Card8.Nza": [
+      "src/lipservice/ACER/Card8/Nza/test/Nza.test.cpp"
+    ],
     "lipservice.ACER.Card8.Tname": [
       "src/lipservice/ACER/Card8/Tname/test/Tname.test.cpp"
     ],
     "lipservice.ACER.Card8a": [
       "src/lipservice/ACER/Card8a/test/Card8a.test.cpp"
     ],
-    "lipservice.ACER.Card8a.Iza01": [
-      "src/lipservice/ACER/Card8a/Iza01/test/Iza01.test.cpp"
-    ],
-    "lipservice.ACER.Card8a.Iza02": [
-      "src/lipservice/ACER/Card8a/Iza02/test/Iza02.test.cpp"
+    "lipservice.ACER.Card8a.Iza": [
+      "src/lipservice/ACER/Card8a/Iza/test/Iza.test.cpp"
     ],
     "lipservice.ACER.Card9": [
       "src/lipservice/ACER/Card9/test/Card9.test.cpp"

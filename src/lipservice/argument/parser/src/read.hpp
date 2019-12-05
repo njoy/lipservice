@@ -31,12 +31,15 @@ struct Readable {
 template< typename Char, typename T, typename... Args >
 std::enable_if_t< Readable<T>::value, bool >
 read( iRecordStream<Char>& is, T& i, Args&&... ){
-  is >> i; validate(is); return true;
+  is >> i; 
+  validate(is); 
+  return true;
 }
 
 template< typename Char, typename... Args >
 bool read( iRecordStream<Char>& is, std::string& string, Args&&... ){
-  is >> FortranString<Char>( string ); return true;
+  is >> FortranString<Char>( string ); 
+  return true;
 }
 
 // Reading in vectors of values requires that the value immediately

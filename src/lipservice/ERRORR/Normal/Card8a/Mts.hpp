@@ -11,7 +11,7 @@ struct Mts {
       return false;
     }
     std::vector< int > used;
-    for( auto i : mts ){
+    for( const auto& i : mts ){
 // Check for duplicates
       if( std::find( used.begin(), used.end(), i ) != used.end() ){
         Log::error( "Material value {} used more than once.", i );
