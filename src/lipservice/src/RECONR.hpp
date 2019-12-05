@@ -1,14 +1,14 @@
-void to_json( nlohmann::json& JSON, const RECONR::Card1& card1 ) {
+inline void to_json( nlohmann::json& JSON, const RECONR::Card1& card1 ) {
   JSON = { { "nendf", card1.nendf.value }, 
            { "npend", card1.npend.value }
   };
 }
 
-void to_json( nlohmann::json& JSON, const RECONR::Card2& card2 ) {
+inline void to_json( nlohmann::json& JSON, const RECONR::Card2& card2 ) {
   JSON = { { "tlabel", card2.tlabel.value } };
 }
 
-void to_json( nlohmann::json& JSON, const RECONR::Card3& card3 ) {
+inline void to_json( nlohmann::json& JSON, const RECONR::Card3& card3 ) {
   JSON = { 
     { "mat", card3.mat.value }, 
     { "ncards", card3.ncards.value }, 
@@ -16,7 +16,7 @@ void to_json( nlohmann::json& JSON, const RECONR::Card3& card3 ) {
   };
 }
 
-void to_json( nlohmann::json& JSON, const RECONR::Card4& card4 ) {
+inline void to_json( nlohmann::json& JSON, const RECONR::Card4& card4 ) {
   JSON = { { "err", card4.err.value },
            { "tempr", card4.tempr.value },
            { "errmax", card4.errmax.value },
@@ -24,15 +24,15 @@ void to_json( nlohmann::json& JSON, const RECONR::Card4& card4 ) {
   };
 }
 
-void to_json( nlohmann::json& JSON, const RECONR::Card5& card5 ) {
+inline void to_json( nlohmann::json& JSON, const RECONR::Card5& card5 ) {
   JSON = card5.cards.value;
 }
 
-void to_json( nlohmann::json& JSON, const RECONR::Card6& card6 ) {
+inline void to_json( nlohmann::json& JSON, const RECONR::Card6& card6 ) {
   JSON = { { "enode", card6.enode.value } };
 }
 
-void to_json( nlohmann::json& JSON, const RECONR::RECONR_tuple& seq ) {
+inline void to_json( nlohmann::json& JSON, const RECONR::RECONR_tuple& seq ) {
   JSON = {
     { "card3", std::get< 0 >( seq ) },
     { "card4", std::get< 1 >( seq ) },
@@ -41,7 +41,7 @@ void to_json( nlohmann::json& JSON, const RECONR::RECONR_tuple& seq ) {
   };
 }
 
-void to_json( nlohmann::json& JSON, const RECONR& reconr ) {
+inline void to_json( nlohmann::json& JSON, const RECONR& reconr ) {
   JSON  = {
     { "card1", reconr.card1 },
     { "card2", reconr.card2 },

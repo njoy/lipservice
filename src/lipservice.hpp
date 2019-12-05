@@ -1,3 +1,6 @@
+#ifndef LIPSERVICE_HPP
+#define LIPSERVICE_HPP
+
 #include <variant>
 
 #if __cplusplus >= 201703L
@@ -62,3 +65,5 @@ using iRecordStream =
 } // namespace lipservice
 } // namespace njoy21
 } // namespace njoy
+
+#endif // LIPSERVICE_HPP
