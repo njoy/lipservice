@@ -26,7 +26,7 @@ SCENARIO( "HEATR input",
         REQUIRE( heatr.card2.ntemp.value  == 1 );
         REQUIRE( heatr.card2.local.value  == 1 );
         REQUIRE( heatr.card2.iprint.value == 2 );
-        REQUIRE( heatr.card2.ed.value     == 30 * dimwits::electronVolts );
+        REQUIRE( heatr.card2.ed.value     == 30 );
 
         REQUIRE( heatr.card3->mtk.value.size() == 1 );
         REQUIRE( heatr.card3->mtk.value[0] == 444 );
@@ -53,7 +53,7 @@ SCENARIO( "HEATR input",
         REQUIRE( card4.mta.value[0] == 16 );
 
         const auto& card5 = std::get<1>( *(heatr.controlTuple) );
-        REQUIRE( card5.qa.value[0] == 55e6 * dimwits::electronVolts);
+        REQUIRE( card5.qa.value[0] == 55e6 );
       } // THEN
     } // WHEN
 
@@ -80,8 +80,8 @@ SCENARIO( "HEATR input",
 
         const auto& card5 = std::get<1>( *(heatr.controlTuple) );
         REQUIRE( card5.qa.value.size() == 2 );
-        REQUIRE( card5.qa.value[0] == 55e6 * dimwits::electronVolts );
-        REQUIRE( card5.qa.value[1] == 56e6 * dimwits::electronVolts );
+        REQUIRE( card5.qa.value[0] == 55e6 );
+        REQUIRE( card5.qa.value[1] == 56e6 );
 
         REQUIRE( std::get<2>( *(heatr.controlTuple) ).size() == 0 );
       } // THEN
@@ -109,8 +109,8 @@ SCENARIO( "HEATR input",
 
         const auto& card5 = std::get<1>( *(heatr.controlTuple) );
         REQUIRE( card5.qa.value.size() == 2 );
-        REQUIRE( card5.qa.value[0] == 55e6 * dimwits::electronVolts );
-        REQUIRE( card5.qa.value[1] == 99e6 * dimwits::electronVolts );
+        REQUIRE( card5.qa.value[0] == 55e6 );
+        REQUIRE( card5.qa.value[1] == 99e6 );
         
         const auto& card5aList = std::get<2>( *(heatr.controlTuple) );
         REQUIRE( card5aList.size() == 1 );
@@ -149,8 +149,8 @@ SCENARIO( "HEATR input",
 
         const auto& card5 = std::get<1>( *(heatr.controlTuple) );
         REQUIRE( card5.qa.value.size() == 2 );
-        REQUIRE( card5.qa.value[0] == 10e7 * dimwits::electronVolts );
-        REQUIRE( card5.qa.value[1] == 99e6 * dimwits::electronVolts );
+        REQUIRE( card5.qa.value[0] == 10e7 );
+        REQUIRE( card5.qa.value[1] == 99e6 );
         
         const auto& card5aList = std::get<2>( *(heatr.controlTuple) );
         REQUIRE( card5aList.size() == 2 );
@@ -187,7 +187,7 @@ SCENARIO( "HEATR input",
         REQUIRE( heatr.card2.ntemp.value  == 0 );
         REQUIRE( heatr.card2.local.value  == 0 );
         REQUIRE( heatr.card2.iprint.value == 0 );
-        REQUIRE( heatr.card2.ed.value     == 27 * dimwits::electronVolts );
+        REQUIRE( heatr.card2.ed.value     == 27 );
 
       } // THEN
     } // WHEN
@@ -263,4 +263,3 @@ SCENARIO( "HEATR input",
     } // WHEN
   } // GIVEN
 } // SCENARIO
-

@@ -1,5 +1,5 @@
 struct Atem {
-  using Value_t = std::vector< Quantity< Kelvin > >;
+  using Value_t = std::vector< double >;
   static std::string name(){ return "atem"; }
   static std::string description(){
     return "The atem parameter specifies the values of the desired\n"
@@ -7,7 +7,7 @@ struct Atem {
   }
   static bool verify( const Value_t atem, const int ){
     for( auto t : atem ){
-      if( t < 0.0*dimwits::kelvin ) return false;
+      if( t < 0.0 ) return false;
     }
     return true;
   }

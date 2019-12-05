@@ -133,14 +133,6 @@ SCENARIO("Base"){
     }
   }
 
-  SECTION( "Quantity" ){
-    dimwits::Quantity< dimwits::Meter > sink = 0 * dimwits::meter;
-    iRecordStream<char> iss( std::istringstream("   10 ") );
-    REQUIRE( Base< dimwits::Quantity
-             < dimwits::Meter > >::read( iss, sink ) );
-    REQUIRE( sink == 10 * dimwits::meter );
-  }
-
   SECTION( "Pair" ){
     using MyPair = std::pair< int, double >;
     MyPair sink{0, 1.0};
@@ -185,15 +177,13 @@ SCENARIO("Base"){
   }
 
   SECTION( "Vector of Quanitities" ){
-    std::vector< dimwits::Quantity< dimwits::Meter > > lengths;
-    std::vector< dimwits::Quantity< dimwits::Meter > > reflengths
-    { 10*dimwits::meter, 20*dimwits::meter, 30*dimwits::meter };
+    std::vector< double > lengths;
+    std::vector< double > reflengths { 10, 20, 30 };
 
     iRecordStream<char> iss( std::istringstream("   10 20 30") );
     MyArg arg{3};
 
-    REQUIRE( Base< std::vector< dimwits::Quantity< dimwits::Meter > > >::read( 
-               iss, lengths, arg ) );
+    REQUIRE( Base< std::vector< double > >::read( iss, lengths, arg ) );
     REQUIRE( lengths == reflengths );
   }
 }

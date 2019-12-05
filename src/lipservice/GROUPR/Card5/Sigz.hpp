@@ -1,5 +1,5 @@
 struct Sigz {
-  using Value_t = std::vector< Quantity< Barn > >;
+  using Value_t = std::vector< double >;
   static std::string name(){ return "sigz"; }
 
   static std::string description() {
@@ -12,9 +12,9 @@ struct Sigz {
   static bool verify( Value_t& sigz,
                       const Argument< Card2::Nsigz > & nsigz ){
 
-    sigz[0] = std::numeric_limits<double>::infinity()*barn;
+    sigz[0] = std::numeric_limits<double>::infinity();
     auto found = std::find_if( sigz.begin(), sigz.end(),
-                               [](auto& E){ return E < 0.0*barn; });
+                               [](auto& E){ return E < 0.0; });
 
     if ( found != sigz.end() ){
       Log::warning( "Negative sigma zero cross section ({}) found at index {}",

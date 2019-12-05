@@ -137,7 +137,7 @@ SCENARIO( "DTFR input, [DTFR]" ){
         REQUIRE( dtfr.card8List[0].hisnam.value == std::string("hisnam") );
         REQUIRE( dtfr.card8List[0].mat.value    == 0 );
         REQUIRE( dtfr.card8List[0].jsigz.value  == 1 );
-        REQUIRE( dtfr.card8List[0].dtemp.value  == 300*dimwits::kelvin );
+        REQUIRE( dtfr.card8List[0].dtemp.value  == 300 );
       } // THEN
 
     } // WHEN
@@ -222,12 +222,12 @@ SCENARIO( "DTFR input, [DTFR]" ){
         REQUIRE( dtfr.card8List[0].hisnam.value == std::string("hisnam") );
         REQUIRE( dtfr.card8List[0].mat.value    == 125 );
         REQUIRE( dtfr.card8List[0].jsigz.value  == 1 );
-        REQUIRE( dtfr.card8List[0].dtemp.value  == 300*dimwits::kelvin );
+        REQUIRE( dtfr.card8List[0].dtemp.value  == 300 );
 
 	REQUIRE( dtfr.card8List[1].hisnam.value == std::string("hernam") );
         REQUIRE( dtfr.card8List[1].mat.value    == 9228 );
         REQUIRE( dtfr.card8List[1].jsigz.value  == 1 );
-        REQUIRE( dtfr.card8List[1].dtemp.value  == 450*dimwits::kelvin );
+        REQUIRE( dtfr.card8List[1].dtemp.value  == 450 );
 
 
       } // THEN

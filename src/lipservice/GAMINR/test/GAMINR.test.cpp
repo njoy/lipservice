@@ -164,12 +164,12 @@ SCENARIO( "Parsing valid GAMINR input" ){
       auto card4 = (*gaminr.card4);
       REQUIRE( 5 == card4.ngg.value );
       REQUIRE( 6 == card4.egg.value.size() );
-      REQUIRE( 1*dimwits::electronVolt == card4.egg.value[0] );
-      REQUIRE( 2*dimwits::electronVolt == card4.egg.value[1] );
-      REQUIRE( 3*dimwits::electronVolt == card4.egg.value[2] );
-      REQUIRE( 4*dimwits::electronVolt == card4.egg.value[3] );
-      REQUIRE( 5*dimwits::electronVolt == card4.egg.value[4] );
-      REQUIRE( 6*dimwits::electronVolt == card4.egg.value[5] );
+      REQUIRE( 1 == card4.egg.value[0] );
+      REQUIRE( 2 == card4.egg.value[1] );
+      REQUIRE( 3 == card4.egg.value[2] );
+      REQUIRE( 4 == card4.egg.value[3] );
+      REQUIRE( 5 == card4.egg.value[4] );
+      REQUIRE( 6 == card4.egg.value[5] );
     }
     THEN( "the card5 values can be verified" ){
       auto card5 = (*gaminr.card5);

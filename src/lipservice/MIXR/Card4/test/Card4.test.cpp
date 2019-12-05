@@ -10,7 +10,7 @@ SCENARIO( "Verifying MIXR Card4 input" ){
     MIXR::Card4 card4( iss );
 
     THEN( "the members can be tested" ){
-      REQUIRE( 293.6 * dimwits::kelvin == card4.temp.value);
+      REQUIRE( 293.6 == card4.temp.value);
     }
   }
   GIVEN( "invalid MIXR Card4 inputs" ){

@@ -26,7 +26,7 @@ SCENARIO( "POWR, Lib3, Card12",
         POWR::Lib3::Card12 card12( iss, 69 );
 
         REQUIRE( Approx( 235.555 ) == card12.aw.value );
-        REQUIRE( 99.1*dimwits::kelvin == card12.temp.value );
+        REQUIRE( 99.1 == card12.temp.value );
 
         for( int i = 0; i < 69; i++ ){
           double d( i*0.1 );

@@ -15,10 +15,10 @@ SCENARIO( "ERRORR, Normal, Card13b",
       THEN( "the values can be verified" ){
         ERRORR::Normal::Card13b card13b( iss );
 
-        REQUIRE( 1e6*dimwits::electronVolt == card13b.eb.value );
-        REQUIRE( 2e6*dimwits::electronVolt == card13b.tb.value );
-        REQUIRE( 3e6*dimwits::electronVolt == card13b.ec.value );
-        REQUIRE( 4e6*dimwits::electronVolt == card13b.tc.value );
+        REQUIRE( 1e6 == card13b.eb.value );
+        REQUIRE( 2e6 == card13b.tb.value );
+        REQUIRE( 3e6 == card13b.ec.value );
+        REQUIRE( 4e6 == card13b.tc.value );
       }
     } // WHEN
   } // GIVEN

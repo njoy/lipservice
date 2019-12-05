@@ -1,5 +1,5 @@
 struct Sam {
-  using Value_t = Quantity< Barn >;
+  using Value_t = double;
   static std::string name(){ return "sam"; }
 
   static std::string description(){
@@ -10,6 +10,6 @@ struct Sam {
         "The default value is 0, which means none.";
   }
 
-  static Value_t defaultValue(){ return 0*barn; }
-  static bool verify( const Value_t a ){ return a >= 0*barn; }
+  static Value_t defaultValue(){ return 0; }
+  static bool verify( const Value_t a ){ return a >= 0; }
 };

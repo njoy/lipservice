@@ -1,5 +1,5 @@
 struct Tc {
-  using Value_t = Quantity< ElectronVolt >;
+  using Value_t = double;
   static std::string name(){ return "tc"; }
 
   static std::string description(){ 
@@ -8,5 +8,5 @@ struct Tc {
         "spectrum when calculating a weight function.";
   }
 
-  static bool verify( const Value_t T ){ return T > 0.0*electronVolt; }
+  static bool verify( const Value_t T ){ return T > 0.0; }
 };

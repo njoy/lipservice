@@ -1,8 +1,5 @@
 class Card3a {
 public:
-//  template< typename S >
-//  using Title = Card3::Title< S >;
-
   using T2 = Card3::Title< hana::string<'t','2'> >;
   Argument< T2 > t2;
 

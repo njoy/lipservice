@@ -17,11 +17,11 @@ SCENARIO( "Egn input values", "[Card6b], [Egn]" ){
       THEN( "the energy boundaries can be extracted correctly" ){
         auto egn = argument::extract< GROUPR::Card6b::Egn >(
             issPoints, ngn.value+1);
-        std::vector< dimwits::Quantity< dimwits::ElectronVolt > > refEgns{
-                      1.0*dimwits::electronVolt, 
-                      2.0*dimwits::electronVolt, 
-                      3.0*dimwits::electronVolt,
-                      4.0*dimwits::electronVolt};
+        std::vector< double > refEgns{
+                      1.0, 
+                      2.0, 
+                      3.0,
+                      4.0};
         REQUIRE( refEgns == egn.value );
       }
     }

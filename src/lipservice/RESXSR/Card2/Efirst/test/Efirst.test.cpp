@@ -16,7 +16,7 @@ SCENARIO( "efirst values",
       THEN( situ.c_str() ){
         iRecordStream<char> issEfirst( std::istringstream(
                             std::to_string( efirst ) ) );
-        REQUIRE( efirst*dimwits::electronVolt ==
+        REQUIRE( efirst ==
                  argument::extract< RESXSR::Card2::Efirst >( issEfirst ).value);
       }
     }

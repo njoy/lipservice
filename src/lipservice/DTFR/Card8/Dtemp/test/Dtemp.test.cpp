@@ -12,7 +12,7 @@ SCENARIO( "Dtemp input values",
       THEN( "the returned class has the correct value" ){
         for( auto dtemp : validDtemp ){
           iRecordStream<char> iss( std::istringstream( std::to_string(dtemp) ));
-          REQUIRE( dtemp * dimwits::kelvin == 
+          REQUIRE( dtemp == 
           ( argument::extract< DTFR::Card8::Dtemp >( iss ) ).value );
         }
       } // THEN
@@ -20,7 +20,7 @@ SCENARIO( "Dtemp input values",
     WHEN( "no dtemp values provided" ){
       THEN( "the default value is used" ){
         iRecordStream<char> iss( std::istringstream( " /" ) );
-        REQUIRE( 300.0 * dimwits::kelvin == 
+        REQUIRE( 300.0 == 
           ( argument::extract< DTFR::Card8::Dtemp > ( iss ) ).value );
       } // THEN
     } // WHEN

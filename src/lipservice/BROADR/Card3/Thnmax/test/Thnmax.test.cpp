@@ -12,7 +12,7 @@ SCENARIO( "value range" ){
         iRecordStream<char> iss( 
             std::istringstream( std::to_string( thnmax ) ) );
 
-        REQUIRE( thnmax*dimwits::electronVolt == 
+        REQUIRE( thnmax == 
                  argument::extract< BROADR::Card3::Thnmax >( iss).value );
       }
     }
@@ -20,8 +20,7 @@ SCENARIO( "value range" ){
   GIVEN( "no thnmax value" ){
     THEN( "the default value is returned" ){
       iRecordStream<char> iss( std::istringstream( "/") );
-      REQUIRE( 0.0*dimwits::electronVolt == 
-                argument::extract< BROADR::Card3::Thnmax >( iss ).value );
+      REQUIRE( 0.0 == argument::extract< BROADR::Card3::Thnmax >( iss ).value );
     }
   }
   GIVEN( "invalid thnmax parameters" ){

@@ -1,5 +1,5 @@
 struct Efmean {
-  using Value_t = optional< Quantity< ElectronVolt > >;
+  using Value_t = optional< double >;
   static std::string name(){ return "efmean"; }
   static std::string description(){
     return "The efmean parameter specifies the incident neutron energy in eV.\n"
@@ -13,11 +13,11 @@ struct Efmean {
   }
   static Value_t defaultValue( const int ifissp, const int ){
     if( ifissp == -1 ){
-      return 2.0E+06*electronVolt;
+      return 2.0E+06;
     }
     return std::nullopt;
   }
   static bool verify( const Value_t efmean, const int, const int mfcov ){
-    return ( mfcov != 35 or *efmean >= 0.0*electronVolt );
+    return ( mfcov != 35 or *efmean >= 0.0 );
   }
 };

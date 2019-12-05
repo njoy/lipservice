@@ -27,15 +27,15 @@ SCENARIO( "ERRORR, Normal",
         REQUIRE( 0 == normal.card2.irelco.value );
 
         REQUIRE( 1 == normal.card3.mprint.value );
-        REQUIRE( 314.15*dimwits::kelvin == normal.card3.tempin.value );
+        REQUIRE( 314.15 == normal.card3.tempin.value );
 
         REQUIRE( 0 == normal.card7.iread.value );
         REQUIRE( 31 == normal.card7.mfcov.value );
 
-        REQUIRE( 1.0*dimwits::electronVolt == normal.card13b->eb.value );
-        REQUIRE( 2.0*dimwits::electronVolt == normal.card13b->tb.value );
-        REQUIRE( 3.0*dimwits::electronVolt == normal.card13b->ec.value );
-        REQUIRE( 4.0*dimwits::electronVolt == normal.card13b->tc.value );
+        REQUIRE( 1.0 == normal.card13b->eb.value );
+        REQUIRE( 2.0 == normal.card13b->tb.value );
+        REQUIRE( 3.0 == normal.card13b->ec.value );
+        REQUIRE( 4.0 == normal.card13b->tc.value );
       }
     } // WHEN
 
@@ -59,7 +59,7 @@ SCENARIO( "ERRORR, Normal",
         REQUIRE( 0 == normal.card2.irelco.value );
 
         REQUIRE( 1 == normal.card3.mprint.value );
-        REQUIRE( 314.15*dimwits::kelvin == normal.card3.tempin.value );
+        REQUIRE( 314.15 == normal.card3.tempin.value );
 
         REQUIRE( 0 == normal.card7.iread.value );
         REQUIRE( 31 == normal.card7.mfcov.value );
@@ -68,25 +68,25 @@ SCENARIO( "ERRORR, Normal",
 
         REQUIRE( 7 == normal.card12ab->second.egn.value.size() );
 
-        REQUIRE( 0.05*dimwits::electronVolt ==
+        REQUIRE( 0.05 ==
                                       normal.card12ab->second.egn.value.at(0) );
-        REQUIRE( 1.0*dimwits::electronVolt ==
+        REQUIRE( 1.0 ==
                                       normal.card12ab->second.egn.value.at(1) );
-        REQUIRE( 200.0*dimwits::electronVolt ==
+        REQUIRE( 200.0 ==
                                       normal.card12ab->second.egn.value.at(2) );
-        REQUIRE( 2.e4*dimwits::electronVolt ==
+        REQUIRE( 2.e4 ==
                                       normal.card12ab->second.egn.value.at(3) );
-        REQUIRE( 5.e5*dimwits::electronVolt ==
+        REQUIRE( 5.e5 ==
                                       normal.card12ab->second.egn.value.at(4) );
-        REQUIRE( 1.e6*dimwits::electronVolt ==
+        REQUIRE( 1.e6 ==
                                       normal.card12ab->second.egn.value.at(5) );
-        REQUIRE( 2.e6*dimwits::electronVolt ==
+        REQUIRE( 2.e6 ==
                                       normal.card12ab->second.egn.value.at(6) );
 
-        REQUIRE( 1.0*dimwits::electronVolt == normal.card13b->eb.value );
-        REQUIRE( 2.0*dimwits::electronVolt == normal.card13b->tb.value );
-        REQUIRE( 3.0*dimwits::electronVolt == normal.card13b->ec.value );
-        REQUIRE( 4.0*dimwits::electronVolt == normal.card13b->tc.value );
+        REQUIRE( 1.0 == normal.card13b->eb.value );
+        REQUIRE( 2.0 == normal.card13b->tb.value );
+        REQUIRE( 3.0 == normal.card13b->ec.value );
+        REQUIRE( 4.0 == normal.card13b->tc.value );
       }
     } // WHEN
 
@@ -111,7 +111,7 @@ SCENARIO( "ERRORR, Normal",
         REQUIRE( 0 == normal.card2.irelco.value );
 
         REQUIRE( 1 == normal.card3.mprint.value );
-        REQUIRE( 314.15*dimwits::kelvin == normal.card3.tempin.value );
+        REQUIRE( 314.15 == normal.card3.tempin.value );
 
         REQUIRE( 0 == normal.card7.iread.value );
         REQUIRE( 31 == normal.card7.mfcov.value );
@@ -139,7 +139,7 @@ SCENARIO( "ERRORR, Normal",
         REQUIRE( 0 == normal.card2.irelco.value );
 
         REQUIRE( 1 == normal.card3.mprint.value );
-        REQUIRE( 314.15*dimwits::kelvin == normal.card3.tempin.value );
+        REQUIRE( 314.15 == normal.card3.tempin.value );
 
         REQUIRE( 0 == normal.card7.iread.value );
         REQUIRE( 31 == normal.card7.mfcov.value );
@@ -193,7 +193,7 @@ SCENARIO( "ERRORR, Normal",
         REQUIRE( 0 == normal.card2.irelco.value );
 
         REQUIRE( 1 == normal.card3.mprint.value );
-        REQUIRE( 314.15*dimwits::kelvin == normal.card3.tempin.value );
+        REQUIRE( 314.15 == normal.card3.tempin.value );
 
         REQUIRE( 2 == normal.card7.iread.value );
         REQUIRE( 31 == normal.card7.mfcov.value );
@@ -243,7 +243,7 @@ SCENARIO( "ERRORR, Normal",
         REQUIRE( 0 == normal.card2.irelco.value );
 
         REQUIRE( 1 == normal.card3.mprint.value );
-        REQUIRE( 314.15*dimwits::kelvin == normal.card3.tempin.value );
+        REQUIRE( 314.15 == normal.card3.tempin.value );
 
         REQUIRE( 1 == normal.card7.iread.value );
         REQUIRE( 31 == normal.card7.mfcov.value );
@@ -259,15 +259,15 @@ SCENARIO( "ERRORR, Normal",
 
         REQUIRE( 5 == std::get<2>( *( normal.iread1 ) )->first.ek.value.size());
 
-        REQUIRE( 0.01*dimwits::electronVolt ==
+        REQUIRE( 0.01 ==
                       std::get<2>( *( normal.iread1 ) )->first.ek.value.at(0) );
-        REQUIRE( 1.0*dimwits::electronVolt ==
+        REQUIRE( 1.0 ==
                       std::get<2>( *( normal.iread1 ) )->first.ek.value.at(1) );
-        REQUIRE( 10.0*dimwits::electronVolt ==
+        REQUIRE( 10.0 ==
                       std::get<2>( *( normal.iread1 ) )->first.ek.value.at(2) );
-        REQUIRE( 100.0*dimwits::electronVolt ==
+        REQUIRE( 100.0 ==
                       std::get<2>( *( normal.iread1 ) )->first.ek.value.at(3) );
-        REQUIRE( 200.0*dimwits::electronVolt ==
+        REQUIRE( 200.0 ==
                       std::get<2>( *( normal.iread1 ) )->first.ek.value.at(4) );
 
         for( int i = 0; i < 4; i++ ){
@@ -303,7 +303,7 @@ SCENARIO( "ERRORR, Normal",
         REQUIRE( 0 == normal.card2.irelco.value );
 
         REQUIRE( 1 == normal.card3.mprint.value );
-        REQUIRE( 314.15*dimwits::kelvin == normal.card3.tempin.value );
+        REQUIRE( 314.15 == normal.card3.tempin.value );
 
         REQUIRE( 0 == normal.card7.iread.value );
         REQUIRE( 33 == normal.card7.mfcov.value );
@@ -329,7 +329,7 @@ SCENARIO( "ERRORR, Normal",
         REQUIRE( 0 == normal.card2.irelco.value );
 
         REQUIRE( 1 == normal.card3.mprint.value );
-        REQUIRE( 314.15*dimwits::kelvin == normal.card3.tempin.value );
+        REQUIRE( 314.15 == normal.card3.tempin.value );
 
         REQUIRE( 0 == normal.card7.iread.value );
         REQUIRE( 34 == normal.card7.mfcov.value );
@@ -354,12 +354,12 @@ SCENARIO( "ERRORR, Normal",
         REQUIRE( 0 == normal.card2.irelco.value );
 
         REQUIRE( 1 == normal.card3.mprint.value );
-        REQUIRE( 314.15*dimwits::kelvin == normal.card3.tempin.value );
+        REQUIRE( 314.15 == normal.card3.tempin.value );
 
         REQUIRE( 0 == normal.card7.iread.value );
         REQUIRE( 35 == normal.card7.mfcov.value );
         REQUIRE( 1 == normal.card7.ifissp.value );
-        REQUIRE( 2.2e5*dimwits::electronVolt == normal.card7.efmean.value );
+        REQUIRE( 2.2e5 == normal.card7.efmean.value );
       }
     } // WHEN
   } // GIVEN

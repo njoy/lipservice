@@ -1,5 +1,5 @@
 struct Thnmax {
-  using Value_t = Quantity< ElectronVolt >;
+  using Value_t = double;
   static std::string name(){ return "thnmax"; }
 
   static std::string description(){
@@ -35,8 +35,8 @@ struct Thnmax {
       "by NJOY";
   }
 
-  static Value_t defaultValue(){ return 0.0 * mega( electronVolt ); }
+  static Value_t defaultValue(){ return 0.0; }
   static bool verify( Value_t& T ){
-    return std::abs( T ) <= 20.0 * mega( electronVolt );
+    return std::abs( T ) <= 20.0E6;
   }
 };

@@ -6,7 +6,6 @@ using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "LEAPR input",
   "[LEAPR]" ){
-  auto InvAngstrom = pow( 1.0 * dimwits::angstrom, dimwits::Ratio<-1> );
   std::string card1         = "20/\n";
   std::string card2         = "'graphite, endf model'/\n";
   std::string card3_1_temp  = "1 0 101/\n";
@@ -66,7 +65,7 @@ SCENARIO( "LEAPR input",
         REQUIRE( leapr.card4.smin.value  == 1e-75  );
       
         REQUIRE( leapr.card5.awr.value   == 11.898 );
-        REQUIRE( leapr.card5.spr.value   == 4.7392 * dimwits::barn );
+        REQUIRE( leapr.card5.spr.value   == 4.7392 );
         REQUIRE( leapr.card5.npr.value   == 1 );
         REQUIRE( leapr.card5.iel.value   == 1 );
         REQUIRE( leapr.card5.ncold.value == 1 );
@@ -106,8 +105,8 @@ SCENARIO( "LEAPR input",
         const auto& card17 = std::get<0>( *pairCorrelTuple );
         const auto& card18 = std::get<1>( *pairCorrelTuple );
 
-        REQUIRE( card10.temp.value  == 293.0 * dimwits::kelvin );
-        REQUIRE( card11.delta.value == 0.03  * dimwits::electronVolts );
+        REQUIRE( card10.temp.value  == 293.0 );
+        REQUIRE( card11.delta.value == 0.03 );
         REQUIRE( card11.ni.value    == 4 );
         std::vector<double> refRho = { 1.0, 2.0, 3.0, 4.0 };
         REQUIRE( card12.rho.value   == refRho ); 
@@ -115,17 +114,14 @@ SCENARIO( "LEAPR input",
         REQUIRE( card13.c.value     == 0.0    );
         REQUIRE( card13.tbeta.value == 0.4904 );
         REQUIRE( card14.nd.value    == 2      );
-        std::vector< dimwits::Quantity< dimwits::ElectronVolts > > 
-          refOes = { 0.205 * dimwits::electronVolts, 
-                     0.436 * dimwits::electronVolts };
+        std::vector< double > 
+          refOes = { 0.205, 0.436 };
         REQUIRE( card15.oe.value    == refOes        );
         std::vector< double > refOws = { 0.163467, 0.326933 };
         REQUIRE( card16.ow.value    == refOws );
         REQUIRE( card17.nka.value   == 2      );
-        REQUIRE( card17.dka.value   == 0.001 * InvAngstrom );
-        std::vector< decltype( InvAngstrom ) > refSkappas{ 
-          1.5 * InvAngstrom, 
-          2.0 * InvAngstrom };
+        REQUIRE( card17.dka.value   == 0.001 );
+        std::vector< double > refSkappas{ 1.5, 2.0 };
         REQUIRE( card18.skappa.value == refSkappas );
         REQUIRE( leapr.card19 );
 	REQUIRE( leapr.card19->cfrac.value == 0.1 );
@@ -197,8 +193,8 @@ SCENARIO( "LEAPR input",
           const auto& card17 = std::get<0>( *pairCorrelTuple );
           const auto& card18 = std::get<1>( *pairCorrelTuple );
 
-          REQUIRE( card10.temp.value  == 293.0 * dimwits::kelvin );
-          REQUIRE( card11.delta.value == 0.03  * dimwits::electronVolts );
+          REQUIRE( card10.temp.value  == 293.0 );
+          REQUIRE( card11.delta.value == 0.03 );
           REQUIRE( card11.ni.value    == 4 );
           std::vector<double> refRho = { 1.0, 2.0, 3.0, 4.0 };
           REQUIRE( card12.rho.value   == refRho ); 
@@ -206,17 +202,14 @@ SCENARIO( "LEAPR input",
           REQUIRE( card13.c.value     == 0.0    );
           REQUIRE( card13.tbeta.value == 0.4904 );
           REQUIRE( card14.nd.value    == 2      );
-          std::vector< dimwits::Quantity< dimwits::ElectronVolts > > 
-            refOes = { 0.205 * dimwits::electronVolts, 
-                       0.436 * dimwits::electronVolts };
+          std::vector< double > 
+            refOes = { 0.205, 0.436 };
           REQUIRE( card15.oe.value    == refOes        );
           std::vector< double > refOws = { 0.163467, 0.326933 };
           REQUIRE( card16.ow.value    == refOws );
           REQUIRE( card17.nka.value   == 2      );
-          REQUIRE( card17.dka.value   == 0.001 * InvAngstrom );
-          std::vector< decltype( InvAngstrom ) > refSkappas{ 
-            1.5 * InvAngstrom, 
-            2.0 * InvAngstrom };
+          REQUIRE( card17.dka.value   == 0.001 );
+          std::vector< double > refSkappas{ 1.5, 2.0 };
           REQUIRE( card18.skappa.value == refSkappas );
           REQUIRE( not leapr.card19 );
        
@@ -235,8 +228,8 @@ SCENARIO( "LEAPR input",
           const auto& card17 = std::get<0>( *pairCorrelTuple );
           const auto& card18 = std::get<1>( *pairCorrelTuple );
 
-          REQUIRE( card10.temp.value  == 300.0 * dimwits::kelvin );
-          REQUIRE( card11.delta.value == 0.02  * dimwits::electronVolts );
+          REQUIRE( card10.temp.value  == 300.0 );
+          REQUIRE( card11.delta.value == 0.02 );
           REQUIRE( card11.ni.value    == 3   );
           std::vector<double> refRho = { 2.0, 4.0, 6.0 };
           REQUIRE( card12.rho.value   == refRho        ); 
@@ -246,11 +239,8 @@ SCENARIO( "LEAPR input",
           REQUIRE( card14.nd.value    == 0   );
           REQUIRE( not oscillatorTuple );
           REQUIRE( card17.nka.value  == 3    );
-          REQUIRE( card17.dka.value  == 0.002 * InvAngstrom );
-          std::vector< decltype( InvAngstrom ) > 
-            refSkappas{ 2.0 * InvAngstrom, 
-                        2.5 * InvAngstrom, 
-                        3.0 * InvAngstrom };
+          REQUIRE( card17.dka.value  == 0.002 );
+          std::vector< double > refSkappas{ 2.0, 2.5, 3.0 };
           REQUIRE( card18.skappa.value == refSkappas );
           REQUIRE( not leapr.card19 );
         }
@@ -293,7 +283,7 @@ SCENARIO( "LEAPR input",
           auto ct = *( leapr.card6.controlTuple );
           REQUIRE( ct.b7.value == 1 );
           REQUIRE( ct.aws.value == 15.87 );
-          REQUIRE( ct.sps.value == 3.84 * dimwits::barns );
+          REQUIRE( ct.sps.value == 3.84 );
           REQUIRE( ct.mss.value == 1 );
         } // THEN
       } // WHEN
@@ -342,8 +332,8 @@ SCENARIO( "LEAPR input",
           const auto& card17 = std::get<0>( *pairCorrelTuple );
           const auto& card18 = std::get<1>( *pairCorrelTuple );
 
-          REQUIRE( card10.temp.value  == 293.0 * dimwits::kelvin );
-          REQUIRE( card11.delta.value == 0.03  * dimwits::electronVolts );
+          REQUIRE( card10.temp.value  == 293.0 );
+          REQUIRE( card11.delta.value == 0.03 );
           REQUIRE( card11.ni.value    == 4 );
           std::vector<double> refRho = { 1.0, 2.0, 3.0, 4.0 };
           REQUIRE( card12.rho.value   == refRho ); 
@@ -351,17 +341,14 @@ SCENARIO( "LEAPR input",
           REQUIRE( card13.c.value     == 0.0    );
           REQUIRE( card13.tbeta.value == 0.4904 );
           REQUIRE( card14.nd.value    == 2      );
-          std::vector< dimwits::Quantity< dimwits::ElectronVolts > > 
-            refOes = { 0.205 * dimwits::electronVolts, 
-                       0.436 * dimwits::electronVolts };
+          std::vector< double > 
+            refOes = { 0.205, 0.436 };
           REQUIRE( card15.oe.value    == refOes        );
           std::vector< double > refOws = { 0.163467, 0.326933 };
           REQUIRE( card16.ow.value    == refOws );
           REQUIRE( card17.nka.value   == 2      );
-          REQUIRE( card17.dka.value   == 0.001 * InvAngstrom );
-          std::vector< decltype( InvAngstrom ) > refSkappas{ 
-            1.5 * InvAngstrom, 
-            2.0 * InvAngstrom };
+          REQUIRE( card17.dka.value   == 0.001 );
+          std::vector< double > refSkappas{ 1.5, 2.0 };
           REQUIRE( card18.skappa.value == refSkappas );
           REQUIRE( not leapr.card19 );
         }
@@ -370,7 +357,7 @@ SCENARIO( "LEAPR input",
           const auto& loop2 = leapr.tempLoop[1];
           const auto& card10 = std::get<0>( loop2 );
           const auto& tempTuple = std::get<1>( loop2 );
-          REQUIRE( card10.temp.value == -300 * dimwits::kelvin );
+          REQUIRE( card10.temp.value == -300 );
           REQUIRE( not tempTuple );
         }
 

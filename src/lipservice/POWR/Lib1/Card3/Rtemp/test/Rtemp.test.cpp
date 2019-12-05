@@ -15,7 +15,7 @@ SCENARIO( "POWR, Lib1, Card3, Rtemp",
         iRecordStream<char> iss( std::istringstream( std::to_string( t ) ) );
 
         THEN( "the values can be verified" ){
-          REQUIRE( t*dimwits::kelvin == argument::extract<
+          REQUIRE( t == argument::extract<
                                       POWR::Lib1::Card3::Rtemp >( iss ).value );
         }
       }
@@ -25,7 +25,7 @@ SCENARIO( "POWR, Lib1, Card3, Rtemp",
       iRecordStream<char> iss( std::istringstream( " /" ) );
 
       THEN( "the default value can be verified" ){
-        REQUIRE( 300.0*dimwits::kelvin == argument::extract<
+        REQUIRE( 300.0 == argument::extract<
                                       POWR::Lib1::Card3::Rtemp >( iss ).value );
       }
     } // WHEN

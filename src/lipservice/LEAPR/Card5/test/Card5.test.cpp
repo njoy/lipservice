@@ -12,7 +12,7 @@ SCENARIO( "LEAPR Card5 input values",
       THEN( "the extracted values are correct" ){
         LEAPR::Card5 card5( is );
         REQUIRE( card5.awr.value   == 0.99 );
-        REQUIRE( card5.spr.value   == 20.44 * dimwits::barns );
+        REQUIRE( card5.spr.value   == 20.44 );
         REQUIRE( card5.npr.value   == 2    );
         REQUIRE( card5.iel.value   == 1    );
         REQUIRE( card5.ncold.value == 1    );

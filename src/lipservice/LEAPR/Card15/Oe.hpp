@@ -1,5 +1,5 @@
 struct Oe {
-  using Value_t = std::vector< Quantity< ElectronVolt > >;
+  using Value_t = std::vector< double >;
   static std::string name(){ return "oe"; }
 
   static std::string description() {
@@ -13,7 +13,7 @@ struct Oe {
   static bool verify( const Value_t& oes,
                       const Argument< LEAPR::Card14::Nd > & ){
     // Make sure all oes are positive
-    if ( oes[0] < 0.0 * electronVolts ){
+    if ( oes[0] < 0.0 ){
       Log::info( "Negative oe value found" );
       return false;
     } 

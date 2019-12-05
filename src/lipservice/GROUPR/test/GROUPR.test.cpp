@@ -66,14 +66,14 @@ SCENARIO( "Parsing valid GROUPR input" ){
     }
     THEN( "the Card4 input values can be verified" ){
       REQUIRE( 2 == groupr.card4.temp.value.size() );
-      REQUIRE( 293.6*dimwits::kelvin == groupr.card4.temp.value[0] );
-      REQUIRE( 600*dimwits::kelvin == groupr.card4.temp.value[1] );
+      REQUIRE( 293.6 == groupr.card4.temp.value[0] );
+      REQUIRE( 600 == groupr.card4.temp.value[1] );
     }
     THEN( "the Card5 input values can be verified" ){
       REQUIRE( 2 == groupr.card5.sigz.value.size() );
-      REQUIRE( std::numeric_limits<double>::infinity()*dimwits::barn == 
+      REQUIRE( std::numeric_limits<double>::infinity() == 
                groupr.card5.sigz.value[0] );
-      REQUIRE( 1E-10*dimwits::barn == groupr.card5.sigz.value[1] );
+      REQUIRE( 1E-10 == groupr.card5.sigz.value[1] );
     }
 
     THEN( "the Card8 variant must be false (i.e., not exist )" ){
@@ -128,14 +128,14 @@ SCENARIO( "Parsing valid GROUPR input" ){
     }
     THEN( "the Card4 input values can be verified" ){
       REQUIRE( 2 == groupr.card4.temp.value.size() );
-      REQUIRE( 293.6*dimwits::kelvin == groupr.card4.temp.value[0] );
-      REQUIRE( 600*dimwits::kelvin == groupr.card4.temp.value[1] );
+      REQUIRE( 293.6 == groupr.card4.temp.value[0] );
+      REQUIRE( 600 == groupr.card4.temp.value[1] );
     }
     THEN( "the Card5 input values can be verified" ){
       REQUIRE( 2 == groupr.card5.sigz.value.size() );
-      REQUIRE( std::numeric_limits<double>::infinity()*dimwits::barn == 
+      REQUIRE( std::numeric_limits<double>::infinity() == 
                groupr.card5.sigz.value[0] );
-      REQUIRE( 1E-10*dimwits::barn == groupr.card5.sigz.value[1] );
+      REQUIRE( 1E-10 == groupr.card5.sigz.value[1] );
     }
     THEN( "the Card9 and Card10 values can be verified" ){
       verifyReactionMatrix( groupr.reactionMatrix );
@@ -148,11 +148,11 @@ SCENARIO( "Parsing valid GROUPR input" ){
     THEN( "the Card6b input values can be verified" ){
       auto card6b = groupr.arbitraryNeutronStructureCards->second;
       REQUIRE( 5 == card6b.egn.value.size() );
-      REQUIRE( 1*dimwits::electronVolt == card6b.egn.value[0] );
-      REQUIRE( 2*dimwits::electronVolt == card6b.egn.value[1] );
-      REQUIRE( 3*dimwits::electronVolt == card6b.egn.value[2] );
-      REQUIRE( 4*dimwits::electronVolt == card6b.egn.value[3] );
-      REQUIRE( 5*dimwits::electronVolt == card6b.egn.value[4] );
+      REQUIRE( 1 == card6b.egn.value[0] );
+      REQUIRE( 2 == card6b.egn.value[1] );
+      REQUIRE( 3 == card6b.egn.value[2] );
+      REQUIRE( 4 == card6b.egn.value[3] );
+      REQUIRE( 5 == card6b.egn.value[4] );
     }
     THEN( "the Card7a input values can be verified" ){
       auto card7a = groupr.arbitraryGammaStructureCards->first;
@@ -161,22 +161,22 @@ SCENARIO( "Parsing valid GROUPR input" ){
     THEN( "the Card7b input values can be verified" ){
       auto card7b = groupr.arbitraryGammaStructureCards->second;
       REQUIRE( 6 == card7b.egg.value.size() );
-      REQUIRE( 1*dimwits::electronVolt == card7b.egg.value[0] );
-      REQUIRE( 2*dimwits::electronVolt == card7b.egg.value[1] );
-      REQUIRE( 3*dimwits::electronVolt == card7b.egg.value[2] );
-      REQUIRE( 4*dimwits::electronVolt == card7b.egg.value[3] );
-      REQUIRE( 5*dimwits::electronVolt == card7b.egg.value[4] );
-      REQUIRE( 6*dimwits::electronVolt == card7b.egg.value[5] );
+      REQUIRE( 1 == card7b.egg.value[0] );
+      REQUIRE( 2 == card7b.egg.value[1] );
+      REQUIRE( 3 == card7b.egg.value[2] );
+      REQUIRE( 4 == card7b.egg.value[3] );
+      REQUIRE( 5 == card7b.egg.value[4] );
+      REQUIRE( 6 == card7b.egg.value[5] );
     }
     THEN( "the card8a input values can be verified" ){
       auto card8a = (*groupr.card8a);
-      REQUIRE( 400*dimwits::electronVolt == card8a.fehi.value );
-      REQUIRE( 10.6*dimwits::barn == card8a.sigpot.value );
+      REQUIRE( 400 == card8a.fehi.value );
+      REQUIRE( 10.6 == card8a.sigpot.value );
       REQUIRE( 5000 == card8a.nflmax.value );
       REQUIRE( 0 == card8a.ninwt.value );
       REQUIRE( 0 == card8a.jsigz.value );
       REQUIRE( 0.7768 == card8a.alpha2.value );
-      REQUIRE( 7.5*dimwits::barn == card8a.sam.value );
+      REQUIRE( 7.5 == card8a.sam.value );
       REQUIRE( 0.40 == card8a.beta.value );
       REQUIRE( 1.6E-7 == card8a.alpha3.value );
       REQUIRE( 0.086 == card8a.gamma.value );
@@ -233,22 +233,22 @@ SCENARIO( "Parsing valid GROUPR input" ){
     }
     THEN( "the Card4 input values can be verified" ){
       REQUIRE( 2 == groupr.card4.temp.value.size() );
-      REQUIRE( 293.6*dimwits::kelvin == groupr.card4.temp.value[0] );
-      REQUIRE( 600*dimwits::kelvin == groupr.card4.temp.value[1] );
+      REQUIRE( 293.6 == groupr.card4.temp.value[0] );
+      REQUIRE( 600 == groupr.card4.temp.value[1] );
     }
     THEN( "the Card5 input values can be verified" ){
       REQUIRE( 2 == groupr.card5.sigz.value.size() );
-      REQUIRE( std::numeric_limits<double>::infinity()*dimwits::barn == 
+      REQUIRE( std::numeric_limits<double>::infinity() == 
                groupr.card5.sigz.value[0] );
-      REQUIRE( 1E-10*dimwits::barn == groupr.card5.sigz.value[1] );
+      REQUIRE( 1E-10 == groupr.card5.sigz.value[1] );
     }
     THEN( "the card8c input values can be verified" ){
       auto& card8c = std::experimental::get<GROUPR::Card8c>( 
           groupr.card8Variant );
-      REQUIRE( 0.10*dimwits::electronVolt == card8c.eb.value );
-      REQUIRE( 0.025*dimwits::electronVolt == card8c.tb.value );
-      REQUIRE( 820.3E3*dimwits::electronVolt == card8c.ec.value );
-      REQUIRE( 1.4E6*dimwits::electronVolt == card8c.tc.value );
+      REQUIRE( 0.10 == card8c.eb.value );
+      REQUIRE( 0.025 == card8c.tb.value );
+      REQUIRE( 820.3E3 == card8c.ec.value );
+      REQUIRE( 1.4E6 == card8c.tc.value );
     }
     THEN( "the Card9 and Card10 values can be verified" ){
       verifyReactionMatrix( groupr.reactionMatrix );
@@ -290,14 +290,14 @@ SCENARIO( "Parsing valid GROUPR input" ){
     }
     THEN( "the Card4 input values can be verified" ){
       REQUIRE( 2 == groupr.card4.temp.value.size() );
-      REQUIRE( 293.6*dimwits::kelvin == groupr.card4.temp.value[0] );
-      REQUIRE( 600*dimwits::kelvin == groupr.card4.temp.value[1] );
+      REQUIRE( 293.6 == groupr.card4.temp.value[0] );
+      REQUIRE( 600 == groupr.card4.temp.value[1] );
     }
     THEN( "the Card5 input values can be verified" ){
       REQUIRE( 2 == groupr.card5.sigz.value.size() );
-      REQUIRE( std::numeric_limits<double>::infinity()*dimwits::barn == 
+      REQUIRE( std::numeric_limits<double>::infinity() == 
                groupr.card5.sigz.value[0] );
-      REQUIRE( 1E-10*dimwits::barn == groupr.card5.sigz.value[1] );
+      REQUIRE( 1E-10 == groupr.card5.sigz.value[1] );
     }
     THEN( "the Card9 and Card10 values can be verified" ){
       verifyReactionMatrix( groupr.reactionMatrix );
@@ -326,7 +326,7 @@ void verifyReactionMatrix( GROUPR::reactionMatrix_t& matrix ){
     int j;
     { j = 0;
       auto tPair = tempPairs[ j ];
-      REQUIRE( 293.6*dimwits::kelvin == tPair.first );
+      REQUIRE( 293.6 == tPair.first );
       auto reactions = tPair.second;
       REQUIRE( 3 == reactions.size() );
       
@@ -349,7 +349,7 @@ void verifyReactionMatrix( GROUPR::reactionMatrix_t& matrix ){
     }
     { j = 1;
       auto tPair = tempPairs[ j ];
-      REQUIRE( 600*dimwits::kelvin == tPair.first );
+      REQUIRE( 600 == tPair.first );
       auto reactions = tPair.second;
       REQUIRE( 3 == reactions.size() );
       
@@ -381,7 +381,7 @@ void verifyReactionMatrix( GROUPR::reactionMatrix_t& matrix ){
     int j;
     { j = 0;
       auto tPair = tempPairs[ j ];
-      REQUIRE( 293.6*dimwits::kelvin == tPair.first );
+      REQUIRE( 293.6 == tPair.first );
       auto reactions = tPair.second;
       REQUIRE( 2 == reactions.size() );
       
@@ -399,7 +399,7 @@ void verifyReactionMatrix( GROUPR::reactionMatrix_t& matrix ){
     }
     { j = 1;
       auto tPair = tempPairs[ j ];
-      REQUIRE( 600*dimwits::kelvin == tPair.first );
+      REQUIRE( 600 == tPair.first );
       auto reactions = tPair.second;
       REQUIRE( 2 == reactions.size() );
       

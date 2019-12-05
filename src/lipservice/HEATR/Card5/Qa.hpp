@@ -1,5 +1,5 @@
 struct Qa {
-  using Value_t = std::vector< Quantity<ElectronVolts> >;
+  using Value_t = std::vector< double >;
   static std::string name(){ return "qa"; }
   static std::string description(){
     return

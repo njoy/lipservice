@@ -37,11 +37,11 @@ SCENARIO( "CCCCR, CBRKXS",
         REQUIRE( 5 == cbrkxs.card1.nti.value );
         REQUIRE( -4 == cbrkxs.card1.nzi.value );
 
-        REQUIRE( 0.1*dimwits::kelvin == cbrkxs.card2->atem.value.at( 0 ) );
-        REQUIRE( 0.2*dimwits::kelvin == cbrkxs.card2->atem.value.at( 1 ) );
-        REQUIRE( 0.3*dimwits::kelvin == cbrkxs.card2->atem.value.at( 2 ) );
-        REQUIRE( 0.4*dimwits::kelvin == cbrkxs.card2->atem.value.at( 3 ) );
-        REQUIRE( 0.5*dimwits::kelvin == cbrkxs.card2->atem.value.at( 4 ) );
+        REQUIRE( 0.1 == cbrkxs.card2->atem.value.at( 0 ) );
+        REQUIRE( 0.2 == cbrkxs.card2->atem.value.at( 1 ) );
+        REQUIRE( 0.3 == cbrkxs.card2->atem.value.at( 2 ) );
+        REQUIRE( 0.4 == cbrkxs.card2->atem.value.at( 3 ) );
+        REQUIRE( 0.5 == cbrkxs.card2->atem.value.at( 4 ) );
 
         REQUIRE( std::nullopt == cbrkxs.card3 );
       }
@@ -85,11 +85,11 @@ SCENARIO( "CCCCR, CBRKXS",
         REQUIRE( 5 == cbrkxs.card1.nti.value );
         REQUIRE( 4 == cbrkxs.card1.nzi.value );
 
-        REQUIRE( 0.1*dimwits::kelvin == cbrkxs.card2->atem.value.at( 0 ) );
-        REQUIRE( 0.2*dimwits::kelvin == cbrkxs.card2->atem.value.at( 1 ) );
-        REQUIRE( 0.3*dimwits::kelvin == cbrkxs.card2->atem.value.at( 2 ) );
-        REQUIRE( 0.4*dimwits::kelvin == cbrkxs.card2->atem.value.at( 3 ) );
-        REQUIRE( 0.5*dimwits::kelvin == cbrkxs.card2->atem.value.at( 4 ) );
+        REQUIRE( 0.1 == cbrkxs.card2->atem.value.at( 0 ) );
+        REQUIRE( 0.2 == cbrkxs.card2->atem.value.at( 1 ) );
+        REQUIRE( 0.3 == cbrkxs.card2->atem.value.at( 2 ) );
+        REQUIRE( 0.4 == cbrkxs.card2->atem.value.at( 3 ) );
+        REQUIRE( 0.5 == cbrkxs.card2->atem.value.at( 4 ) );
 
         REQUIRE( Approx( 1.0 ) == cbrkxs.card3->asig.value.at( 0 ) );
         REQUIRE( Approx( 1.1 ) == cbrkxs.card3->asig.value.at( 1 ) );

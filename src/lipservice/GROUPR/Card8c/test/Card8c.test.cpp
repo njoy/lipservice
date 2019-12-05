@@ -13,10 +13,10 @@ SCENARIO( "Validating card8a inputs", "[GROUPR], [Card8c]" ){
     GROUPR::Card8c card8c( issCard8c );
 
     THEN( "the card8a values can be verified" ){
-      REQUIRE( 0.10*dimwits::electronVolt == card8c.eb.value );
-      REQUIRE( 0.025*dimwits::electronVolt == card8c.tb.value );
-      REQUIRE( 820.3E3*dimwits::electronVolt == card8c.ec.value );
-      REQUIRE( 1.4E6*dimwits::electronVolt == card8c.tc.value );
+      REQUIRE( 0.10 == card8c.eb.value );
+      REQUIRE( 0.025 == card8c.tb.value );
+      REQUIRE( 820.3E3 == card8c.ec.value );
+      REQUIRE( 1.4E6 == card8c.tc.value );
     }
   }
   GIVEN( "invalid Card8c input" ){

@@ -48,7 +48,7 @@ SCENARIO( "POWR, Lib1",
         POWR::Lib1 lib1( iss );
 
         REQUIRE( 9439 == lib1.card3.matd.value );
-        REQUIRE( 300.0*dimwits::kelvin ==
+        REQUIRE( 300.0 ==
                                     std::get<0>( *( lib1.card3.rest ) ).value );
         REQUIRE( 1 == std::get<1>( *( lib1.card3.rest ) ).value );
         REQUIRE( 0 == std::get<2>( *( lib1.card3.rest ) ).value );
@@ -82,7 +82,7 @@ SCENARIO( "POWR, Lib1",
         POWR::Lib1 lib1( iss );
 
         REQUIRE( 9439 == lib1.card3.matd.value );
-        REQUIRE( 279.0*dimwits::kelvin ==
+        REQUIRE( 279.0 ==
                                     std::get<0>( *( lib1.card3.rest ) ).value );
         REQUIRE( 0 == std::get<1>( *( lib1.card3.rest ) ).value );
         REQUIRE( 2 == std::get<2>( *( lib1.card3.rest ) ).value );

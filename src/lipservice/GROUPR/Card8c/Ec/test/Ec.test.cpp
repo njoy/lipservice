@@ -10,7 +10,7 @@ using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "Ec output values", "[GROUPR],[Card8c], [Ec]"){
   Argument< GROUPR::Card8c::Eb > eb;
-  eb.value = 0.5*dimwits::electronVolt;
+  eb.value = 0.5;
 
   GIVEN( "valid Ec parameters" ){
 
@@ -19,7 +19,7 @@ SCENARIO( "Ec output values", "[GROUPR],[Card8c], [Ec]"){
         iRecordStream<char> issEc( 
             std::istringstream( std::to_string( ec ) ) );
 
-        REQUIRE( ec*dimwits::electronVolt == 
+        REQUIRE( ec == 
                 argument::extract< GROUPR::Card8c::Ec >( issEc, eb ).value );
       }
     }

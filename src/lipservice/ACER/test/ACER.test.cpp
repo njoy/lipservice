@@ -5,7 +5,6 @@
 #include "lipservice.hpp"
 
 using namespace njoy::njoy21::lipservice;
-using namespace dimwits;
 
 std::string sCard1( "20 21 0 30 31 /\n" );
 std::string sCard3( "Here is a descriptive character string for Card3.");
@@ -48,7 +47,7 @@ SCENARIO( "Parsing valid ACER input" ){
       // Card5
       const auto& card5 = std::get<0>( fastCards );
       REQUIRE( 1001 == card5.matd.value );
-      REQUIRE( 293.6*kelvin == card5.tempd.value );
+      REQUIRE( 293.6 == card5.tempd.value );
 
       // Card6
       const auto& card6 = std::get<1>( fastCards );
@@ -59,7 +58,7 @@ SCENARIO( "Parsing valid ACER input" ){
       // Card7
       const auto& card7 = std::get<2>( fastCards );
       REQUIRE( -1 == card7.thin1.value );
-      REQUIRE( 1E4*electronVolt == card7.thin2.value );
+      REQUIRE( 1E4 == card7.thin2.value );
       REQUIRE( 5 == card7.thin3.value );
 
       REQUIRE( not acer.card4 );
@@ -109,7 +108,7 @@ SCENARIO( "Parsing valid ACER input" ){
       // Card8
       const auto& card8 = std::get<0>( thermalCards );
       REQUIRE( 1 == card8.matd.value );
-      REQUIRE( 293.6*kelvin == card8.tempd.value );
+      REQUIRE( 293.6 == card8.tempd.value );
       REQUIRE( "lwtr" == *card8.tname.value );
 
       // Card8a
@@ -125,7 +124,7 @@ SCENARIO( "Parsing valid ACER input" ){
       REQUIRE( 231 == card9.mte.value );
       REQUIRE( 0 == card9.ielas.value );
       REQUIRE( 1 == card9.nmix.value );
-      REQUIRE( 10.1 * electronVolt == card9.emax.value );
+      REQUIRE( 10.1 == card9.emax.value );
       REQUIRE( 2 == card9.iwt.value );
     }
   }
@@ -160,7 +159,7 @@ SCENARIO( "Parsing valid ACER input" ){
       // Card10
       const auto& card10 = std::experimental::get< ACER::Card10 >( *(acer.dataVariant) );
       REQUIRE( 9235 == card10.matd.value );
-      REQUIRE( 600.0 * kelvin == card10.tempd.value );
+      REQUIRE( 600.0 == card10.tempd.value );
 
       REQUIRE( not acer.card4 );
     }

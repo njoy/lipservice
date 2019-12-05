@@ -12,7 +12,7 @@ SCENARIO( "LEAPR Card10 temp input values",
       THEN( "the returned class has the correct value" ){
         for( auto temp : validTemp ){
           iRecordStream<char> iss( std::istringstream( std::to_string(temp) ) );
-          REQUIRE( temp * dimwits::kelvin == 
+          REQUIRE( temp == 
           ( argument::extract< LEAPR::Card10::Temp >( iss ) ).value );
         }
       } // THEN

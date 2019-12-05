@@ -40,7 +40,7 @@ SCENARIO( "POWR",
 
         REQUIRE( 9439 ==
                  std::experimental::get<0>( powr.lib ).at(0).card3.matd.value );
-        REQUIRE( 279.0*dimwits::kelvin ==
+        REQUIRE( 279.0 ==
                            std::get<0>( *( std::experimental::get<0>( powr.lib )
                                                   .at(0).card3.rest ) ).value );
         REQUIRE( 0 == std::get<1>( *( std::experimental::get<0>( powr.lib )
@@ -88,7 +88,7 @@ SCENARIO( "POWR",
 
         REQUIRE( 2345 ==
                  std::experimental::get<1>( powr.lib ).at(0).card3.matd.value );
-        REQUIRE( 3.14*dimwits::kelvin == std::experimental::get<1>( powr.lib )
+        REQUIRE( 3.14 == std::experimental::get<1>( powr.lib )
                                                .at(0).card3.rest->first.value );
         REQUIRE( "hollerith" == std::experimental::get<1>( powr.lib )
                                               .at(0).card3.rest->second.value );
@@ -427,7 +427,7 @@ SCENARIO( "POWR",
 
         REQUIRE( Approx( 100.0 ) == std::experimental::get<2>( powr.lib )
                                            .card12List->at(0)->first.aw.value );
-        REQUIRE( 101.0*dimwits::kelvin == std::experimental::get<2>( powr.lib )
+        REQUIRE( 101.0 == std::experimental::get<2>( powr.lib )
                                          .card12List->at(0)->first.temp.value );
 
         for( size_t i = 0; i < 69; i++ ){
