@@ -66,7 +66,6 @@ SCENARIO( "Parsing valid RECONR input" ){
     }
 
   }
-  /*
   WHEN( "Cards 3,4,5,3" ){
     iRecordStream<char> iss
         ( std::istringstream( card1 + card2 + " 1306 1 0\n"
@@ -84,15 +83,14 @@ SCENARIO( "Parsing valid RECONR input" ){
   
       AND_THEN( "RECONR can be turned to JSON" ){
         nlohmann::json refJSON = R"({
-        "card1": { "nendf": 21, "npend": 22 },
-        "card2": { "tlabel": "This is a sample Card2" },
+        "nendf": 21, "npend": 22,
+        "tlabel": "This is a sample Card2",
         "sequence": [
           {
-            "card3": { "mat": 1306, "ncards": 1, "ngrid": 0 },
-            "card4": { "err": 0.005, "tempr": 0, 
-                       "errmax": 0.1, "errint": 5E-7 },
-            "card5": [ "This a sample description TEXT Record for Card5" ],
-            "card6": null
+            "mat": 1306, "ncards": 1, "ngrid": 0,
+            "err": 0.005, "tempr": 0, "errmax": 0.1, "errint": 5E-7,
+            "cards": [ "This a sample description TEXT Record for Card5" ],
+            "enode": []
           }
         ]
         })"_json;
@@ -122,15 +120,14 @@ SCENARIO( "Parsing valid RECONR input" ){
   
       AND_THEN( "RECONR can be turned to JSON" ){
         nlohmann::json refJSON = R"({
-        "card1": { "nendf": 21, "npend": 22 },
-        "card2": { "tlabel": "This is a sample Card2" },
+        "nendf": 21, "npend": 22,
+        "tlabel": "This is a sample Card2",
         "sequence": [
           {
-            "card3": { "mat": 1306, "ncards": 1, "ngrid": 3 },
-            "card4": { "err": 0.005, "tempr": 0, 
-                       "errmax": 0.1, "errint": 5E-7 },
-            "card5": [ "This a sample description TEXT Record for Card5" ],
-            "card6": { "enode": [ 1.0, 2.0, 3.0 ] }
+            "mat": 1306, "ncards": 1, "ngrid": 3,
+            "err": 0.005, "tempr": 0, "errmax": 0.1, "errint": 5E-7,
+            "cards": [ "This a sample description TEXT Record for Card5" ],
+            "enode": [ 1.0, 2.0, 3.0 ]
           }
         ]
         })"_json;
@@ -160,15 +157,14 @@ SCENARIO( "Parsing valid RECONR input" ){
   
       AND_THEN( "RECONR can be turned to JSON" ){
         nlohmann::json refJSON = R"({
-        "card1": { "nendf": 21, "npend": 22 },
-        "card2": { "tlabel": "This is a sample Card2" },
+        "nendf": 21, "npend": 22,
+        "tlabel": "This is a sample Card2",
         "sequence": [
           {
-            "card3": { "mat": 1306, "ncards": 0, "ngrid": 3 },
-            "card4": { "err": 0.005, "tempr": 0, 
-                       "errmax": 0.1, "errint": 5E-7 },
-            "card5": [ ],
-            "card6": { "enode": [ 1.0, 2.0, 3.0 ] }
+            "mat": 1306, "ncards": 0, "ngrid": 3,
+            "err": 0.005, "tempr": 0, "errmax": 0.1, "errint": 5E-7,
+            "cards": [ ],
+            "enode": [ 1.0, 2.0, 3.0 ]
           }
         ]
         })"_json;
@@ -197,17 +193,16 @@ SCENARIO( "Parsing valid RECONR input" ){
   
       AND_THEN( "RECONR can be turned to JSON" ){
         nlohmann::json refJSON = R"({
-        "card1": { "nendf": 21, "npend": 22 },
-        "card2": { "tlabel": "This is a sample Card2" },
+        "nendf": 21, "npend": 22,
+        "tlabel": "This is a sample Card2",
         "sequence": [
           {
-            "card3": { "mat": 1306, "ncards": 3, "ngrid": 0 },
-            "card4": { "err": 0.005, "tempr": 0, 
-                       "errmax": 0.1, "errint": 5E-7 },
-            "card5": [ "This a sample description TEXT Record for Card5",
+            "mat": 1306, "ncards": 3, "ngrid": 0,
+            "err": 0.005, "tempr": 0, "errmax": 0.1, "errint": 5E-7,
+            "cards": [ "This a sample description TEXT Record for Card5",
                        "This a sample description TEXT Record for Card5",
                        "This a sample description TEXT Record for Card5" ],
-            "card6": null
+            "enode": []
           }
         ]
       })"_json;
@@ -261,22 +256,20 @@ SCENARIO( "Parsing valid RECONR input" ){
   
       AND_THEN( "RECONR can be turned to JSON" ){
         nlohmann::json refJSON = R"({
-        "card1": { "nendf": 21, "npend": 22 },
-        "card2": { "tlabel": "This is a sample Card2" },
+        "nendf": 21, "npend": 22,
+        "tlabel": "This is a sample Card2",
         "sequence": [
           {
-            "card3": { "mat": 1306, "ncards": 1, "ngrid": 3 },
-            "card4": { "err": 0.005, "tempr": 0, 
-                       "errmax": 0.1, "errint": 5E-7 },
-            "card5": [ "This a sample description TEXT Record for Card5" ],
-            "card6": { "enode": [ 1.0, 2.0, 3.0 ] }
+            "mat": 1306, "ncards": 1, "ngrid": 3,
+            "err": 0.005, "tempr": 0, "errmax": 0.1, "errint": 5E-7,
+            "cards": [ "This a sample description TEXT Record for Card5" ],
+            "enode": [ 1.0, 2.0, 3.0 ]
           },
           {
-            "card3": { "mat": 1316, "ncards": 0, "ngrid": 0 },
-            "card4": { "err": 0.067, "tempr": 3, 
-                       "errmax": 2.1, "errint": 8E-7 },
-            "card5": [ ],
-            "card6": null
+            "mat": 1316, "ncards": 0, "ngrid": 0,
+            "err": 0.067, "tempr": 3, "errmax": 2.1, "errint": 8E-7,
+            "cards": [ ],
+            "enode": [ ]
           }
         ]
       })"_json;
@@ -338,30 +331,27 @@ SCENARIO( "Parsing valid RECONR input" ){
   
       AND_THEN( "RECONR can be turned to JSON" ){
         nlohmann::json refJSON = R"({
-        "card1": { "nendf": 21, "npend": 22 },
-        "card2": { "tlabel": "This is a sample Card2" },
+        "nendf": 21, "npend": 22,
+        "tlabel": "This is a sample Card2",
         "sequence": [
           {
-            "card3": { "mat": 1306, "ncards": 1, "ngrid": 3 },
-            "card4": { "err": 0.005, "tempr": 0, 
-                       "errmax": 0.1, "errint": 5E-7 },
-            "card5": [ "This a sample description TEXT Record for Card5" ],
-            "card6": { "enode": [ 1.0, 2.0, 3.0 ] }
+            "mat": 1306, "ncards": 1, "ngrid": 3,
+            "err": 0.005, "tempr": 0, "errmax": 0.1, "errint": 5E-7,
+            "cards": [ "This a sample description TEXT Record for Card5" ],
+            "enode": [ 1.0, 2.0, 3.0 ]
           },
           {
-            "card3": { "mat": 1316, "ncards": 2, "ngrid": 0 },
-            "card4": { "err": 0.067, "tempr": 3.0, 
-                       "errmax": 2.1, "errint": 8E-7 },
-            "card5": [ "This a sample description TEXT Record for Card5",
+            "mat": 1316, "ncards": 2, "ngrid": 0,
+            "err": 0.067, "tempr": 3.0, "errmax": 2.1, "errint": 8E-7,
+            "cards": [ "This a sample description TEXT Record for Card5",
                        "This a sample description TEXT Record for Card5" ],
-            "card6": null
+            "enode": [ ]
           },
           {
-            "card3": { "mat": 1316, "ncards": 1, "ngrid": 0 },
-            "card4": { "err": 0.067, "tempr": 3.0, 
-                       "errmax": 2.1, "errint": 8E-7 },
-            "card5": [ "Another sample for Card5" ],
-            "card6": null
+            "mat": 1316, "ncards": 1, "ngrid": 0,
+            "err": 0.067, "tempr": 3.0, "errmax": 2.1, "errint": 8E-7,
+            "cards": [ "Another sample for Card5" ],
+            "enode": [ ]
           }
         ]
       })"_json;
@@ -371,10 +361,8 @@ SCENARIO( "Parsing valid RECONR input" ){
       } // AND_THEN
     }
   }
-   */
 } // SCENARIO
 
-/*
 SCENARIO( "Parsing invalid RECONR input" ){
   std::istringstream iss;
   WHEN( "Card 3 mat values not in increasing order" ){
@@ -458,4 +446,3 @@ SCENARIO( "Parsing invalid RECONR input" ){
     }
   }
 }
- */

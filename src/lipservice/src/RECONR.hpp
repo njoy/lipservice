@@ -1,10 +1,7 @@
 inline void to_json( nlohmann::json& JSON, const RECONR::Card1& card1 ) {
-
-  JSON[ "nendf" ] = card1.nendf.value;
-  JSON[ "npend" ] = card1.npend.value;
-  // JSON = { { "nendf", card1.nendf.value }, 
-  //          { "npend", card1.npend.value }
-  // };
+  JSON = { { "nendf", card1.nendf.value }, 
+           { "npend", card1.npend.value }
+  };
 }
 
 inline void to_json( nlohmann::json& JSON, const RECONR::Card2& card2 ) {
@@ -36,18 +33,20 @@ inline void to_json( nlohmann::json& JSON, const RECONR::Card6& card6 ) {
 }
 
 inline void to_json( nlohmann::json& JSON, const RECONR::RECONR_tuple& seq ) {
-  JSON = {
-    { "card3", std::get< 0 >( seq ) },
-    { "card4", std::get< 1 >( seq ) },
-    { "card5", std::get< 2 >( seq ) },
-    { "card6", std::get< 3 >( seq ) },
-  };
+  JSON = std::get< 0 >( seq );            // Card3
+  JSON.update( std::get< 1 >( seq ) );    // Card4
+  JSON[ "cards" ] = std::get< 2 >( seq ); // Card5
+  
+  auto& card6 = std::get< 3 >( seq ); // Card6
+  if( card6 ){
+    JSON[ "enode" ] = card6->enode.value;
+  } else{
+    JSON[ "enode" ] = nlohmann::json::array();
+  }
 }
 
 inline void to_json( nlohmann::json& JSON, const RECONR& reconr ) {
-  JSON  = { {
-    reconr.card1, 
-    reconr.card2,
-    { "sequence", reconr.cardSequence }
-  } };
+  JSON = reconr.card1;
+  JSON.update( reconr.card2 );
+  JSON[ "sequence" ] = reconr.cardSequence;
 }
