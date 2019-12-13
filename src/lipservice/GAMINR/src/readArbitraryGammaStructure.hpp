@@ -1,5 +1,5 @@
 template< typename Istream>
-static optional< Card4 > readArbitraryGammaStructure(
+static std::optional< Card4 > readArbitraryGammaStructure(
     Istream& is, int igg ){
   if( igg == 1 ){
     Card4 card4( is );

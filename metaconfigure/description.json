@@ -580,6 +580,7 @@
     "src/lipservice/Card.hpp",
     "src/lipservice/CCCCR.hpp",
     "src/lipservice/ERRORR.hpp",
+    "src/lipservice/nlohmann.hpp",
     "src/lipservice/PLOTR.hpp",
     "src/lipservice/GASPR.hpp",
     "src/lipservice/WIMSR.hpp",
@@ -1386,6 +1387,8 @@
     "src/lipservice/RECONR/Card3/Ncards.hpp",
     "src/lipservice/RECONR/Card2/Tlabel.hpp",
     "src/lipservice/RECONR/Card5/Cards.hpp",
+    "src/lipservice/RECONR/src/readSequence.hpp",
+    "src/lipservice/RECONR/src/ctor.hpp",
     "src/lipservice/LEAPR/Card8.hpp",
     "src/lipservice/LEAPR/Card17.hpp",
     "src/lipservice/LEAPR/Card16.hpp",
@@ -1455,7 +1458,8 @@
     "src/lipservice/LEAPR/src/buildCard20List.hpp",
     "src/lipservice/VIEWR/Card1.hpp",
     "src/lipservice/VIEWR/Card1/Infile.hpp",
-    "src/lipservice/VIEWR/Card1/Nps.hpp"
+    "src/lipservice/VIEWR/Card1/Nps.hpp",
+    "src/lipservice/src/to_json.hpp"
   ],
   "ignore pattern": "$^",
   "implementation files": [],

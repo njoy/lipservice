@@ -1,5 +1,5 @@
 
-static optional<TempSpecificTuple>
+static std::optional<TempSpecificTuple>
 buildTempSpecificTuple( iRecordStream<char>& is, Card5& card5 ){
   auto card11 = Card11( is );
   auto card12 = Card12( is, card11.ni );

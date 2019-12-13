@@ -1,5 +1,5 @@
 template< typename Istream >
-static optional< Card10a >
+static std::optional< Card10a >
  readCard10a( Istream& is, const int ileg )
 {
 

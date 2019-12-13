@@ -20,8 +20,8 @@ Card2 card2;
 Card3 card3;
 Card4 card4;
 std::vector< Card5 > card5;
-optional< CISOTX > cisotx;
-optional< CBRKXS > cbrkxs;
+std::optional< CISOTX > cisotx;
+std::optional< CBRKXS > cbrkxs;
 
 template< typename Istream >
 CCCCR( Istream& is )

@@ -1,5 +1,5 @@
 struct Xstep {
-  using Value_t = optional< double >;
+  using Value_t = std::optional< double >;
   static std::string name(){ return "xstep"; }
   static std::string description(){
     return

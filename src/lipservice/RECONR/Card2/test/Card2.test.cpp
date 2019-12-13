@@ -6,14 +6,19 @@
 using namespace njoy::njoy21::lipservice;
 
 SCENARIO( "bugless" ){
-  std::string value("012345678901234567890123456789012345678901234567890123456789012345");
-  iRecordStream<char> iss( std::istringstream( "'" + value + "'" ) );
+  std::string value( 
+      "012345678901234567890123456789012345678901234567890123456789012345" );
+  iRecordStream<char> iss{ std::istringstream( "'" + value + "'" ) };
   RECONR::Card2 card2( iss );
-  REQUIRE( card2.tlabel.value == value );
+  CHECK( card2.tlabel.value == value );
+
+  nlohmann::json refJSON = { { "tlabel", value } };
+  CHECK( refJSON == nlohmann::json( card2 ) );
 }
 
 SCENARIO( "bugged" ){
-  std::string value("'0123456789012345678901234567890123456789012345678901234567890123456'");
-  iRecordStream<char> iss( (std::istringstream(value)) );
-  REQUIRE_THROWS( RECONR::Card2( iss ) );
+  std::string value( 
+    "'0123456789012345678901234567890123456789012345678901234567890123456'");
+  iRecordStream<char> iss{ std::istringstream( value ) };
+  CHECK_THROWS( RECONR::Card2( iss ) );
 }

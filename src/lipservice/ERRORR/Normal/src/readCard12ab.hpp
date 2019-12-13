@@ -1,5 +1,5 @@
 template< typename Istream >
-optional< std::pair< Card12a, Card12b > > readCard12ab( Istream& is,
+std::optional< std::pair< Card12a, Card12b > > readCard12ab( Istream& is,
                                                         const int ign ){
   if( ign != 1 and ign != 19 ) return std::nullopt;
 

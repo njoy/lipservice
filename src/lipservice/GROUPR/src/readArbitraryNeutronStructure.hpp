@@ -1,5 +1,5 @@
 template< typename Istream>
-static optional< std::pair< Card6a, Card6b > > readArbitraryNeutronStructure(
+static std::optional< std::pair< Card6a, Card6b > > readArbitraryNeutronStructure(
     Istream& is, int ign ){
   if( ign == 1 ){
     Card6a card6a( is );

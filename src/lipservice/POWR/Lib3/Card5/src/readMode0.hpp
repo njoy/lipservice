@@ -1,5 +1,5 @@
 template< typename Istream >
-optional< std::pair< Argument< Pos >, Argument< Posr > > >
+std::optional< std::pair< Argument< Pos >, Argument< Posr > > >
 readMode0( Istream& is, const int mode ){
   if( mode != 0 ) return std::nullopt;
 

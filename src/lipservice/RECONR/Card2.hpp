@@ -7,9 +7,7 @@ public:
   template< typename Char >
   Card2( iRecordStream< Char >& is )
     try:
-      tlabel( argument::extract< Tlabel >( is ) ){
-	Card::clear(is);
-      }
+      tlabel( argument::extract< Tlabel >( is ) ){ Card::clear(is); }
     catch( std::exception& e ){
       Log::info("Trouble while validating Card 2");
       throw e;

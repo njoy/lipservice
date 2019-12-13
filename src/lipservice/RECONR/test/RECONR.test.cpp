@@ -10,6 +10,7 @@ std::string card1(" 21 22\n");
 std::string card2("'This is a sample Card2'\n");
 std::string card3(" 1306 3 0\n");
 std::string card4(" 0.005 0 0.1 5e-07\n");
+std::string card4a(" 0.067 3 2.1 8e-07\n");
 std::string card5( "'This a sample description TEXT Record for Card5'\n" );
 auto card5String = std::string( ++(card5.begin()), (card5.end() - 2) ); 
 std::string card6(" 1.0 2 3.0\n");
@@ -17,139 +18,347 @@ std::string card6(" 1.0 2 3.0\n");
 SCENARIO( "Parsing valid RECONR input" ){
   WHEN( "Cards 3,4,3" ){
     iRecordStream<char> iss
-      ( std::istringstream( card1 + card2 + " 1306 0 0\n" + card4 + "0/\n" ) );
+        ( std::istringstream( card1 + card2 + " 1306 0 0\n" + card4 + "0/\n" ) );
 
+    RECONR reconr(iss);
     THEN( "The read values can be verified" ){
-      RECONR reconr(iss);
-      REQUIRE( 21 == reconr.card1.nendf.value );
+      CHECK( 21 == reconr.card1.nendf.value );
 
-      REQUIRE( 1 == reconr.cardSequence.size() );
+      CHECK( 1 == reconr.cardSequence.size() );
 
       auto& card3 = std::get<0>( reconr.cardSequence.front() );
-      REQUIRE( 1306 == card3.mat.value );
-      REQUIRE( 0 == card3.ncards.value );
-      REQUIRE( 0 == card3.ngrid.value );
+      CHECK( 1306 == card3.mat.value );
+      CHECK( 0 == card3.ncards.value );
+      CHECK( 0 == card3.ngrid.value );
 
       auto& card4 = std::get<1>( reconr.cardSequence.front() );
-      REQUIRE( 0.005 == card4.err.value );
-      REQUIRE( 0.0 == card4.tempr.value );
-      REQUIRE( 0.1 == card4.errmax.value );
-      REQUIRE( 5E-7 == card4.errint.value );
+      CHECK( 0.005 == card4.err.value );
+      CHECK( 0.0 == card4.tempr.value );
+      CHECK( 0.1 == card4.errmax.value );
+      CHECK( 5E-7 == card4.errint.value );
 
       auto& card5 = std::get<2>( reconr.cardSequence.front() );
-      REQUIRE( not card5 );
+      CHECK( card5.empty() );
 
       auto& card6 = std::get<3>( reconr.cardSequence.front() );
-      REQUIRE( not card6 );
+      CHECK( not card6 );
 
-      REQUIRE( 5 == iss.lineNumber );
+      CHECK( 5 == iss.lineNumber );
+
+      AND_THEN( "RECONR can be turned to JSON" ){
+        nlohmann::json refJSON = R"({
+        "nendf": 21, 
+        "npend": 22,
+        "tlabel": "This is a sample Card2",
+        "sequence": [
+          {
+            "mat": 1306, "ncards": 0, "ngrid": 0,
+            "err": 0.005, "tempr": 0, "errmax": 0.1, "errint": 5E-7,
+            "cards": [ ],
+            "enode": [ ]
+          }
+        ]
+        })"_json;
+
+        CHECK( refJSON == nlohmann::json( reconr ) );
+
+      } // AND_THEN
     }
+
   }
   WHEN( "Cards 3,4,5,3" ){
     iRecordStream<char> iss
-      ( std::istringstream( card1 + card2 + " 1306 1 0\n"
-  			    + card4 + card5 + "0/\n" ) );
-
+        ( std::istringstream( card1 + card2 + " 1306 1 0\n"
+                             + card4 + card5 + "0/\n" ) );
+  
     THEN( "The read values can be verified" ){
       RECONR reconr(iss);
-
+  
       auto& card5 = std::get<2>( reconr.cardSequence.front() );
-      REQUIRE( card5 );
-      REQUIRE( 1 == card5->size() );
-      REQUIRE( card5String == card5->front().cards.value );
-
+      CHECK( 1 == card5.size() );
+      CHECK( card5String == card5.front().cards.value );
+  
       auto& card6 = std::get<3>( reconr.cardSequence.front() );
-      REQUIRE( not card6 );
+      CHECK( not card6 );
+  
+      AND_THEN( "RECONR can be turned to JSON" ){
+        nlohmann::json refJSON = R"({
+        "nendf": 21, "npend": 22,
+        "tlabel": "This is a sample Card2",
+        "sequence": [
+          {
+            "mat": 1306, "ncards": 1, "ngrid": 0,
+            "err": 0.005, "tempr": 0, "errmax": 0.1, "errint": 5E-7,
+            "cards": [ "This a sample description TEXT Record for Card5" ],
+            "enode": []
+          }
+        ]
+        })"_json;
+  
+        CHECK( refJSON == nlohmann::json( reconr ) );
+  
+      } // AND_THEN
     }
   }
-
   WHEN( "Cards 3,4,5,6,3" ){
     iRecordStream<char> iss
-      ( std::istringstream( card1 + card2 + " 1306 1 3\n"
-  			    + card4 + card5 + card6 + "0/\n" ) );
-
+        ( std::istringstream( card1 + card2 + " 1306 1 3\n"
+                             + card4 + card5 + card6 + "0/\n" ) );
+  
     THEN( "The read values can be verified" ){
       RECONR reconr(iss);
-
+  
       auto& card5 = std::get<2>( reconr.cardSequence.front() );
-      REQUIRE( card5 );
-      REQUIRE( 1 == card5->size() );
-
+      CHECK( 1 == card5.size() );
+  
       auto& card6 = std::get<3>( reconr.cardSequence.front() );
-      REQUIRE( card6 );
-      REQUIRE( 3 == card6->enode.value.size() );
-      REQUIRE( 1.0 == card6->enode.value[0] );
-      REQUIRE( 2.0 == card6->enode.value[1] );
-      REQUIRE( 3.0 == card6->enode.value[2] );
+      CHECK( card6 );
+      CHECK( 3 == card6->enode.value.size() );
+      CHECK( 1.0 == card6->enode.value[0] );
+      CHECK( 2.0 == card6->enode.value[1] );
+      CHECK( 3.0 == card6->enode.value[2] );
+  
+      AND_THEN( "RECONR can be turned to JSON" ){
+        nlohmann::json refJSON = R"({
+        "nendf": 21, "npend": 22,
+        "tlabel": "This is a sample Card2",
+        "sequence": [
+          {
+            "mat": 1306, "ncards": 1, "ngrid": 3,
+            "err": 0.005, "tempr": 0, "errmax": 0.1, "errint": 5E-7,
+            "cards": [ "This a sample description TEXT Record for Card5" ],
+            "enode": [ 1.0, 2.0, 3.0 ]
+          }
+        ]
+        })"_json;
+  
+        CHECK( refJSON == nlohmann::json( reconr ) );
+  
+      } // AND_THEN
     }
   }
   WHEN( "Cards 3,4,6,3" ){
     iRecordStream<char> iss
-      ( std::istringstream( card1 + card2 + " 1306 0 3\n"
-  			    + card4 + card6 + "0/\n" ) );
-
+        ( std::istringstream( card1 + card2 + " 1306 0 3\n"
+                             + card4 + card6 + "0/\n" ) );
+  
     THEN( "The read values can be verified" ){
       RECONR reconr(iss);
-
+  
       auto& card5 = std::get<2>( reconr.cardSequence.front() );
-      REQUIRE( not card5 );
-
+      CHECK( card5.empty() );
+  
       auto& card6 = std::get<3>( reconr.cardSequence.front() );
-      REQUIRE( card6 );
-      REQUIRE( 3 == card6->enode.value.size() );
-      REQUIRE( 1.0 == card6->enode.value[0] );
-      REQUIRE( 2.0 == card6->enode.value[1] );
-      REQUIRE( 3.0 == card6->enode.value[2] );
+      CHECK( card6 );
+      CHECK( 3 == card6->enode.value.size() );
+      CHECK( 1.0 == card6->enode.value[0] );
+      CHECK( 2.0 == card6->enode.value[1] );
+      CHECK( 3.0 == card6->enode.value[2] );
+  
+      AND_THEN( "RECONR can be turned to JSON" ){
+        nlohmann::json refJSON = R"({
+        "nendf": 21, "npend": 22,
+        "tlabel": "This is a sample Card2",
+        "sequence": [
+          {
+            "mat": 1306, "ncards": 0, "ngrid": 3,
+            "err": 0.005, "tempr": 0, "errmax": 0.1, "errint": 5E-7,
+            "cards": [ ],
+            "enode": [ 1.0, 2.0, 3.0 ]
+          }
+        ]
+        })"_json;
+  
+        CHECK( refJSON == nlohmann::json( reconr ) );
+  
+      } // AND_THEN
     }
   }
   WHEN( "Cards 3,4,5,5,5,3" ){
     iRecordStream<char> iss
-      ( std::istringstream( card1 + card2 + " 1306 3 0\n"
-  			    + card4 + card5 + card5 + card5 + "0/\n" ) );
-
+        ( std::istringstream( card1 + card2 + " 1306 3 0\n"
+                             + card4 + card5 + card5 + card5 + "0/\n" ) );
+  
     THEN( "The read values can be verified" ){
       RECONR reconr(iss);
-
+  
       auto& card5 = std::get<2>( reconr.cardSequence.front() );
-      REQUIRE( card5 );
-      REQUIRE( 3 == card5->size() );
-      REQUIRE( card5String == card5->at(0).cards.value );
-      REQUIRE( card5String == card5->at(1).cards.value );
-      REQUIRE( card5String == card5->at(2).cards.value );
-
+      CHECK( 3 == card5.size() );
+      CHECK( card5String == card5[ 0 ].cards.value );
+      CHECK( card5String == card5[ 1 ].cards.value );
+      CHECK( card5String == card5[ 2 ].cards.value );
+  
       auto& card6 = std::get<3>( reconr.cardSequence.front() );
-      REQUIRE( not card6 );
+      CHECK( not card6 );
+  
+      AND_THEN( "RECONR can be turned to JSON" ){
+        nlohmann::json refJSON = R"({
+        "nendf": 21, "npend": 22,
+        "tlabel": "This is a sample Card2",
+        "sequence": [
+          {
+            "mat": 1306, "ncards": 3, "ngrid": 0,
+            "err": 0.005, "tempr": 0, "errmax": 0.1, "errint": 5E-7,
+            "cards": [ "This a sample description TEXT Record for Card5",
+                       "This a sample description TEXT Record for Card5",
+                       "This a sample description TEXT Record for Card5" ],
+            "enode": []
+          }
+        ]
+      })"_json;
+  
+        CHECK( refJSON == nlohmann::json( reconr ) );
+  
+      } // AND_THEN
     }
   }
   WHEN( "Cards 3,4,5,6,3,4,3" ){
-    iRecordStream<char> iss
-      ( std::istringstream( card1 + card2 + " 1306 1 3\n" + card4 + card5
-  			    + card6 + " 1306 0 0\n" + card4 + "0/\n" ) );
-
+    std::string input{ card1 + card2 + " 1306 1 3\n" + card4 + card5
+      + card6 + " 1316 0 0\n" + card4a + "0/\n"};
+    njoy::Log::info( "input: {}", input );
+    iRecordStream<char> iss{ std::istringstream( input ) };
+  
     THEN( "The read values can be verified" ){
       RECONR reconr(iss);
-
-      REQUIRE( 2 == reconr.cardSequence.size() );
-
+  
+      CHECK( 2 == reconr.cardSequence.size() );
+  
+      nlohmann::json jRECONR = reconr;
       auto& card3 = std::get<0>( reconr.cardSequence.front() );
-      REQUIRE( 1306 == card3.mat.value );
-      REQUIRE( 1 == card3.ncards.value );
-      REQUIRE( 3 == card3.ngrid.value );
+      CHECK( 1306 == card3.mat.value );
+      CHECK( 1 == card3.ncards.value );
+      CHECK( 3 == card3.ngrid.value );
       card3 = std::get<0>( reconr.cardSequence.back() );
-      REQUIRE( 1306 == card3.mat.value );
-      REQUIRE( 0 == card3.ncards.value );
-      REQUIRE( 0 == card3.ngrid.value );
-
+      CHECK( 1316 == card3.mat.value );
+      CHECK( 0 == card3.ncards.value );
+      CHECK( 0 == card3.ngrid.value );
+  
+      auto& card4 = std::get<1>( reconr.cardSequence.front() );
+      CHECK( 0.005 == card4.err.value );
+      CHECK( 0.0 == card4.tempr.value );
+      CHECK( 0.1 == card4.errmax.value );
+      CHECK( 5E-7 == card4.errint.value );
+      card4 = std::get<1>( reconr.cardSequence.back() );
+      CHECK( 0.067 == card4.err.value );
+      CHECK( 3.0 == card4.tempr.value );
+      CHECK( 2.1 == card4.errmax.value );
+      CHECK( 8E-7 == card4.errint.value );
+  
       auto& card5 = std::get<2>( reconr.cardSequence.front() );
-      REQUIRE( card5 );
-      REQUIRE( card5String == card5->front().cards.value );
-
+      CHECK( card5String == card5.front().cards.value );
+  
       auto& card6 = std::get<3>( reconr.cardSequence.front() );
-      REQUIRE( card6 );
-      REQUIRE( 3 == card6->enode.value.size() );
-      REQUIRE( 1.0 == card6->enode.value[0] );
-      REQUIRE( 2.0 == card6->enode.value[1] );
-      REQUIRE( 3.0 == card6->enode.value[2] );
+      CHECK( card6 );
+      CHECK( 3 == card6->enode.value.size() );
+      CHECK( 1.0 == card6->enode.value[0] );
+      CHECK( 2.0 == card6->enode.value[1] );
+      CHECK( 3.0 == card6->enode.value[2] );
+  
+      AND_THEN( "RECONR can be turned to JSON" ){
+        nlohmann::json refJSON = R"({
+        "nendf": 21, "npend": 22,
+        "tlabel": "This is a sample Card2",
+        "sequence": [
+          {
+            "mat": 1306, "ncards": 1, "ngrid": 3,
+            "err": 0.005, "tempr": 0, "errmax": 0.1, "errint": 5E-7,
+            "cards": [ "This a sample description TEXT Record for Card5" ],
+            "enode": [ 1.0, 2.0, 3.0 ]
+          },
+          {
+            "mat": 1316, "ncards": 0, "ngrid": 0,
+            "err": 0.067, "tempr": 3, "errmax": 2.1, "errint": 8E-7,
+            "cards": [ ],
+            "enode": [ ]
+          }
+        ]
+      })"_json;
+  
+        CHECK( refJSON == jRECONR );
+        // njoy::Log::info( "json: {}", jRECONR.dump( 2 ) );
+  
+      } // AND_THEN
+    }
+  }
+  WHEN( "Cards 3,4,5,6,3,4,3,4,5, 3" ){
+    std::string input{ card1 + card2 + 
+      " 1306 1 3\n" + card4 + card5 + card6 + 
+          " 1316 2 0\n" + card4a + card5 + card5 +
+          " 1316 1 0\n" + card4a + "'Another sample for Card5' /\n"
+          "0/\n"};
+    njoy::Log::info( "input: {}", input );
+    iRecordStream<char> iss{ std::istringstream( input ) };
+  
+    THEN( "The read values can be verified" ){
+      RECONR reconr(iss);
+  
+      CHECK( 3 == reconr.cardSequence.size() );
+  
+      nlohmann::json jRECONR = reconr;
+      auto& card3 = std::get<0>( reconr.cardSequence[ 0 ] );
+      CHECK( 1306 == card3.mat.value );
+      CHECK( 1 == card3.ncards.value );
+      CHECK( 3 == card3.ngrid.value );
+      card3 = std::get<0>( reconr.cardSequence[ 1 ] );
+      CHECK( 1316 == card3.mat.value );
+      CHECK( 2 == card3.ncards.value );
+      CHECK( 0 == card3.ngrid.value );
+      card3 = std::get<0>( reconr.cardSequence[ 2 ] );
+      CHECK( 1316 == card3.mat.value );
+      CHECK( 1 == card3.ncards.value );
+      CHECK( 0 == card3.ngrid.value );
+  
+      auto& card4 = std::get<1>( reconr.cardSequence.front() );
+      CHECK( 0.005 == card4.err.value );
+      CHECK( 0.0 == card4.tempr.value );
+      CHECK( 0.1 == card4.errmax.value );
+      CHECK( 5E-7 == card4.errint.value );
+      card4 = std::get<1>( reconr.cardSequence.back() );
+      CHECK( 0.067 == card4.err.value );
+      CHECK( 3.0 == card4.tempr.value );
+      CHECK( 2.1 == card4.errmax.value );
+      CHECK( 8E-7 == card4.errint.value );
+  
+      auto& card5 = std::get<2>( reconr.cardSequence.front() );
+      CHECK( card5String == card5.front().cards.value );
+  
+      auto& card6 = std::get<3>( reconr.cardSequence.front() );
+      CHECK( card6 );
+      CHECK( 3 == card6->enode.value.size() );
+      CHECK( 1.0 == card6->enode.value[0] );
+      CHECK( 2.0 == card6->enode.value[1] );
+      CHECK( 3.0 == card6->enode.value[2] );
+  
+      AND_THEN( "RECONR can be turned to JSON" ){
+        nlohmann::json refJSON = R"({
+        "nendf": 21, "npend": 22,
+        "tlabel": "This is a sample Card2",
+        "sequence": [
+          {
+            "mat": 1306, "ncards": 1, "ngrid": 3,
+            "err": 0.005, "tempr": 0, "errmax": 0.1, "errint": 5E-7,
+            "cards": [ "This a sample description TEXT Record for Card5" ],
+            "enode": [ 1.0, 2.0, 3.0 ]
+          },
+          {
+            "mat": 1316, "ncards": 2, "ngrid": 0,
+            "err": 0.067, "tempr": 3.0, "errmax": 2.1, "errint": 8E-7,
+            "cards": [ "This a sample description TEXT Record for Card5",
+                       "This a sample description TEXT Record for Card5" ],
+            "enode": [ ]
+          },
+          {
+            "mat": 1316, "ncards": 1, "ngrid": 0,
+            "err": 0.067, "tempr": 3.0, "errmax": 2.1, "errint": 8E-7,
+            "cards": [ "Another sample for Card5" ],
+            "enode": [ ]
+          }
+        ]
+      })"_json;
+  
+        CHECK( refJSON == jRECONR );
+  
+      } // AND_THEN
     }
   }
 } // SCENARIO
@@ -158,82 +367,82 @@ SCENARIO( "Parsing invalid RECONR input" ){
   std::istringstream iss;
   WHEN( "Card 3 mat values not in increasing order" ){
     iRecordStream<char> iss( std::istringstream( 
-      card1 + card2 + "1306 1 3\n" + card4 + card5 + card6 + 
-      "125 0 0\n" + card4 + "0/\n" ) );
+            card1 + card2 + "1306 1 3\n" + card4 + card5 + card6 + 
+            "125 0 0\n" + card4 + "0/\n" ) );
     THEN( "an exception is thrown" ){
-      REQUIRE_THROWS( RECONR(iss) );
+      CHECK_THROWS( RECONR(iss) );
     }
   }
 
   WHEN( "Only terminating Card3" ){
     THEN( "an exception is thrown" ){
       iRecordStream<char> iss
-	( std::istringstream( card1 + card2 + "0/\n" ) );
+          ( std::istringstream( card1 + card2 + "0/\n" ) );
 
-      REQUIRE_THROWS( RECONR(iss) );
+      CHECK_THROWS( RECONR(iss) );
     }
   }
   WHEN( "Cards non-terminating-3" ){
     THEN( "an exception is thrown" ){
       iRecordStream<char> iss
-	( std::istringstream( card1 + card2 + card3 ) );
-      REQUIRE_THROWS( RECONR(iss) );
+          ( std::istringstream( card1 + card2 + card3 ) );
+      CHECK_THROWS( RECONR(iss) );
     }
   }
   WHEN( "Cards 3,4" ){
     THEN( "an exception is thrown" ){
       iRecordStream<char> iss
-	( std::istringstream( card1 + card2 + " 1234 0 0\n"  + card4 ) );
-      REQUIRE_THROWS( RECONR(iss) );
+          ( std::istringstream( card1 + card2 + " 1234 0 0\n"  + card4 ) );
+      CHECK_THROWS( RECONR(iss) );
     }
   }
   WHEN( "Cards 3,4,5,5,5,3 and ncards = 2" ){
     THEN( "an exception is thrown" ){
       iRecordStream<char> iss
-	( std::istringstream( card1 + card2 + "1306 2 0\n" + card4 + card5
-			      + card5 + card5 + "0/\n" ) );
-      REQUIRE_THROWS( RECONR(iss) );
+          ( std::istringstream( card1 + card2 + "1306 2 0\n" + card4 + card5
+                               + card5 + card5 + "0/\n" ) );
+      CHECK_THROWS( RECONR(iss) );
     }
   }
   WHEN( "Cards 3,4,5,5,5,3 and ncards = 4" ){
     THEN( "an exception is thrown" ){
       iRecordStream<char> iss
-	( std::istringstream( card1 + card2 + "1306 4 0\n" + card4
-			      + card5 + card5 + card5 + "0/\n" ) );
-      REQUIRE_THROWS( RECONR(iss) );
+          ( std::istringstream( card1 + card2 + "1306 4 0\n" + card4
+                               + card5 + card5 + card5 + "0/\n" ) );
+      CHECK_THROWS( RECONR(iss) );
     }
   }
   WHEN( "Cards 3,4,6,3 and ngrid = 0" ){
     THEN( "an exception is thrown" ){
       iRecordStream<char> iss
-	( std::istringstream( card1 + card2 + "1306 0 0\n"
-			      + card4 + card6 + "0/\n" ) );
-      REQUIRE_THROWS( RECONR(iss) );
+          ( std::istringstream( card1 + card2 + "1306 0 0\n"
+                               + card4 + card6 + "0/\n" ) );
+      CHECK_THROWS( RECONR(iss) );
     }
   }
   WHEN( "Cards 3,4,3 and ngrid > 0" ){
     THEN( "an exception is thrown" ){
       iRecordStream<char> iss
-	( std::istringstream( card1 + card2 + "1306 0 1000000\n"
-			      + card4 + "0/\n" ) );
-      REQUIRE_THROWS( RECONR(iss) );
+          ( std::istringstream( card1 + card2 + "1306 0 1000000\n"
+                               + card4 + "0/\n" ) );
+      CHECK_THROWS( RECONR(iss) );
     }
   }
   WHEN( "Cards 3,4, and faulty 5" ){
     THEN( "an exception is thrown" ){
       iRecordStream<char> iss
-	( std::istringstream( card1 + card2 + "1306 1 0\n"
-			      + card4 + "'abcd\n" + "0/\n" ) );
-      REQUIRE_THROWS( RECONR(iss) );
+          ( std::istringstream( card1 + card2 + "1306 1 0\n"
+                               + card4 + "'abcd\n" + "0/\n" ) );
+      CHECK_THROWS( RECONR(iss) );
     }
   }
   WHEN( "Cards 3,4,5,6,3,4,3 with materials specified in descending order" ){
     iRecordStream<char> iss
-      ( std::istringstream( card1 + card2 + " 1306 1 3\n" + card4 + card5
-  			    + card6 + " 1305 0 0\n" + card4 + "0/\n" ) );
+        ( std::istringstream( card1 + card2 + " 1306 1 3\n" + card4 + card5
+                             + card6 + " 1305 0 0\n" + card4 + "0/\n" ) );
 
     THEN( "an exception is thrown" ){
-      REQUIRE_THROWS( RECONR( iss ) );
+      CHECK_THROWS( RECONR( iss ) );
     }
   }
 }

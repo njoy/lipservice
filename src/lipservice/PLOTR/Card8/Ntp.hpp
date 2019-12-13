@@ -1,5 +1,5 @@
 struct Ntp{
-  using Value_t = optional< int >;
+  using Value_t = std::optional< int >;
   static std::string name(){ return "ntp"; }
   static std::string description(){
     return

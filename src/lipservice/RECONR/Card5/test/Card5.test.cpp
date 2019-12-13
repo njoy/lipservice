@@ -9,12 +9,17 @@ SCENARIO( "bugless" ){
   std::string value("123456789 123456789 123456789 123456789 123456789 123456789 123456");
   iRecordStream<char> iss( std::istringstream( "'" + value + "'" ) );
   RECONR::Card5 card5( iss );
-  REQUIRE( value == card5.cards.value );
+  CHECK( value == card5.cards.value );
+
+  THEN( "Card5 can be turned to JSON" ){
+    nlohmann::json refJSON = value;
+    CHECK( refJSON == nlohmann::json( card5 ) );
+  } // THEN
 }
 
 SCENARIO( "bugged" ){
   std::string value("'123456789 123456789 123456789 123456789 123456789 123456789 1234567'");
   iRecordStream<char> iss( (std::istringstream(value)) );
-  REQUIRE_THROWS( RECONR::Card5( iss ) );
+  CHECK_THROWS( RECONR::Card5( iss ) );
 }
 

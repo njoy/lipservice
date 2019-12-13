@@ -25,10 +25,10 @@ using OscillatorTuple = std::tuple< Card15, Card16 >;
 using PairCorrelTuple = std::tuple< Card17, Card18 >;
 
 using TempSpecificTuple = std::tuple< Card11, Card12, Card13, Card14,
-                                 optional<OscillatorTuple>,
-                                 optional<PairCorrelTuple> >;
+                                 std::optional<OscillatorTuple>,
+                                 std::optional<PairCorrelTuple> >;
 
-using TempLoopIter = std::tuple< Card10, optional< TempSpecificTuple > >;
+using TempLoopIter = std::tuple< Card10, std::optional< TempSpecificTuple > >;
 
 using TempLoop = std::vector<TempLoopIter>;
 
@@ -52,7 +52,7 @@ Card7 card7;
 Card8 card8;
 Card9 card9;
 TempLoop tempLoop;
-optional< Card19 > card19;
+std::optional< Card19 > card19;
 Card20List card20List;
  
 

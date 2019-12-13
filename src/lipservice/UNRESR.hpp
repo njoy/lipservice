@@ -22,7 +22,7 @@ public:
       }
       
       do{
-        optional< Card3 > card3;
+        std::optional< Card3 > card3;
         try{
           card3 = Card3( is, card2.ntemp );
         } catch( std::exception& e ) {
@@ -30,7 +30,7 @@ public:
           throw e;
         }
 
-        optional< Card4 > card4;
+        std::optional< Card4 > card4;
         try{
           card4 = Card4( is, card2.nsigz );
         } catch( std::exception& e ) {

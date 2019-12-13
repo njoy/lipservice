@@ -18,8 +18,8 @@ public:
   Card1 card1;
   Card2 card2;
   Card3 card3;
-  optional< Card4 > card4;
-  optional< Card5 > card5;
+  std::optional< Card4 > card4;
+  std::optional< Card5 > card5;
   std::vector< Material > materials;
 
   template< typename Istream >

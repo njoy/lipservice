@@ -1,7 +1,7 @@
 template< typename Istream >
 std::vector< Card4 > readCard4List( Istream& is,
- optional< std::tuple< Card2, optional< Card2z >, Card2a, Card3a > > card23a,
- optional< std::tuple< Card2b, Card3b, Card3c > > ){
+ std::optional< std::tuple< Card2, std::optional< Card2z >, Card2a, Card3a > > card23a,
+ std::optional< std::tuple< Card2b, Card3b, Card3c > > ){
   int ncase;
   if( card23a != std::nullopt and card23b != std::nullopt ){
     Log::error( "Both Card23a and Card23b exist, but only one is required." );

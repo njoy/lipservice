@@ -13,7 +13,7 @@ public:
   using Card5List = std::vector< Card5 >;
 
   using ControlTuple = std::tuple< Card3, 
-                           optional< Card3a >, Card4, Card5List >;
+                           std::optional< Card3a >, Card4, Card5List >;
   using ControlVariant = std::variant< ControlTuple, Card6 >;
   
   using Card8List = std::vector< Card8 >;
@@ -31,7 +31,7 @@ public:
 	
 	  auto card3a = 
             (card3.ntherm.value != 0 ) ? 
-              optional<Card3a>(Card3a( is )) : std::nullopt;
+              std::optional<Card3a>(Card3a( is )) : std::nullopt;
 
           auto card4 = Card4( is, card3.iptotl);
           

@@ -1,5 +1,5 @@
 struct Efmean {
-  using Value_t = optional< double >;
+  using Value_t = std::optional< double >;
   static std::string name(){ return "efmean"; }
   static std::string description(){
     return "The efmean parameter specifies the incident neutron energy in eV.\n"

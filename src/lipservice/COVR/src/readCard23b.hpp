@@ -1,5 +1,5 @@
 template< typename Istream >
-optional< std::tuple< Card2b, Card3b, Card3c > >
+std::optional< std::tuple< Card2b, Card3b, Card3c > >
                                      readCard23b( Istream& is, const int nout ){
   if( nout <= 0 ) return std::nullopt;
 

@@ -1,5 +1,5 @@
 template< typename Istream>
-optional< std::pair< Argument< Ires >, Argument< Sigp > > >
+std::optional< std::pair< Argument< Ires >, Argument< Sigp > > >
 readNina03( Istream& is, const int nina ){
   if( nina != 3 ) return std::nullopt;
 

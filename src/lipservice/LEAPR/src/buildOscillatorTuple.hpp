@@ -1,5 +1,5 @@
 
-static optional<OscillatorTuple> 
+static std::optional<OscillatorTuple> 
 buildOscillatorTuple( iRecordStream<char>& is, Card13& card13, Card14& card14 ){
 
   auto card15 = Card15( is, card14.nd );

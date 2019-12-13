@@ -1,5 +1,5 @@
 template< typename Istream >
-optional< std::tuple< Argument< Npend >, Argument< Ngout >, Argument< Nout >,
+std::optional< std::tuple< Argument< Npend >, Argument< Ngout >, Argument< Nout >,
                       Argument< Nin >, Argument< Nstan > > >
 readRest( Istream& is, const int nendf ){
 

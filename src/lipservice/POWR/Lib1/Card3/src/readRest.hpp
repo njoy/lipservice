@@ -1,5 +1,5 @@
 template< typename Istream >
-optional< std::tuple< Argument< Rtemp >, Argument< Iff >, Argument< Nsgz >,
+std::optional< std::tuple< Argument< Rtemp >, Argument< Iff >, Argument< Nsgz >,
                       Argument< Izref > > >
 readRest( Istream& is, const int matd ){
   if( matd <= 0 ) return std::nullopt;

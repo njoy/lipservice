@@ -1,8 +1,8 @@
 template< typename Istream >
-static optional< Freeform > readFreeform( Istream& is, const int iverf )
+static std::optional< Freeform > readFreeform( Istream& is, const int iverf )
 {
 
-  if( iverf != 0 ) return nullopt;
+  if( iverf != 0 ) return std::nullopt;
 
   return Freeform( is );
 }

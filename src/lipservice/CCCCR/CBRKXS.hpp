@@ -9,8 +9,8 @@ public:
 #include "lipservice/CCCCR/CBRKXS/src/readCard3.hpp"
 
 Card1 card1;
-optional< Card2 > card2;
-optional< Card3 > card3;
+std::optional< Card2 > card2;
+std::optional< Card3 > card3;
 
 template< typename Istream >
 CBRKXS( Istream& is )

@@ -1,13 +1,16 @@
+#ifndef LIPSERVICE_HPP
+#define LIPSERVICE_HPP
+
 #include <variant>
 
-#ifdef USING_CPP17
+#if __cplusplus >= 201703L
   #include <optional>
 #else 
   #include <experimental/optional>
 
   namespace std {
     using namespace std::experimental;
-  }
+  } // namespace std 
 #endif
 
 #include "boost/hana.hpp"
@@ -15,6 +18,8 @@ namespace hana = boost::hana;
 
 #include "json.hpp"
 using json = nlohmann::json;
+// Need this to turn optionals into JSON objects
+#include "lipservice/nlohmann.hpp"
 
 #include "utility.hpp"
 #include "ENDFtk.hpp"
@@ -23,8 +28,6 @@ using json = nlohmann::json;
 namespace njoy {
 namespace njoy21 {
 namespace lipservice {
-
-using namespace std::experimental;
 
 template< typename Char >
 using iRecordStream =
@@ -59,6 +62,10 @@ using iRecordStream =
 #include "lipservice/POWR.hpp"
 #include "lipservice/CCCCR.hpp"
 
+#include "lipservice/src/to_json.hpp"
+
 } // namespace lipservice
 } // namespace njoy21
 } // namespace njoy
+
+#endif // LIPSERVICE_HPP

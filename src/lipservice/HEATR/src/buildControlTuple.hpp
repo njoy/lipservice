@@ -1,5 +1,5 @@
 
-static optional<ControlTuple> buildControlTuple( 
+static std::optional<ControlTuple> buildControlTuple( 
   iRecordStream<char>& is, Card2& card2 ){
   if( card2.nqa.value > 0 ){
     auto card4 = Card4( is, card2.nqa );

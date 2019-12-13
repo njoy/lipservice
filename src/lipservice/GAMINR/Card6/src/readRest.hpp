@@ -1,5 +1,5 @@
 template< typename Istream >
-static optional< std::pair< Argument< Mtd >, Argument< Mtname > > >
+static std::optional< std::pair< Argument< Mtd >, Argument< Mtname > > >
 readRest( Istream& is, const int mfd ){
   Argument< Mtd > mtd( argument::extract< Mtd >( is ) );
   Argument< Mtname > mtname( argument::extract< Mtname >( is, mfd ) );

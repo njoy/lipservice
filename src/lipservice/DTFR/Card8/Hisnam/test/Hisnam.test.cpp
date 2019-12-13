@@ -32,7 +32,7 @@ SCENARIO( "DTFR hisnam",
   } // GIVEN
   
   GIVEN( "no hisnam value provided" ){
-    THEN( "nullopt value used" ){
+    THEN( "std::nullopt value used" ){
       iRecordStream<char> iss( std::istringstream( " /" ) );
       REQUIRE( not argument::extract<
         DTFR::Card8::Hisnam >( iss ).value );

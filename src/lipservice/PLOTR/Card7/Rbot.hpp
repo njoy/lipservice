@@ -1,5 +1,5 @@
 struct Rbot {
-  using Value_t = optional< double >;
+  using Value_t = std::optional< double >;
   static std::string name(){ return "rbot"; }
   static std::string description(){
     return

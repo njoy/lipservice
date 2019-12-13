@@ -1,5 +1,5 @@
 struct Matd : public argument::common::Matd {
-  using Value_t = optional< argument::common::Matd::Value_t >;
+  using Value_t = std::optional< argument::common::Matd::Value_t >;
   static std::string description(){
     return
       argument::common::Matd::description() + "\n\n"

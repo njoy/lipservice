@@ -7,7 +7,7 @@ class Plot {
   Card5a card5a;
   Card6 card6;
   Card6a card6a;
-  optional< std::pair< Card7, Card7a > > card7;
+  std::optional< std::pair< Card7, Card7a > > card7;
 
   template< typename Istream >
   Plot( Istream& is )

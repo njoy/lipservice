@@ -1,5 +1,5 @@
 struct Hisnam {
-  using Value_t = optional<std::string>;
+  using Value_t = std::optional<std::string>;
   static std::string name(){ return "hisnam"; }
  
 
@@ -10,7 +10,7 @@ struct Hisnam {
       "to the right-hand edge of each card.";
   }
   
-  static Value_t defaultValue() { return nullopt; }
+  static Value_t defaultValue() { return std::nullopt; }
 
   static bool verify( Value_t str ){ return str->length() <= 6; } 
 };

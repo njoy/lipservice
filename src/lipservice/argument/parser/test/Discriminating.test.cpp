@@ -1,8 +1,6 @@
 #include "catch.hpp"
 #include "lipservice.hpp"
 
-
-
 using namespace njoy::njoy21::lipservice::argument::parser;
 
 struct positiveInt{

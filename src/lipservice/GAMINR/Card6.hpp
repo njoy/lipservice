@@ -7,7 +7,7 @@ public:
   #include "lipservice/GAMINR/Card6/src/readRest.hpp"
 
  Argument< Mfd > mfd;
- optional< std::pair< Argument< Mtd >, Argument< Mtname > > > rest;
+ std::optional< std::pair< Argument< Mtd >, Argument< Mtname > > > rest;
 
   template< typename Char >
   Card6( iRecordStream< Char >& is )

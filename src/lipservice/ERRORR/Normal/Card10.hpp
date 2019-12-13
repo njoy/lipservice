@@ -7,7 +7,7 @@ public:
 #include "lipservice/ERRORR/Normal/Card10/src/readMt1.hpp"
 
 Argument< Mat1 > mat1;
-optional< Argument< Mt1 > > mt1;
+std::optional< Argument< Mt1 > > mt1;
 
 Card10( Card10& ) = default;
 Card10( const Card10& ) = default;

@@ -22,10 +22,10 @@ Argument< Nina > nina;
 Argument< Ntemp > ntemp;
 Argument< Nsigz > nsigz;
 Argument< Sgref > sgref;
-optional< std::pair< Argument< Ires >, Argument< Sigp > > > nina03;
-optional< std::tuple< Argument< Mti >, Argument< Mtc >, Argument< Ip1opt >,
+std::optional< std::pair< Argument< Ires >, Argument< Sigp > > > nina03;
+std::optional< std::tuple< Argument< Mti >, Argument< Mtc >, Argument< Ip1opt >,
                                                   Argument< Inorf > > > ntapea0;
-optional< std::pair< Argument< Pos >, Argument< Posr > > > mode0;
+std::optional< std::pair< Argument< Pos >, Argument< Posr > > > mode0;
 
 template< typename Istream >
 Card5( Istream& is, const int mode )
