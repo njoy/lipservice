@@ -16,26 +16,52 @@ SCENARIO( "THERMR input",
         ) );
       THERMR thermr( iss );
       THEN( "all cards should have the correct values" ){
-        REQUIRE( thermr.card1.nendf.value == 0 );
-        REQUIRE( thermr.card1.nin.value   == -22 );
-        REQUIRE( thermr.card1.nout.value  == -24 );
+        CHECK( thermr.card1.nendf.value == 0 );
+        CHECK( thermr.card1.nin.value   == -22 );
+        CHECK( thermr.card1.nout.value  == -24 );
 
-        REQUIRE( thermr.card2.matde.value  == 0 );
-        REQUIRE( thermr.card2.matdp.value  == 1306 );
-        REQUIRE( thermr.card2.nbin.value   == 8 );
-        REQUIRE( thermr.card2.ntemp.value  == 2 );
-        REQUIRE( thermr.card2.iin.value    == 1 );
-        REQUIRE( thermr.card2.icoh.value   == 0 );
-        REQUIRE( thermr.card2.iform.value  == 0 );
-        REQUIRE( thermr.card2.natom.value  == 1 );
-        REQUIRE( thermr.card2.mtref.value  == 221 );
-        REQUIRE( thermr.card2.iprint.value == 2 );
+        CHECK( thermr.card2.matde.value  == 0 );
+        CHECK( thermr.card2.matdp.value  == 1306 );
+        CHECK( thermr.card2.nbin.value   == 8 );
+        CHECK( thermr.card2.ntemp.value  == 2 );
+        CHECK( thermr.card2.iin.value    == 1 );
+        CHECK( thermr.card2.icoh.value   == 0 );
+        CHECK( thermr.card2.iform.value  == 0 );
+        CHECK( thermr.card2.natom.value  == 1 );
+        CHECK( thermr.card2.mtref.value  == 221 );
+        CHECK( thermr.card2.iprint.value == 2 );
 	
-        REQUIRE( thermr.card3.tempr.value[0] == 350.0 );
-        REQUIRE( thermr.card3.tempr.value[1] == 450.0 );
+        CHECK( thermr.card3.tempr.value[0] == 350.0 );
+        CHECK( thermr.card3.tempr.value[1] == 450.0 );
 
-        REQUIRE( thermr.card4.tol.value  == 0.05 );
-        REQUIRE( thermr.card4.emax.value == 1.2 );
+        CHECK( thermr.card4.tol.value  == 0.05 );
+        CHECK( thermr.card4.emax.value == 1.2 );
+
+      AND_THEN( "RECONR can be turned to JSON" ){
+        nlohmann::json refJSON = R"(
+        {
+          "nendf": 0,
+          "nin":   -22,
+          "nout":   -24,
+          "matde":  0,
+          "matdp":  1306,
+          "nbin":   8,
+          "ntemp":  2,
+          "iin":    1,
+          "icoh":   0,
+          "iform":  0,
+          "natom":  1,
+          "mtref":  221,
+          "iprint": 2,
+          "tempr": [ 350.0, 450.0 ],
+          "tol":  0.05,
+          "emax": 1.2
+        }
+        )"_json;
+
+        CHECK( refJSON == nlohmann::json( thermr ) );
+
+      } // AND_THEN
       } // THEN
     } // WHEN
     WHEN( "optional parameter not provided" ){
@@ -47,7 +73,52 @@ SCENARIO( "THERMR input",
         ) );
       THERMR thermr( iss );
       THEN( "optional parameter should have the correct value" ){
-        REQUIRE( thermr.card2.iprint.value == 0 );
+        CHECK( thermr.card1.nendf.value == 0 );
+        CHECK( thermr.card1.nin.value   == -22 );
+        CHECK( thermr.card1.nout.value  == -24 );
+
+        CHECK( thermr.card2.matde.value  == 0 );
+        CHECK( thermr.card2.matdp.value  == 1306 );
+        CHECK( thermr.card2.nbin.value   == 8 );
+        CHECK( thermr.card2.ntemp.value  == 2 );
+        CHECK( thermr.card2.iin.value    == 1 );
+        CHECK( thermr.card2.icoh.value   == 0 );
+        CHECK( thermr.card2.iform.value  == 0 );
+        CHECK( thermr.card2.natom.value  == 1 );
+        CHECK( thermr.card2.mtref.value  == 221 );
+        CHECK( thermr.card2.iprint.value == 0 );
+	
+        CHECK( thermr.card3.tempr.value[0] == 350.0 );
+        CHECK( thermr.card3.tempr.value[1] == 450.0 );
+
+        CHECK( thermr.card4.tol.value  == 0.05 );
+        CHECK( thermr.card4.emax.value == 1.2 );
+
+      AND_THEN( "RECONR can be turned to JSON" ){
+        nlohmann::json refJSON = R"(
+        {
+          "nendf": 0,
+          "nin":   -22,
+          "nout":   -24,
+          "matde":  0,
+          "matdp":  1306,
+          "nbin":   8,
+          "ntemp":  2,
+          "iin":    1,
+          "icoh":   0,
+          "iform":  0,
+          "natom":  1,
+          "mtref":  221,
+          "iprint": 0,
+          "tempr": [ 350.0, 450.0 ],
+          "tol":  0.05,
+          "emax": 1.2
+        }
+        )"_json;
+
+        CHECK( refJSON == nlohmann::json( thermr ) );
+
+      } // AND_THEN
       } // THEN
     } // WHEN
   } // GIVEN
@@ -61,7 +132,7 @@ SCENARIO( "THERMR input",
         "0.05 1.2/\n"
         ) );
       THEN( "an exception is thrown" ){
-        REQUIRE_THROWS( THERMR( iss ) );
+        CHECK_THROWS( THERMR( iss ) );
       } // THEN
     } // WHEN
     WHEN( "inconsistency between nendf and matde" ){
@@ -79,8 +150,8 @@ SCENARIO( "THERMR input",
         ) );
 
       THEN( "an exception is thrown" ){
-        REQUIRE_THROWS( THERMR( iss1) );
-        REQUIRE_THROWS( THERMR( iss2 ) );
+        CHECK_THROWS( THERMR( iss1) );
+        CHECK_THROWS( THERMR( iss2 ) );
       } // THEN
     } // WHEN
     WHEN( "inconsistency between nendf and iin" ){
@@ -91,7 +162,7 @@ SCENARIO( "THERMR input",
 	"0.05 1.2/\n"
       ) );
       THEN( "an exception is thrown" ){
-        REQUIRE_THROWS( THERMR( iss ) );
+        CHECK_THROWS( THERMR( iss ) );
       } // THEN
     } // WHEN
     WHEN( "card1 input files repeated" ){
@@ -102,7 +173,7 @@ SCENARIO( "THERMR input",
         "0.05 1.2/\n"
         ) );
       THEN( "an exception is thrown" ){
-        REQUIRE_THROWS( THERMR( iss ) );
+        CHECK_THROWS( THERMR( iss ) );
       } // THEN
     } // WHEN 
     WHEN( "invalid (out of range) card4 entry" ){
@@ -113,7 +184,7 @@ SCENARIO( "THERMR input",
         "1.e-6 1.2/\n"
         ) );
       THEN( "an exception is thrown" ){
-        REQUIRE_THROWS( THERMR( iss ) );
+        CHECK_THROWS( THERMR( iss ) );
       } // THEN
     } // WHEN
   } // GIVEN

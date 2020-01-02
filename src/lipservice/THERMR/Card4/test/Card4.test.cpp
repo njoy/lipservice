@@ -11,8 +11,18 @@ SCENARIO( "THERMR Card4 inputs",
       iRecordStream<char> is( std::istringstream(".01 4.6") );
       THEN( "the extracted values are correct" ){
         THERMR::Card4 card4( is );
-        REQUIRE( card4.tol.value == 0.01 );
-        REQUIRE( card4.emax.value == 4.6 );
+        CHECK( card4.tol.value == 0.01 );
+        CHECK( card4.emax.value == 4.6 );
+
+        AND_THEN( "Card4 can be turned to JSON" ){
+          nlohmann::json refJSON = R"(
+          {
+            "tol":  0.01,
+            "emax": 4.6
+          }
+          )"_json;
+          CHECK( refJSON == nlohmann::json( card4 ) );
+        } // AND_THEN
       } // THEN 
     } // WHEN
   } // GIVEN
@@ -22,8 +32,8 @@ SCENARIO( "THERMR Card4 inputs",
       iRecordStream<char> is1( std::istringstream("1e-6 4.5") );
       iRecordStream<char> is2( std::istringstream("0.05 0.0") );
       THEN( "an exception is thrown" ){
-        REQUIRE_THROWS( THERMR::Card4( is1 ) );
-        REQUIRE_THROWS( THERMR::Card4( is2 ) );
+        CHECK_THROWS( THERMR::Card4( is1 ) );
+        CHECK_THROWS( THERMR::Card4( is2 ) );
       } // THEN
     } // WHEN
   } // GIVEN

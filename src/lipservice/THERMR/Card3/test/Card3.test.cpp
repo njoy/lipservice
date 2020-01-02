@@ -13,19 +13,26 @@ SCENARIO( "Verifying THERMR Card3 input", "[THERMR], [Card3]" ){
       THEN( "the tempreratures can be extracted and verified" ){
         std::vector< double > refTemprs{ 293.6, 600, 1200 };
         THERMR::Card3 card3( iss, ntemp );
-        REQUIRE( refTemprs == card3.tempr.value );
+        CHECK( refTemprs == card3.tempr.value );
+
+        AND_THEN( "Card3 can be turned to JSON" ){
+          nlohmann::json refJSON = R"(
+          [ 293.6, 600, 1200 ]
+          )"_json;
+          CHECK( refJSON == nlohmann::json( card3 ) );
+        } // AND_THEN
       } // THEN
     } // WHEN
     WHEN( "not enough tempreratures provided" ){
       iRecordStream< char> iss( std::istringstream( "293.6 600 " ) );
       THEN( "an exception is thrown" ){
-        REQUIRE_THROWS( THERMR::Card3( iss, ntemp ) );
+        CHECK_THROWS( THERMR::Card3( iss, ntemp ) );
       } // THEN
     } // WHEN
     WHEN( "too many tempreratures provided" ){
       iRecordStream< char> iss( std::istringstream( "293.6 600 900 1200" ) );
       THEN( "an exception is thrown" ){
-        REQUIRE_THROWS( THERMR::Card3( iss, ntemp ) );
+        CHECK_THROWS( THERMR::Card3( iss, ntemp ) );
       } // THEN
     } // WHEN
   } // GIVEN
