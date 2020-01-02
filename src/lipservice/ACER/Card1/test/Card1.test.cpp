@@ -24,9 +24,24 @@ SCENARIO( "Validating card1 inputs",
     iRecordStream<char> issCard2( std::istringstream("20 21 22 0 24" ) );
     card1 = ACER::Card1(issCard2);
     THEN( "the members can be tested" ){
-      REQUIRE( 0 == card1.nace.value );
+      REQUIRE( 20 == card1.nendf.value );
+      REQUIRE( 21 == card1.npend.value );
+      REQUIRE( 22 == card1.ngend.value );
+      REQUIRE(  0 == card1.nace.value );
+      REQUIRE( 24 == card1.ndir.value );
     }
 
+    WHEN( "ngend is 0" ){
+      iRecordStream<char> issCard2( std::istringstream("0 21 0 20 24" ) );
+      card1 = ACER::Card1(issCard2);
+      THEN( "the members can be tested" ){
+        REQUIRE(  0 == card1.nendf.value );
+        REQUIRE( 21 == card1.npend.value );
+        REQUIRE(  0 == card1.ngend.value );
+        REQUIRE( 20 == card1.nace.value );
+        REQUIRE( 24 == card1.ndir.value );
+      }
+    } // WHEN
   }
 
   GIVEN( "invalid inputs" ){
