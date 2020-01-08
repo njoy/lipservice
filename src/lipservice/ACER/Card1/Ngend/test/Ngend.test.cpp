@@ -26,9 +26,6 @@ SCENARIO( "ngend output values",
         }
       }
     }
-    WHEN( "ngend is zero" ){
-      
-    } // WHEN
     WHEN( "the npend or nendf value and ngend values are the same" ){
       THEN( "an exception is thrown" ){
         int ngend = 22;
