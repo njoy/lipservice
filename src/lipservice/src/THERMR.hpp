@@ -22,7 +22,7 @@ inline void to_json( nlohmann::json& JSON, const THERMR::Card2& card2 ) {
 }
 
 inline void to_json( nlohmann::json& JSON, const THERMR::Card3& card3 ) {
-  JSON = card3.tempr.value;
+  JSON = { { "tempr", card3.tempr.value } };
 }
 
 inline void to_json( nlohmann::json& JSON, const THERMR::Card4& card4 ) {
@@ -35,6 +35,6 @@ inline void to_json( nlohmann::json& JSON, const THERMR::Card4& card4 ) {
 inline void to_json( nlohmann::json& JSON, const THERMR& thermr ) {
   JSON = thermr.card1;
   JSON.update( thermr.card2 );
-  JSON[ "tempr" ] = thermr.card3;
+  JSON.update( thermr.card3 );
   JSON.update( thermr.card4 );
 }

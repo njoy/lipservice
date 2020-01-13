@@ -37,31 +37,31 @@ SCENARIO( "THERMR input",
         CHECK( thermr.card4.tol.value  == 0.05 );
         CHECK( thermr.card4.emax.value == 1.2 );
 
-      AND_THEN( "RECONR can be turned to JSON" ){
-        nlohmann::json refJSON = R"(
-        {
-          "nendf": 0,
-          "nin":   -22,
-          "nout":   -24,
-          "matde":  0,
-          "matdp":  1306,
-          "nbin":   8,
-          "ntemp":  2,
-          "iin":    1,
-          "icoh":   0,
-          "iform":  0,
-          "natom":  1,
-          "mtref":  221,
-          "iprint": 2,
-          "tempr": [ 350.0, 450.0 ],
-          "tol":  0.05,
-          "emax": 1.2
-        }
-        )"_json;
+        AND_THEN( "RECONR can be turned to JSON" ){
+          nlohmann::json refJSON = R"(
+          {
+            "nendf": 0,
+            "nin":   -22,
+            "nout":   -24,
+            "matde":  0,
+            "matdp":  1306,
+            "nbin":   8,
+            "ntemp":  2,
+            "iin":    1,
+            "icoh":   0,
+            "iform":  0,
+            "natom":  1,
+            "mtref":  221,
+            "iprint": 2,
+            "tempr": [ 350.0, 450.0 ],
+            "tol":  0.05,
+            "emax": 1.2
+          }
+          )"_json;
 
-        CHECK( refJSON == nlohmann::json( thermr ) );
+          CHECK( refJSON == nlohmann::json( thermr ) );
 
-      } // AND_THEN
+        } // AND_THEN
       } // THEN
     } // WHEN
     WHEN( "optional parameter not provided" ){
