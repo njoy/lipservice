@@ -17,7 +17,7 @@ SCENARIO( "Verifying THERMR Card3 input", "[THERMR], [Card3]" ){
 
         AND_THEN( "Card3 can be turned to JSON" ){
           nlohmann::json refJSON = R"(
-          [ 293.6, 600, 1200 ]
+            { "tempr": [ 293.6, 600, 1200 ] }
           )"_json;
           CHECK( refJSON == nlohmann::json( card3 ) );
         } // AND_THEN
