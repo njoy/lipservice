@@ -12,16 +12,34 @@ SCENARIO( "THERMR Card2 inputs",
       iRecordStream<char> is( std::istringstream("1 125 8 2 2 0 0 2 222 1") );
       THEN( "the extracted values are correct" ){
         THERMR::Card2 card2( is, nendf );
-        REQUIRE( card2.matde.value == 1 );
-        REQUIRE( card2.matdp.value == 125 );
-        REQUIRE( card2.nbin.value == 8 );
-        REQUIRE( card2.ntemp.value == 2 );
-        REQUIRE( card2.iin.value == 2 );
-        REQUIRE( card2.icoh.value == 0 );
-        REQUIRE( card2.iform.value == 0 );
-        REQUIRE( card2.natom.value == 2 );
-        REQUIRE( card2.mtref.value == 222 );
-        REQUIRE( card2.iprint.value == 1 );
+        CHECK( card2.matde.value == 1 );
+        CHECK( card2.matdp.value == 125 );
+        CHECK( card2.nbin.value == 8 );
+        CHECK( card2.ntemp.value == 2 );
+        CHECK( card2.iin.value == 2 );
+        CHECK( card2.icoh.value == 0 );
+        CHECK( card2.iform.value == 0 );
+        CHECK( card2.natom.value == 2 );
+        CHECK( card2.mtref.value == 222 );
+        CHECK( card2.iprint.value == 1 );
+
+        AND_THEN( "Card2 can be turned to JSON" ){
+          nlohmann::json refJSON = R"(
+          {
+            "matde":  1,
+            "matdp":  125,
+            "nbin":   8,
+            "ntemp":  2,
+            "iin":    2,
+            "icoh":   0,
+            "iform":  0,
+            "natom":  2,
+            "mtref":  222,
+            "iprint": 1
+          }
+          )"_json;
+          CHECK( refJSON == nlohmann::json( card2 ) );
+        } // AND_THEN
       } // THEN 
     } // WHEN
 
@@ -29,14 +47,41 @@ SCENARIO( "THERMR Card2 inputs",
       iRecordStream<char> is( std::istringstream("1 125 8 2 2 0 0 2 222 /") );
       THEN( "default values used" ){
         THERMR::Card2 card2( is, nendf );
-	REQUIRE( card2.iprint.value == 0 );
+        CHECK( card2.matde.value == 1 );
+        CHECK( card2.matdp.value == 125 );
+        CHECK( card2.nbin.value == 8 );
+        CHECK( card2.ntemp.value == 2 );
+        CHECK( card2.iin.value == 2 );
+        CHECK( card2.icoh.value == 0 );
+        CHECK( card2.iform.value == 0 );
+        CHECK( card2.natom.value == 2 );
+        CHECK( card2.mtref.value == 222 );
+        CHECK( card2.iprint.value == 0 );
+
+        AND_THEN( "Card2 can be turned to JSON" ){
+          nlohmann::json refJSON = R"(
+          {
+            "matde":  1,
+            "matdp":  125,
+            "nbin":   8,
+            "ntemp":  2,
+            "iin":    2,
+            "icoh":   0,
+            "iform":  0,
+            "natom":  2,
+            "mtref":  222,
+            "iprint": 0
+          }
+          )"_json;
+          CHECK( refJSON == nlohmann::json( card2 ) );
+        } // AND_THEN
       } // THEN
     } // WHEN
     
     WHEN( "matde conflicts with card1 nendf value" ){
       iRecordStream<char> is( std::istringstream("0 125 8 2 2 0 0 2 222 1") );
       THEN( "an exception is thrown" ){
-        REQUIRE_THROWS( THERMR::Card2( is, nendf ) );
+        CHECK_THROWS( THERMR::Card2( is, nendf ) );
       } // THEN
     } // WHEN
  
@@ -52,20 +97,19 @@ SCENARIO( "THERMR Card2 inputs",
       iRecordStream<char> is9( std::istringstream(" 1 125 8 2 2 0 0 2 220 1") );
       iRecordStream<char> is0( std::istringstream(" 1 125 8 2 2 0 0 2 222 3") );
       THEN( "an exception is thrown" ){
-        REQUIRE_THROWS( THERMR::Card2( is1, nendf ) );
-        REQUIRE_THROWS( THERMR::Card2( is2, nendf ) );
-        REQUIRE_THROWS( THERMR::Card2( is3, nendf ) );
-        REQUIRE_THROWS( THERMR::Card2( is4, nendf ) );
-        REQUIRE_THROWS( THERMR::Card2( is5, nendf ) );
-        REQUIRE_THROWS( THERMR::Card2( is6, nendf ) );
-        REQUIRE_THROWS( THERMR::Card2( is7, nendf ) );
-        REQUIRE_THROWS( THERMR::Card2( is8, nendf ) );
-        REQUIRE_THROWS( THERMR::Card2( is9, nendf ) );
-        REQUIRE_THROWS( THERMR::Card2( is0, nendf ) );
+        CHECK_THROWS( THERMR::Card2( is1, nendf ) );
+        CHECK_THROWS( THERMR::Card2( is2, nendf ) );
+        CHECK_THROWS( THERMR::Card2( is3, nendf ) );
+        CHECK_THROWS( THERMR::Card2( is4, nendf ) );
+        CHECK_THROWS( THERMR::Card2( is5, nendf ) );
+        CHECK_THROWS( THERMR::Card2( is6, nendf ) );
+        CHECK_THROWS( THERMR::Card2( is7, nendf ) );
+        CHECK_THROWS( THERMR::Card2( is8, nendf ) );
+        CHECK_THROWS( THERMR::Card2( is9, nendf ) );
+        CHECK_THROWS( THERMR::Card2( is0, nendf ) );
       } // THEN
     } // WHEN
   } // GIVEN
-  
   
   GIVEN( "a Card1 nendf input value of zero" ){
     Argument< THERMR::Card1::Nendf > nendf; nendf.value = 0;
@@ -73,28 +117,46 @@ SCENARIO( "THERMR Card2 inputs",
       iRecordStream<char> is( std::istringstream("0 125 8 2 1 0 0 2 222 1") );
       THEN( "the extracted values are correct" ){
         THERMR::Card2 card2( is, nendf );
-        REQUIRE( card2.matde.value == 0 );
-        REQUIRE( card2.matdp.value == 125 );
-        REQUIRE( card2.nbin.value == 8 );
-        REQUIRE( card2.ntemp.value == 2 );
-        REQUIRE( card2.iin.value == 1 );
-        REQUIRE( card2.icoh.value == 0 );
-        REQUIRE( card2.iform.value == 0 );
-        REQUIRE( card2.natom.value == 2 );
-        REQUIRE( card2.mtref.value == 222 );
-        REQUIRE( card2.iprint.value == 1 );
+        CHECK( card2.matde.value == 0 );
+        CHECK( card2.matdp.value == 125 );
+        CHECK( card2.nbin.value == 8 );
+        CHECK( card2.ntemp.value == 2 );
+        CHECK( card2.iin.value == 1 );
+        CHECK( card2.icoh.value == 0 );
+        CHECK( card2.iform.value == 0 );
+        CHECK( card2.natom.value == 2 );
+        CHECK( card2.mtref.value == 222 );
+        CHECK( card2.iprint.value == 1 );
+
+        AND_THEN( "Card2 can be turned to JSON" ){
+          nlohmann::json refJSON = R"(
+          {
+            "matde":  0,
+            "matdp":  125,
+            "nbin":   8,
+            "ntemp":  2,
+            "iin":    1,
+            "icoh":   0,
+            "iform":  0,
+            "natom":  2,
+            "mtref":  222,
+            "iprint": 1
+          }
+          )"_json;
+          CHECK( refJSON == nlohmann::json( card2 ) );
+        } // AND_THEN
       } // THEN 
     } // WHEN
     WHEN( "matde conflicts with card1 nendf value" ){
       iRecordStream<char> is( std::istringstream("1 125 8 2 1 0 0 2 222 1") );
       THEN( "an exception is thrown" ){
-	REQUIRE_THROWS( THERMR::Card2( is, nendf ) );
+        CHECK_THROWS( THERMR::Card2( is, nendf ) );
       } // THEN
     } // WHEN
     WHEN( "iin conflicts with card1 nendf value" ){
       iRecordStream<char> is( std::istringstream("0 125 8 2 2 0 0 2 222 1") );
       THEN( "an exception is thrown" ){
-        REQUIRE_THROWS( THERMR::Card2( is, nendf ) );
+        CHECK_THROWS( THERMR::Card2( is, nendf ) );
       } // THEN
    } // WHEN
   } // GIVEN
