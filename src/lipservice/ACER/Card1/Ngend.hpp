@@ -26,9 +26,11 @@ struct Ngend : public argument::common::Nout {
   static bool verify( const Value_t v, 
                       const Argument<Nendf>& nendf, 
                       const Argument<Npend>& npend ){
-    return ( (v == 0) or argument::common::Nin::verify( v ) ) and
+    return (v == 0) or 
+      ( argument::common::Nin::verify( v ) and
         /* Make sure the ngend is not equal to other input tape numbers */
         ( std::abs(nendf.value) != std::abs( v ) ) and
-        ( std::abs(npend.value) != std::abs( v ) );
+        ( std::abs(npend.value) != std::abs( v ) )
+      );
   }
 };
