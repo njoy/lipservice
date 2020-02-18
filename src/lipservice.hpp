@@ -2,16 +2,7 @@
 #define LIPSERVICE_HPP
 
 #include <variant>
-
-#if __cplusplus >= 201703L
-  #include <optional>
-#else 
-  #include <experimental/optional>
-
-  namespace std {
-    using namespace std::experimental;
-  } // namespace std 
-#endif
+#include <optional>
 
 #include "boost/hana.hpp"
 namespace hana = boost::hana;
