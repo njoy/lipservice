@@ -42,7 +42,7 @@ SCENARIO( "Parsing valid ACER input" ){
       CHECK( sCard3 == acer.card3.hk.value );
 
       const auto& fastCards =
-        std::experimental::get< ACER::FastCards >( *(acer.dataVariant) );
+        std::get< ACER::FastCards >( *(acer.dataVariant) );
       
       // Card5
       const auto& card5 = std::get<0>( fastCards );
@@ -104,7 +104,7 @@ SCENARIO( "Parsing valid ACER input" ){
         CHECK( 233.02479 == values[1].second );
       
         const auto& thermalCards =
-          std::experimental::get< ACER::ThermalCards >( *(acer.dataVariant) );
+          std::get< ACER::ThermalCards >( *(acer.dataVariant) );
       
         // Card8
         const auto& card8 = std::get<0>( thermalCards );
@@ -167,7 +167,7 @@ SCENARIO( "Parsing valid ACER input" ){
         CHECK( 233.02479 == values[1].second );
       
         const auto& thermalCards =
-          std::experimental::get< ACER::ThermalCards >( *(acer.dataVariant) );
+          std::get< ACER::ThermalCards >( *(acer.dataVariant) );
       
         // Card8
         const auto& card8 = std::get<0>( thermalCards );
@@ -220,7 +220,7 @@ SCENARIO( "Parsing valid ACER input" ){
       CHECK( sCard3 == acer.card3.hk.value );
 
       // Card10
-      const auto& card10 = std::experimental::get< ACER::Card10 >( *(acer.dataVariant) );
+      const auto& card10 = std::get< ACER::Card10 >( *(acer.dataVariant) );
       CHECK( 9235 == card10.matd.value );
       CHECK( 600.0 == card10.tempd.value );
 
@@ -256,7 +256,7 @@ SCENARIO( "Parsing valid ACER input" ){
 
       // Card11
       const auto& card11 =
-        std::experimental::get< ACER::Card11 >( *(acer.dataVariant) );
+        std::get< ACER::Card11 >( *(acer.dataVariant) );
       
       CHECK( 9235 == card11.matd.value );
 
@@ -292,7 +292,7 @@ SCENARIO( "Parsing valid ACER input" ){
 
       // Card11
       const auto& card11 =
-        std::experimental::get< ACER::Card11 >( *(acer.dataVariant) );
+        std::get< ACER::Card11 >( *(acer.dataVariant) );
       
       CHECK( 9235 == card11.matd.value );
 

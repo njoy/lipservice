@@ -182,7 +182,7 @@ SCENARIO( "Parsing valid GROUPR input" ){
       REQUIRE( 0.086 == card8a.gamma.value );
     }
     THEN( "the card8b values can be verified" ){
-      auto& card8b = std::experimental::get<GROUPR::Card8b>( groupr.card8Variant );
+      auto& card8b = std::get<GROUPR::Card8b>( groupr.card8Variant );
       REQUIRE( 1E-5        == card8b.wght.value.x()[0] );
       REQUIRE( 1E3         == card8b.wght.value.x()[1] );
       REQUIRE( 1E4         == card8b.wght.value.x()[2] );
@@ -243,7 +243,7 @@ SCENARIO( "Parsing valid GROUPR input" ){
       REQUIRE( 1E-10 == groupr.card5.sigz.value[1] );
     }
     THEN( "the card8c input values can be verified" ){
-      auto& card8c = std::experimental::get<GROUPR::Card8c>( 
+      auto& card8c = std::get<GROUPR::Card8c>( 
           groupr.card8Variant );
       REQUIRE( 0.10 == card8c.eb.value );
       REQUIRE( 0.025 == card8c.tb.value );
@@ -305,7 +305,7 @@ SCENARIO( "Parsing valid GROUPR input" ){
 
 
     THEN( "the card8d input value can be verified" ){
-      auto& card8d = std::experimental::get<GROUPR::Card8d>( 
+      auto& card8d = std::get<GROUPR::Card8d>( 
           groupr.card8Variant );
       REQUIRE( 22 == card8d.ninwt.value );
     }
