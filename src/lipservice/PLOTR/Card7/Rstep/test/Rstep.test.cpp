@@ -2,16 +2,6 @@
 
 #include <numeric>
 
-#ifdef USING_CPP17
-  #include <optional>
-#else 
-  #include <experimental/optional>
-
-  namespace std {
-    using namespace std;
-  }
-#endif
-
 #include "catch.hpp"
 
 #include "lipservice.hpp"
