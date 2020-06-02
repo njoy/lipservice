@@ -15,7 +15,8 @@ struct Ndir : public argument::common::Nout {
       "ascii text files. Negative values indicate unformatted output i.e.\n"
       "Fortran-style block binary\n"
       "\n"
-      "ndir values are restricted to an absolute value in the range [20, 99]."
+      "ndir values are restricted to an absolute value in the range [20, 99].\n"
+      "a value of 0 means that the xsdir entry will not be created.\n"
       "\n"
       "ndir contains the xsdir entry for the ACE file.";
   }
@@ -26,6 +27,9 @@ struct Ndir : public argument::common::Nout {
                       const Argument<Nace>& nace
                       ){
 
+    // Nothing else matters if v == 0
+    if( v == 0 ) return true;
+    
     return argument::common::Nin::verify( v ) and
         /* Make sure the ndir is not equal to other input tape numbers */
         ( std::abs(nendf.value) != std::abs( v ) ) and
