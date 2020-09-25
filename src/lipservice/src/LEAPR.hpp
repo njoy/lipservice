@@ -73,12 +73,92 @@ inline void to_json( nlohmann::json& JSON, const LEAPR::Card9& card9 ){
   };
 }
 
-
-
-inline void to_json( nlohmannn::json& JSON, const LEAPR::TempLoop& tempLoop){
-  JSON = {
-    { "tempLoop", tempLoop }
+inline void to_json( nlohmann::json& JSON, const LEAPR::Card10& card10 ){
+  JSON = { 
+    { "temperature", card10.temp.value }
   };
+}
+
+inline void to_json( nlohmann::json& JSON, const LEAPR::Card11& card11 ){
+  JSON = { 
+    { "delta", card11.delta.value },
+    { "ni",    card11.ni.value }
+  };
+}
+
+inline void to_json( nlohmann::json& JSON, const LEAPR::Card12& card12 ){
+  JSON = { 
+    { "rho", card12.rho.value }
+  };
+}
+
+inline void to_json( nlohmann::json& JSON, const LEAPR::Card13& card13 ){
+  JSON = { 
+    { "rho",   card13.twt.value },
+    { "c",     card13.c.value },
+    { "tbeta", card13.tbeta.value }
+  };
+}
+
+inline void to_json( nlohmann::json& JSON, const LEAPR::OscillatorTuple& oscillatorTuple ){
+  if (oscillatorTuple){
+    JSON = {
+      { "oscillatorEnergies", std::get<0>(oscillatorTuple) },
+      { "oscillatorWeights" , std::get<1>(oscillatorTuple) }
+    }
+  }
+  else {
+    JSON = {
+      { "oscillatorEnergies", nlohmann::json::array() },
+      { "oscillatorWeights" , nlohmann::json::array() }
+    }
+  } 
+}
+
+inline void to_json( nlohmann::json& JSON, const LEAPR::PairCorrelTuple& pairCorrelationTuple ){
+  if (pairCorrelationTuple){
+    JSON = {
+      { "nka",    std::get<0>(pairCorrelationTuple).nka.value },
+      { "dka",    std::get<0>(pairCorrelationTuple).dka.value },
+      { "skappa", std::get<1>(pairCorrelationTuple).skappa.value },
+    }
+  }
+  else {
+    JSON = {
+    }
+  } 
+}
+
+
+
+
+
+inline void to_json( nlohmann::json& JSON, const LEAPR::TempLoop& tempLoop){
+  JSON = { "temperatures", {} };
+  for (auto& tempLoop_iter : tempLoop){
+      auto thisTemp = tempLoop_iter.Card10.temp.value;
+      if (tempTemp > 0){
+        nlohmann::json JSON_this_temp = tempLoop_iter.Card10;
+        JSON_this_temp.update(tempLoop_iter.Card11);
+        JSON_this_temp.update(tempLoop_iter.Card12);
+        JSON_this_temp.update(tempLoop_iter.Card13);
+        JSON_this_temp["nd"] = thisLoop_iter.Card14.nd.value();
+        JSON_this_temp.update(thisLoop_iter.OscillatorTuple); //Cards 15 & 16
+        JSON_this_temp.update(thisLoop_iter.PairCorrelTuple); //Cards 17 & 18
+      }
+      else {
+        nlohmann::json JSON_this_temp = JSON["temperatures"].back();
+        JSON_this_temp["temperature"] = std::abs(thisTemp);
+        JSON["temperatures"].append(JSON_this_temp);
+      }
+
+
+
+
+  }
+  //JSON = {
+  //  { "tempLoop", tempLoop }
+  //};
 }
 
 inline void to_json( nlohmannn::json& JSON, const std::optional<LEAPR::Card19>& card19 ){
