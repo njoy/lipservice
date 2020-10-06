@@ -12,8 +12,9 @@ namespace hana = boost::hana;
 #include "lipservice/nlohmann.hpp"
 
 #include "utility.hpp"
-#include "ENDFtk.hpp"
 #include "Log.hpp"
+
+#include "ENDFtk/TabulationRecord.hpp"
 
 namespace njoy {
 namespace njoy21 {

@@ -1,16 +1,7 @@
 #define CATCH_CONFIG_MAIN
 
 #include <numeric>
-
-#ifdef USING_CPP17
-  #include <optional>
-#else 
-  #include <experimental/optional>
-
-  namespace std {
-    using namespace std;
-  }
-#endif
+#include <optional>
 
 #include "catch.hpp"
 

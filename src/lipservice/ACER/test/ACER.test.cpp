@@ -2,6 +2,8 @@
 
 #include "catch.hpp"
 
+#include "range/v3/algorithm/equal.hpp"
+
 #include "lipservice.hpp"
 
 using namespace njoy::njoy21::lipservice;
