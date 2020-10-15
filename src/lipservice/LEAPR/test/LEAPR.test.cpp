@@ -124,7 +124,7 @@ SCENARIO( "LEAPR input",
         std::vector< double > refSkappas{ 1.5, 2.0 };
         REQUIRE( card18.skappa.value == refSkappas );
         REQUIRE( leapr.card19 );
-	REQUIRE( leapr.card19->cfrac.value == 0.1 );
+        REQUIRE( leapr.card19->cfrac.value == 0.1 );
         // FINISHED TEMP LOOP 1
 
         std::string refCard20_0 = "test run for njoy leapr";
@@ -137,6 +137,33 @@ SCENARIO( "LEAPR input",
         REQUIRE( *(card20_1.comment.value) == refCard20_1 );
         REQUIRE( *(card20_2.comment.value) == refCard20_2 );
 
+        AND_THEN( "LEAPR can be turned into JSON" ){
+            nlohmann::json refJSON = R"({
+              "nout": 20,
+              "title": "graphite, endf model",
+              "ntempr": 1,
+              "iprint": 0,
+              "nphon": 101,
+              "mat"  :  31,
+              "za"   :  6012,
+              "isabt":  1,
+              "ilog" :  1,
+              "smin" :  1e-75,
+              "awr"  :  11.898,
+              "spr"  :  4.7392,
+              "npr"  :  1,
+              "iel"  :  1,
+              "ncold":  1,
+              "nsk"  :  2,
+              "nss"  : 0,
+              "nalpha" : 3,
+              "nbeta" : 5,
+              "lat" : 1,
+              "alpha" : [2.5e-1, 7.5e-1, 1.0],
+              "beta"  : [0.0, 0.2, 0.4, 0.6, 0.8]
+              })"_json;
+            CHECK( refJSON == nlohmann::json( leapr ) );
+        }
       } // THEN
     } // WHEN
 
