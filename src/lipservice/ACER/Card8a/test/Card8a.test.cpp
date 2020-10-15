@@ -23,9 +23,6 @@ SCENARIO( "Verifying ACER Card8a input", "[ACER], [Card8a]" ){
 
       sIZA += " /";
 
-      
-      njoy::Log::info( "sIZA: {}", sIZA );
-
       std::vector< int > refIZA{ std::begin( vIZA ), std::end( vIZA ) - i }; 
 
       int nza = 16 - i;
