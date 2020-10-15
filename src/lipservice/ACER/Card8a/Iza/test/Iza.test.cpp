@@ -20,6 +20,7 @@ SCENARIO( "Iza input values", "[ACER], [Card8a], [Iza]" ){
 
     THEN( "the returned class has the correct value" ){
       sIZA += " /";
+      njoy::Log::info( "sIZA: {}", sIZA );
       iRecordStream< char > issIza{ std::istringstream( sIZA ) };
       auto izaArg = argument::extract< ACER::Card8a::Iza >( issIza, 16 ).value;
 
