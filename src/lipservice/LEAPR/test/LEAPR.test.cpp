@@ -141,7 +141,6 @@ SCENARIO( "LEAPR input",
             nlohmann::json refJSON = R"({
               "nout": 20,
               "title": "graphite, endf model",
-              "ntempr": 1,
               "iprint": 0,
               "nphon": 101,
               "mat"  :  31,
@@ -156,14 +155,30 @@ SCENARIO( "LEAPR input",
               "ncold":  1,
               "nsk"  :  2,
               "nss"  : 0,
-              "nalpha" : 3,
-              "nbeta" : 5,
               "lat" : 1,
               "alpha" : [2.5e-1, 7.5e-1, 1.0],
-              "beta"  : [0.0, 0.2, 0.4, 0.6, 0.8]
+              "beta"  : [0.0, 0.2, 0.4, 0.6, 0.8],
+              "temperatures" : [
+                {
+                    "temperature" : 293,
+                    "delta": 0.03,
+                    "rho": [ 1.0, 2.0, 3.0, 4.0  ],
+                    "twt": 0.0192,
+                    "c": 0.0,
+                    "tbeta": 0.4904,
+                    "oscillators" : { "energies" : [0.205, 0.436],
+                                      "weights"  : [0.163467, 0.326933] },
+                   "dka" : 0.001,
+                   "skappa" : [1.5, 2.0]
+                }
+              ],
+              "cfrac" : 0.1,
+              "comments" : ["test run for njoy leapr",
+                            " where this fun comment spans",
+                            " multiple lines."]
               })"_json;
             CHECK( refJSON == nlohmann::json( leapr ) );
-        }
+        } // AND THEN
       } // THEN
     } // WHEN
 
@@ -271,6 +286,60 @@ SCENARIO( "LEAPR input",
           REQUIRE( card18.skappa.value == refSkappas );
           REQUIRE( not leapr.card19 );
         }
+        AND_THEN( "LEAPR can be turned into JSON" ){
+            nlohmann::json refJSON = R"({
+              "nout": 20,
+              "title": "graphite, endf model",
+              "iprint": 0,
+              "nphon": 101,
+              "mat"  :  31,
+              "za"   :  6012,
+              "isabt":  1,
+              "ilog" :  1,
+              "smin" :  1e-75,
+              "awr"  :  11.898,
+              "spr"  :  4.7392,
+              "npr"  :  1,
+              "iel"  :  1,
+              "ncold":  1,
+              "nsk"  :  1,
+              "nss"  : 0,
+              "lat" : 1,
+              "alpha" : [2.5e-1, 7.5e-1, 1.0],
+              "beta"  : [0.0, 0.2, 0.4, 0.6, 0.8],
+              "temperatures" : [
+                {
+                    "temperature" : 293.0,
+                    "delta": 0.03,
+                    "rho": [ 1.0, 2.0, 3.0, 4.0  ],
+                    "twt": 0.0192,
+                    "c": 0.0,
+                    "tbeta": 0.4904,
+                    "oscillators" : { "energies" : [0.205, 0.436],
+                                      "weights"  : [0.163467, 0.326933] },
+                   "dka" : 0.001,
+                   "skappa" : [1.5, 2.0]
+                },
+                {
+                    "temperature" : 300.0,
+                    "delta": 0.02,
+                    "rho": [ 2.0, 4.0, 6.0 ],
+                    "twt": 0.2,
+                    "c": 0.0,
+                    "tbeta": 0.5,
+                    "oscillators" : null,
+                    "dka" : 0.002,
+                    "skappa" : [2.0, 2.5, 3.0]
+                }
+              ],
+              "cfrac" : null,
+              "comments" : ["test run for njoy leapr",
+                            " where this fun comment spans",
+                            " multiple lines."]
+              })"_json;
+            CHECK( refJSON == nlohmann::json( leapr ) );
+        } // AND THEN
+
       } // THEN
       WHEN( "two temp loops, with secondary scatterer (card6 nss = 1)" ){
         iRecordStream<char> iss( std::istringstream(
@@ -312,7 +381,67 @@ SCENARIO( "LEAPR input",
           REQUIRE( ct.aws.value == 15.87 );
           REQUIRE( ct.sps.value == 3.84 );
           REQUIRE( ct.mss.value == 1 );
+
+          AND_THEN( "LEAPR can be turned into JSON" ){
+            nlohmann::json refJSON = R"({
+              "nout": 20,
+              "title": "graphite, endf model",
+              "iprint": 0,
+              "nphon": 101,
+              "mat"  :  31,
+              "za"   :  6012,
+              "isabt":  1,
+              "ilog" :  1,
+              "smin" :  1e-75,
+              "awr"  :  11.898,
+              "spr"  :  4.7392,
+              "npr"  :  1,
+              "iel"  :  1,
+              "ncold":  1,
+              "nsk"  :  1,
+              "nss"  :  1,
+              "b7"   :  1,
+              "aws"  :  15.87,
+              "sps"  :  3.84,
+              "mss"  :  1,
+              "lat"  :  1,
+              "alpha" : [2.5e-1, 7.5e-1, 1.0],
+              "beta"  : [0.0, 0.2, 0.4, 0.6, 0.8],
+              "temperatures" : [
+                {
+                    "temperature" : 293.0,
+                    "delta": 0.03,
+                    "rho": [ 1.0, 2.0, 3.0, 4.0  ],
+                    "twt": 0.0192,
+                    "c": 0.0,
+                    "tbeta": 0.4904,
+                    "oscillators" : { "energies" : [0.205, 0.436],
+                                      "weights"  : [0.163467, 0.326933] },
+                   "dka" : 0.001,
+                   "skappa" : [1.5, 2.0]
+                },
+                {
+                    "temperature" : 300.0,
+                    "delta": 0.02,
+                    "rho": [ 2.0, 4.0, 6.0 ],
+                    "twt": 0.2,
+                    "c": 0.0,
+                    "tbeta": 0.5,
+                    "oscillators" : null,
+                    "dka" : 0.002,
+                    "skappa" : [2.0, 2.5, 3.0]
+                }
+              ],
+              "cfrac" : null,
+              "comments" : ["test run for njoy leapr",
+                            " where this fun comment spans",
+                            " multiple lines."]
+              })"_json;
+            CHECK( refJSON == nlohmann::json( leapr ) );
+          } // AND THEN
+
         } // THEN
+
       } // WHEN
     } // WHEN
     WHEN( "two temp loops, first temp is positive second temp negative" ){
