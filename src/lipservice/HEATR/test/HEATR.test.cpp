@@ -1,6 +1,7 @@
 #define CATCH_CONFIG_MAIN
 #include "catch.hpp"
 #include "lipservice.hpp"
+#include "range/v3/algorithm/equal.hpp"
 
 using namespace njoy::njoy21::lipservice;
 

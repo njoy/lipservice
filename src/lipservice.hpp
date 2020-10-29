@@ -7,12 +7,12 @@
 #include "boost/hana.hpp"
 namespace hana = boost::hana;
 
-#include "json.hpp"
+#include "nlohmann/json.hpp"
 // Need this to turn optionals into JSON objects
 #include "lipservice/nlohmann.hpp"
 
 #include "utility.hpp"
-#include "ENDFtk.hpp"
+#include "ENDFtk/TabulationRecord.hpp"
 #include "Log.hpp"
 
 namespace njoy {
