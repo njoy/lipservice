@@ -23,7 +23,7 @@ FetchContent_Declare( hana-adapter
     GIT_SHALLOW     TRUE
     )
 
-FetchContent_Declare( json
+FetchContent_Declare( nlohmann_json
     GIT_REPOSITORY  https://github.com/nlohmann/json
     GIT_TAG         v3.7.3
     )
@@ -43,6 +43,6 @@ FetchContent_MakeAvailable(
     ENDFtk
     catch-adapter
     hana-adapter
-    json
+    nlohmann_json
     utility
     )
