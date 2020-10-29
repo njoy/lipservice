@@ -186,9 +186,9 @@ inline void to_json( nlohmann::json& JSON,
 
 inline void to_json( nlohmann::json& JSON, const std::vector<LEAPR::Card20>& card20List ){
   if ( card20List.size() > 0 ){
-    std::vector<std::string> card20Values(card20List.size());
-    for (size_t i = 0; i < card20List.size(); ++i){
-      card20Values[i] = *(card20List[i].comment.value);
+    std::vector<std::string> card20Values;
+    for (const auto& card : card20List){
+      card20Values.push_back( *(card.comment.value) );
     }
     JSON = card20Values;
   }
@@ -196,8 +196,6 @@ inline void to_json( nlohmann::json& JSON, const std::vector<LEAPR::Card20>& car
     JSON = nlohmann::json::array();
   }
 }
-
-
 
 inline void to_json( nlohmann::json& JSON, const LEAPR& leapr ){
   JSON = leapr.card1;
@@ -213,12 +211,3 @@ inline void to_json( nlohmann::json& JSON, const LEAPR& leapr ){
   JSON["cfrac"] = leapr.card19;
   JSON["comments"] = leapr.card20List;
 }
-
-
-
-
-
-
-
-
-
