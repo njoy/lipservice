@@ -12,7 +12,7 @@ SCENARIO( "Ign output values", "[GROUPR],[Card2], [Ign]"){
 
   long ln{0};
   GIVEN( "valid Ign parameters" ){
-    std::vector<int> validValues(23);
+    std::vector<int> validValues({1, 24, 34});
     std::iota( validValues.begin(), validValues.end(), 1);
 
     THEN( "the returned class has the correct value" ){
@@ -26,7 +26,7 @@ SCENARIO( "Ign output values", "[GROUPR],[Card2], [Ign]"){
     }
   } // GIVEN
   GIVEN( "invalid Ign parameters" ){
-    std::vector<int> invalidValues{ -1, 0, 24, 25 };
+    std::vector<int> invalidValues{ -1, 0, 35 };
 
     THEN( "the returned class has the correct value" ){
       for( auto ign : invalidValues ){

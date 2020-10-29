@@ -3,6 +3,7 @@
 #include "catch.hpp"
 
 #include "lipservice.hpp"
+#include "range/v3/algorithm/equal.hpp"
 
 using namespace njoy::njoy21::lipservice;
 
@@ -135,7 +136,7 @@ SCENARIO( "Parsing valid ACER input" ){
               + "'" + sCard3 + "'/\n"               // Card3
               + " 1001 0.99167 92235 233.02479 /\n" // Card4
               + " 1 293.6 'lwtr' /\n"               // Card8
-              + " 1001 /\n"                         // Card8a
+              + " 1001 1002 1003 /\n"               // Card8a
               + " 1 80 231 0 1 10.1 2 /"            // Card9
               ) );
       
@@ -174,11 +175,11 @@ SCENARIO( "Parsing valid ACER input" ){
         CHECK( 1 == card8.matd.value );
         CHECK( 293.6 == card8.tempd.value );
         CHECK( "lwtr" == *card8.tname.value );
-        CHECK( 1 == card8.nza.value );
+        CHECK( 3 == card8.nza.value );
       
         // Card8a
         const auto& card8a = std::get<1>(thermalCards);
-        CHECK( ranges::equal( { 1001 }, card8a.iza.value ) );
+        CHECK( ranges::equal( { 1001, 1002, 1003 }, card8a.iza.value ) );
       
         // Card9
         const auto& card9 = std::get<2>(thermalCards);
