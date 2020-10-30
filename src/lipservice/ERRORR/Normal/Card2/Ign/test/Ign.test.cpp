@@ -9,7 +9,8 @@ using namespace njoy::njoy21::lipservice;
 SCENARIO( "ERRORR, Normal, Card2, Ign",
           "[ERRORR] [Normal] [Card2] [Ign]" ){
   GIVEN( "valid inputs" ){
-    for( int i = 1; i < 20; i++ ){
+    for( int i = -1; i <= 34; i++ ){
+      if (i == 0) continue;
       std::string situ( "valid input " + std::to_string(i) + " is provided." );
       WHEN( situ.c_str() ){
         iRecordStream<char> iss( std::istringstream( std::to_string( i ) ) );
@@ -32,7 +33,7 @@ SCENARIO( "ERRORR, Normal, Card2, Ign",
   } // GIVEN
 
   GIVEN( "invalid inputs" ){
-    for( auto i : {0, 20} ){
+    for( auto i : {0, -2, 35} ){
       std::string situ( "invalid input " + std::to_string(i) + " is provided.");
       WHEN( situ.c_str() ){
         iRecordStream<char> iss( std::istringstream( std::to_string( i ) ) );
