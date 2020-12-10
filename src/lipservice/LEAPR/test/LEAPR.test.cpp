@@ -321,16 +321,7 @@ SCENARIO( "LEAPR input",
         std::vector< double > refOws = { 0.163467, 0.326933 };
         REQUIRE( card16.ow.value    == refOws );
 
-        //std::string refCard20_0 = "test run for njoy leapr";
-        //std::string refCard20_1 = " where this fun comment spans";
-        //std::string refCard20_2 = " multiple lines.";
-        //const auto& card20_0 = leapr.card20List[0];
-        //const auto& card20_1 = leapr.card20List[1];
-        //const auto& card20_2 = leapr.card20List[2];
         REQUIRE( leapr.card20List.size() == 0 );
-        //REQUIRE( *(card20_0.comment.value) == refCard20_0 );
-        //REQUIRE( *(card20_1.comment.value) == refCard20_1 );
-        //REQUIRE( *(card20_2.comment.value) == refCard20_2 );
 
         AND_THEN( "LEAPR can be turned into JSON" ){
           nlohmann::json refJSON = R"({
