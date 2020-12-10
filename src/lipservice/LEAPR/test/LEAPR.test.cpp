@@ -1,6 +1,7 @@
 #define CATCH_CONFIG_MAIN
 #include "catch.hpp"
 #include "lipservice.hpp"
+#include "tsl-SiO2-alpha.h"
 
 using namespace njoy::njoy21::lipservice;
 
@@ -24,6 +25,49 @@ SCENARIO( "LEAPR input",
 
 	  
   GIVEN( "valid LEAPR input" ){
+    WHEN( "b7 = 0 [sct treatment for secondary scatterer]" ){
+      AND_WHEN( "temperature loop specifications are identical" ){
+        iRecordStream<char> iss( (std::istringstream(tslSiO2)) );
+        LEAPR leapr( iss );
+        REQUIRE( leapr.card1.nout.value == 24 );
+        REQUIRE( leapr.card2.title.value == "Si_qtz, ENDF MODEL (EXTENDED)" );
+        REQUIRE( leapr.card3.ntempr.value == 5 );
+
+        REQUIRE( leapr.card6.controlTuple );
+        auto ct = *( leapr.card6.controlTuple );
+        REQUIRE( ct.b7.value  == 0      );
+        REQUIRE( ct.aws.value == 15.862 );
+        REQUIRE( ct.sps.value == 7.4975 );
+        REQUIRE( ct.mss.value == 1      );
+
+        THEN( "temperature loop is repeated identically" ){
+          REQUIRE( leapr.tempLoop.size() == 2*leapr.card3.ntempr.value );
+          std::vector<double> temps { 293.6, -350.0, -400.0, -500.0, -800.0 };
+          std::vector<double> deltas { 8.27e-4, 0, 0, 0, 0 };
+          std::vector<int>    ni     { 185, 0, 0, 0, 0 };
+          for (size_t i = 0; i < 2*temps.size(); ++i){
+            const auto& loop = leapr.tempLoop[i];
+            const auto& card10    = std::get<0>( loop );
+            REQUIRE( card10.temp.value  == temps[int(i%temps.size())] );
+
+            const auto& tempTuple = std::get<1>( loop );
+            const auto& card11    = std::get<0>( *tempTuple );
+
+            REQUIRE( card11.delta.value  == deltas[int(i%deltas.size())] );
+            REQUIRE( card11.ni.value     == ni[int(i%ni.size())] );
+
+          }
+
+          THEN( "json can be correctly constructed" ){
+            nlohmann::json json( leapr );
+            int ntempr = json["ntempr"];
+            REQUIRE( json["temperatures"].size() == 2*ntempr );
+  
+          } // THEN
+        } // THEN
+      } // AND WHEN
+    } // WHEN
+
     WHEN( "single temp loop, no secondary scatterer (card6 nss = 0)" ){
       iRecordStream<char> iss( std::istringstream(
         card1 +                                 // Card1
@@ -142,6 +186,7 @@ SCENARIO( "LEAPR input",
           nlohmann::json refJSON = R"({
             "nout"  :  20,
             "title" : "graphite, endf model",
+            "ntempr":  1,
             "iprint":  0,
             "nphon" :  101,
             "mat"   :  31,
@@ -291,6 +336,7 @@ SCENARIO( "LEAPR input",
           nlohmann::json refJSON = R"({
             "nout"  :  20,
             "title" : "graphite, endf model",
+            "ntempr":  1,
             "iprint":  0,
             "nphon" :  101,
             "mat"   :  31,
@@ -441,6 +487,7 @@ SCENARIO( "LEAPR input",
           nlohmann::json refJSON = R"({
             "nout"  : 20,
             "title" : "graphite, endf model",
+            "ntempr": 2,
             "iprint": 0,
             "nphon" : 101,
             "mat"   : 31,
@@ -537,6 +584,7 @@ SCENARIO( "LEAPR input",
             nlohmann::json refJSON = R"({
               "nout"   : 20,
               "title"  : "graphite, endf model",
+              "ntempr" : 2,
               "iprint" : 0,
               "nphon"  : 101,
               "mat"    : 31,
@@ -672,6 +720,7 @@ SCENARIO( "LEAPR input",
             nlohmann::json refJSON = R"({
               "nout"   : 20,
               "title"  : "graphite, endf model",
+              "ntempr" : 2,
               "iprint" : 0,
               "nphon"  : 101,
               "mat"    :  31,
@@ -777,7 +826,7 @@ SCENARIO( "LEAPR input",
         "0.163467 0.326933\n"                   // Card16  |
         "2 0.001\n"                             // Card17  |
         "1.5 2.0\n" +                           // Card18 --
-	card20 +
+        card20 +
         "/ "
       ) );
       THEN( "an exception is thrown" ){

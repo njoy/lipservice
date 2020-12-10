@@ -14,6 +14,7 @@ inline void to_json( nlohmann::json& JSON, const LEAPR::Card2& card2 ){
 
 inline void to_json( nlohmann::json& JSON, const LEAPR::Card3& card3 ){
   JSON = { 
+    { "ntempr", card3.ntempr.value },
     { "iprint", card3.iprint.value },
     { "nphon" , card3.nphon.value } 
   };
