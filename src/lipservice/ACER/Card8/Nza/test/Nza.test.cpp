@@ -22,7 +22,7 @@ SCENARIO( "ACER Card8a Nza", "[Card8], [Nza]" ){
   GIVEN( "no nza value" ){
     THEN( "the default value is returned" ){
       iRecordStream<char> iss( std::istringstream( "/") );
-      REQUIRE( 1 == argument::extract< ACER::Card8::Nza >( iss ).value );
+      REQUIRE( 3 == argument::extract< ACER::Card8::Nza >( iss ).value );
     } // THEN
   } // GIVEN
   GIVEN( "invalid nza values" ){

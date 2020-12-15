@@ -8,7 +8,7 @@ struct Nza {
       "provided in Card8a.";
   }
 
-  static Value_t defaultValue(){ return 1; }
+  static Value_t defaultValue(){ return 3; }
   static bool verify( const Value_t& n ){ 
     return ( n > 0 ) and ( n <= 16 );
   }
