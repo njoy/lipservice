@@ -9,7 +9,7 @@ buildPairCorrelTuple( iRecordStream<char>& is, const Card5& card5 ){
     return PairCorrelTuple( card17, card18, card19 );
   }
   else {
-    return PairCorrelTuple( card17, card18 );
+    return PairCorrelTuple( card17, card18, std::nullopt );
   }
 
 }
