@@ -118,7 +118,7 @@ inline void to_json( nlohmann::json& JSON,
     };
   }
   else {
-    JSON =  nlohmann::json:: array();
+    JSON =  nlohmann::json::array();
   } 
 }
 
@@ -131,6 +131,9 @@ inline void to_json( nlohmann::json& JSON,
       { "dka"   , std::get<0>(*pairCorrelationTuple).dka.value },
       { "skappa", std::get<1>(*pairCorrelationTuple).skappa.value }
     };
+    if ( std::get<2>(*pairCorrelationTuple) ){
+      JSON["cfrac"] = std::get<2>(*pairCorrelationTuple)->cfrac.value;
+    }
   }
   else {
     JSON = { nlohmann::json::array() };
@@ -174,17 +177,6 @@ inline void to_json( nlohmann::json& JSON, const LEAPR::TempLoop& tempLoop){
   JSON = { { "temperatures", temperatures } };
 }
 
-
-inline void to_json( nlohmann::json& JSON, 
-                     const std::optional<LEAPR::Card19>& card19 ){
-  if ( card19 ){
-    JSON = card19->cfrac.value;
-  }
-  else {
-    JSON = nlohmann::json::array();
-  }
-}
-
 inline void to_json( nlohmann::json& JSON, const std::vector<LEAPR::Card20>& card20List ){
   if ( card20List.size() > 0 ){
     std::vector<std::string> card20Values;
@@ -209,6 +201,5 @@ inline void to_json( nlohmann::json& JSON, const LEAPR& leapr ){
   JSON.update( leapr.card8 );
   JSON.update( leapr.card9 );
   JSON.update( leapr.tempLoop );
-  JSON["cfrac"] = leapr.card19;
   JSON["comments"] = leapr.card20List;
 }

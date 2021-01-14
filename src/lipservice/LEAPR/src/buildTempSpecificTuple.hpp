@@ -10,9 +10,9 @@ buildTempSpecificTuple( iRecordStream<char>& is, Card5& card5 ){
   auto oscillatorTuple = (card14.nd.value != 0 ) ? 
     buildOscillatorTuple( is, card13, card14 ) : std::nullopt;
 
-  // Cards 17, and 18
+  // Cards 17, and 18 and maybe 19
   auto pairCorrelTuple = (card5.nsk.value != 0 or card5.ncold.value != 0) ? 
-    buildPairCorrelTuple( is ) : std::nullopt;
+    buildPairCorrelTuple( is, card5 ) : std::nullopt;
   
   return TempSpecificTuple( card11, card12, card13, card14,
     oscillatorTuple, pairCorrelTuple );

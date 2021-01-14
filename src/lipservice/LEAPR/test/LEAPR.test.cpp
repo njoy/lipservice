@@ -22,7 +22,6 @@ SCENARIO( "LEAPR input",
   std::string card20        = "'test run for njoy leapr'\n"
                               "' where this fun comment spans'\n" 
                               "' multiple lines.'/\n";       
-
 	  
   GIVEN( "valid LEAPR input" ){
     WHEN( "b7 = 0 [sct treatment for secondary scatterer]" ){
@@ -42,19 +41,21 @@ SCENARIO( "LEAPR input",
 
         THEN( "temperature loop is repeated identically" ){
           REQUIRE( leapr.tempLoop.size() == 2*leapr.card3.ntempr.value );
-          std::vector<double> temps { 293.6, -350.0, -400.0, -500.0, -800.0 };
-          std::vector<double> deltas { 8.27e-4, 0, 0, 0, 0 };
-          std::vector<int>    ni     { 185, 0, 0, 0, 0 };
-          for (size_t i = 0; i < 2*temps.size(); ++i){
+          std::vector<double> temps {293.6, -350.0, -400.0, -500.0, -800.0, 
+                                     293.6, -350.0, -400.0, -500.0, -800.0 },
+                             deltas {8.27e-4, 0, 0, 0, 0, 8.27e-4, 0, 0, 0, 0};
+          std::vector<int> ni { 185, 0, 0, 0, 0, 185, 0, 0, 0, 0 };
+
+          for (size_t i = 0; i < temps.size(); ++i){
             const auto& loop = leapr.tempLoop[i];
             const auto& card10    = std::get<0>( loop );
-            REQUIRE( card10.temp.value  == temps[int(i%temps.size())] );
+            REQUIRE( card10.temp.value  == temps[i] );
 
             const auto& tempTuple = std::get<1>( loop );
             const auto& card11    = std::get<0>( *tempTuple );
 
-            REQUIRE( card11.delta.value  == deltas[int(i%deltas.size())] );
-            REQUIRE( card11.ni.value     == ni[int(i%ni.size())] );
+            REQUIRE( card11.delta.value  == deltas[i] );
+            REQUIRE( card11.ni.value     == ni[i] );
 
           }
 
@@ -149,6 +150,7 @@ SCENARIO( "LEAPR input",
         const auto& pairCorrelTuple = std::get<5>( *tempTuple   );
         const auto& card17 = std::get<0>( *pairCorrelTuple );
         const auto& card18 = std::get<1>( *pairCorrelTuple );
+        const auto& card19 = std::get<2>( *pairCorrelTuple );
 
         REQUIRE( card10.temp.value  == 293.0 );
         REQUIRE( card11.delta.value == 0.03 );
@@ -168,8 +170,7 @@ SCENARIO( "LEAPR input",
         REQUIRE( card17.dka.value   == 0.001 );
         std::vector< double > refSkappas{ 1.5, 2.0 };
         REQUIRE( card18.skappa.value == refSkappas );
-        REQUIRE( leapr.card19 );
-        REQUIRE( leapr.card19->cfrac.value == 0.1 );
+        REQUIRE( card19->cfrac.value == 0.1 );
         // FINISHED TEMP LOOP 1
 
         std::string refCard20_0 = "test run for njoy leapr";
@@ -215,10 +216,10 @@ SCENARIO( "LEAPR input",
                 "oscillators"     :  { "energies" : [0.205   , 0.436   ],
                                        "weights"  : [0.163467, 0.326933]  },
                 "pairCorrelation" : { "dka"    : 0.001,
-                                      "skappa" : [1.5, 2.0] }
+                                      "skappa" : [1.5, 2.0],
+                                      "cfrac"  : 0.1 }
               }
             ],
-            "cfrac"    :  0.1,
             "comments" :  [ "test run for njoy leapr",
                             " where this fun comment spans",
                             " multiple lines." ]
@@ -358,7 +359,6 @@ SCENARIO( "LEAPR input",
                 "pairCorrelation" : null
                }
             ],
-            "cfrac"    :  null,
             "comments" :  [ ]
           })"_json;
           CHECK( refJSON == nlohmann::json( leapr ) );
@@ -422,6 +422,7 @@ SCENARIO( "LEAPR input",
           const auto& pairCorrelTuple = std::get<5>( *tempTuple  );
           const auto& card17 = std::get<0>( *pairCorrelTuple );
           const auto& card18 = std::get<1>( *pairCorrelTuple );
+          const auto& card19 = std::get<2>( *pairCorrelTuple );
 
           REQUIRE( card10.temp.value  == 293.0 );
           REQUIRE( card11.delta.value == 0.03 );
@@ -441,7 +442,7 @@ SCENARIO( "LEAPR input",
           REQUIRE( card17.dka.value   == 0.001 );
           std::vector< double > refSkappas{ 1.5, 2.0 };
           REQUIRE( card18.skappa.value == refSkappas );
-          REQUIRE( not leapr.card19 );
+          REQUIRE( not card19 );
        
         }
     
@@ -457,6 +458,7 @@ SCENARIO( "LEAPR input",
           const auto& pairCorrelTuple = std::get<5>( *tempTuple );
           const auto& card17 = std::get<0>( *pairCorrelTuple );
           const auto& card18 = std::get<1>( *pairCorrelTuple );
+          const auto& card19 = std::get<2>( *pairCorrelTuple );
 
           REQUIRE( card10.temp.value  == 300.0 );
           REQUIRE( card11.delta.value == 0.02 );
@@ -472,7 +474,7 @@ SCENARIO( "LEAPR input",
           REQUIRE( card17.dka.value  == 0.002 );
           std::vector< double > refSkappas{ 2.0, 2.5, 3.0 };
           REQUIRE( card18.skappa.value == refSkappas );
-          REQUIRE( not leapr.card19 );
+          REQUIRE( not card19 );
         }
         AND_THEN( "LEAPR can be turned into JSON" ){
           nlohmann::json refJSON = R"({
@@ -521,7 +523,6 @@ SCENARIO( "LEAPR input",
                                       "skappa" : [2.0, 2.5, 3.0] }
               }
             ],
-          "cfrac"    : null,
           "comments" : [ "test run for njoy leapr",
                          " where this fun comment spans",
                          " multiple lines." ]
@@ -622,7 +623,6 @@ SCENARIO( "LEAPR input",
                                         "skappa" : [2.0, 2.5, 3.0] }
                 }
               ],
-              "cfrac"    : null,
               "comments" : ["test run for njoy leapr",
                             " where this fun comment spans",
                             " multiple lines."]
@@ -696,7 +696,6 @@ SCENARIO( "LEAPR input",
           REQUIRE( card17.dka.value   == 0.001 );
           std::vector< double > refSkappas{ 1.5, 2.0 };
           REQUIRE( card18.skappa.value == refSkappas );
-          REQUIRE( not leapr.card19 );
         }
 
         {
@@ -755,7 +754,6 @@ SCENARIO( "LEAPR input",
                                         "skappa" : [1.5, 2.0] }
                 }
               ],
-              "cfrac"    : null,
               "comments" : [ "test run for njoy leapr",
                              " where this fun comment spans",
                              " multiple lines."]
