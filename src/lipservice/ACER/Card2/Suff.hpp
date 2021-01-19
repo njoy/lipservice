@@ -17,10 +17,7 @@ struct Suff {
   static Value_t defaultValue(){ return 0.00; }
   static bool verify( Value_t s ){ 
     Log::info( "s: {}", s );
-    return ( s == 0.0 ) or 
-      (
-        ( std::abs( s ) < 1.0 ) and 
-        ( std::abs( s ) > 0.009 )
-      );
+    return ( s <= 0.0 ) or 
+           ( ( s  < 1.0 ) and ( s > 0.009 ) );
   }
 };
