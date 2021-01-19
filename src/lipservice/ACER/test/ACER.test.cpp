@@ -36,7 +36,7 @@ SCENARIO( "Parsing valid ACER input" ){
       CHECK(  1 == acer.card2.iopt.value );
       CHECK(  1 == acer.card2.iprint.value );
       CHECK(  1 == acer.card2.itype.value );
-      CHECK( ".80" == acer.card2.suff.value );
+      CHECK( .80 == acer.card2.suff.value );
       CHECK(  0 == acer.card2.nxtra.value );
 
       // Card3
@@ -91,7 +91,7 @@ SCENARIO( "Parsing valid ACER input" ){
         CHECK(  2 == acer.card2.iopt.value );
         CHECK(  1 == acer.card2.iprint.value );
         CHECK(  1 == acer.card2.itype.value );
-        CHECK( ".80" == acer.card2.suff.value );
+        CHECK( .80 == acer.card2.suff.value );
         CHECK(  2 == acer.card2.nxtra.value );
       
         // Card3
@@ -154,7 +154,7 @@ SCENARIO( "Parsing valid ACER input" ){
         CHECK(  2 == acer.card2.iopt.value );
         CHECK(  1 == acer.card2.iprint.value );
         CHECK(  1 == acer.card2.itype.value );
-        CHECK( ".80" == acer.card2.suff.value );
+        CHECK( .80 == acer.card2.suff.value );
         CHECK(  2 == acer.card2.nxtra.value );
       
         // Card3
@@ -214,7 +214,7 @@ SCENARIO( "Parsing valid ACER input" ){
       CHECK(  3 == acer.card2.iopt.value );
       CHECK(  1 == acer.card2.iprint.value );
       CHECK(  1 == acer.card2.itype.value );
-      CHECK( ".80" == acer.card2.suff.value );
+      CHECK( .80 == acer.card2.suff.value );
       CHECK(  0 == acer.card2.nxtra.value );
 
       // Card3
@@ -249,7 +249,7 @@ SCENARIO( "Parsing valid ACER input" ){
       CHECK(  4 == acer.card2.iopt.value );
       CHECK(  1 == acer.card2.iprint.value );
       CHECK(  1 == acer.card2.itype.value );
-      CHECK( ".80" == acer.card2.suff.value );
+      CHECK( .80 == acer.card2.suff.value );
       CHECK(  0 == acer.card2.nxtra.value );
       
       // Card3
@@ -285,7 +285,7 @@ SCENARIO( "Parsing valid ACER input" ){
       CHECK(  5 == acer.card2.iopt.value );
       CHECK(  1 == acer.card2.iprint.value );
       CHECK(  1 == acer.card2.itype.value );
-      CHECK( ".80" == acer.card2.suff.value );
+      CHECK( .80 == acer.card2.suff.value );
       CHECK(  0 == acer.card2.nxtra.value );
 
       // Card3
@@ -319,7 +319,7 @@ SCENARIO( "Parsing valid ACER input" ){
       CHECK(  7 == acer.card2.iopt.value );
       CHECK(  1 == acer.card2.iprint.value );
       CHECK(  1 == acer.card2.itype.value );
-      CHECK( ".80" == acer.card2.suff.value );
+      CHECK( .80 == acer.card2.suff.value );
       CHECK(  0 == acer.card2.nxtra.value );
       // Card3
       CHECK( sCard3 == acer.card3.hk.value );
@@ -348,7 +348,7 @@ SCENARIO( "Parsing valid ACER input" ){
       CHECK(  8 == acer.card2.iopt.value );
       CHECK(  1 == acer.card2.iprint.value );
       CHECK(  2 == acer.card2.itype.value );
-      CHECK( ".80" == acer.card2.suff.value );
+      CHECK( .80 == acer.card2.suff.value );
       CHECK(  0 == acer.card2.nxtra.value );
 
       // Card3
