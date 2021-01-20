@@ -22,7 +22,7 @@ public:
 #include "lipservice/LEAPR/Card20.hpp"
 using OscillatorTuple = std::tuple< Card15, Card16 >;
 
-using PairCorrelTuple = std::tuple< Card17, Card18 >;
+using PairCorrelTuple = std::tuple< Card17, Card18, std::optional<Card19> >;
 
 using TempSpecificTuple = std::tuple< Card11, Card12, Card13, Card14,
                                  std::optional<OscillatorTuple>,
@@ -52,7 +52,6 @@ Card7 card7;
 Card8 card8;
 Card9 card9;
 TempLoop tempLoop;
-std::optional< Card19 > card19;
 Card20List card20List;
  
 
@@ -70,7 +69,6 @@ template <typename Char>
     card9( iss, this->card7.nbeta  ),
     tempLoop( buildTempLoop( iss, this->card3, this->card5, this->card6 ) )
     {
-      if( this->card5.nsk.value == 2 ){ this->card19 = Card19( iss ); }
       card20List = buildCard20List( iss );
     }
 
