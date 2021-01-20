@@ -7,7 +7,7 @@ struct Suff {
         "The suff parameter specifies the suffix of the ZAID. It is appended \n"
         "to the ZA for the material. \n"
         "\n"
-        "It is a two-digit f;pat (e.g., .70, .71, .80). The \n"
+        "It is a two-digit float (e.g., .70, .71, .80). The \n"
         "default value is .00. \n"
         "\n"
         "Specifying a negative value when iopt=7--9 leaves the old \n"
@@ -16,8 +16,12 @@ struct Suff {
 
   static Value_t defaultValue(){ return 0.00; }
   static bool verify( Value_t s ){ 
-    Log::info( "s: {}", s );
-    return ( s <= 0.0 ) or 
-           ( ( s  < 1.0 ) and ( s > 0.009 ) );
+    if( s <= 0.0 ){
+      return true;
+    } else if ( ( s  < 1.0 ) and ( s > 0.009 ) ){
+      if( int(s*100)%100 == double(s*100) ) { return true; }
+  }
+
+    return false;
   }
 };
