@@ -11,7 +11,7 @@ SCENARIO( "Verifying ACER Card9 input", "[ACER], [Card9]" ){
     std::vector<int> validIelas{0, 1};
     THEN( "the returned class has the correct value" ){
       for( auto ielas : validIelas ){
-        iRecordStream<char> issIelas( 
+        iRecordStream<char> issIelas(
             std::istringstream( std::to_string(ielas) ) );
         auto ielasArg = argument::extract< ACER::Card9::Ielas >(issIelas );
         REQUIRE( ielas == ielasArg.value );
@@ -25,7 +25,7 @@ SCENARIO( "Verifying ACER Card9 input", "[ACER], [Card9]" ){
     }
   }
   GIVEN( "invalid ielas values" ){
-    std::vector<int> invalidIelas{-1, 2};
+    std::vector<int> invalidIelas{-1, 3};
     THEN( "an exception is thrown" ){
       for( auto& ielas : invalidIelas ){
         iRecordStream< char> issIelas( std::stringstream( std::to_string(ielas) ) );
@@ -34,4 +34,3 @@ SCENARIO( "Verifying ACER Card9 input", "[ACER], [Card9]" ){
     }
   }
 }
-
