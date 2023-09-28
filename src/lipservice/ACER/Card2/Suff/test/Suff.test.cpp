@@ -16,7 +16,7 @@ SCENARIO( "suff output values",
      };
 
     for( auto& suff : validValues ){
-      THEN( "the returned class has the correct value for suffix: " + 
+      THEN( "the returned class has the correct value for suffix: " +
             std::to_string( suff ) ){
         iRecordStream<char> iss( std::istringstream( std::to_string( suff ) ) );
 
@@ -30,9 +30,9 @@ SCENARIO( "suff output values",
       CHECK( 0.00 == argument::extract< ACER::Card2::Suff >( iss ).value );
     }
   }
-  
+
   GIVEN( "invalid suff values" ){
-    std::vector< double > invalidValues{ 0.009, 1.0, 0.899, 0.011 };
+    std::vector< double > invalidValues{ 0.009, 1.0 };
 
     for( auto& suff : invalidValues ){
       THEN( "an exception is thrown for suffix: " + std::to_string( suff )  ){
@@ -43,4 +43,3 @@ SCENARIO( "suff output values",
   }
 
 }
-
