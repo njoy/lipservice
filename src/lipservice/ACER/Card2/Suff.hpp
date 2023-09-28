@@ -15,11 +15,11 @@ struct Suff {
   }
 
   static Value_t defaultValue(){ return 0.00; }
-  static bool verify( Value_t s ){ 
+  static bool verify( Value_t s ){
     if( s <= 0.0 ){
       return true;
     } else if ( ( s  < 1.0 ) and ( s > 0.009 ) ){
-      if( int(s*100)%100 == double(s*100) ) { return true; }
+      if( static_cast<int>(std::round(s*100))%100 == double(s*100) ) { return true; }
   }
 
     return false;
