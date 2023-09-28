@@ -19,7 +19,7 @@ struct Suff {
     if( s <= 0.0 ){
       return true;
     } else if ( ( s  < 1.0 ) and ( s > 0.009 ) ){
-      if( static_cast<int>(std::round(s*100))%100 == double(s*100) ) { return true; }
+      return true;
   }
 
     return false;
